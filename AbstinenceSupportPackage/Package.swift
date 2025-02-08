@@ -20,6 +20,12 @@ let package = Package(
     targets: [
         .target(
             name: "AbstinenceSupportCore",
+            dependencies: [
+                "Presentation",
+            ]
+        ),
+        .target(
+            name: "Presentation",
             dependencies: []
         )
     ]

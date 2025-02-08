@@ -2,6 +2,7 @@
 
 import SwiftUI
 import AbstinenceSupportCore
+import Presentation
 
 @main
 struct AbstinenceSupportApp: App {
