@@ -4,5 +4,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "AbstinenceSupportPackage"
+    name: "AbstinenceSupportPackage",
+    defaultLocalization: "ja",
+    platforms: [
+        .iOS("17.0")
+    ],
+    products: [
+        // Products define the executables and libraries a package produces, making them visible to other packages.
+        .library(
+            name: "AbstinenceSupportCore",
+            targets: ["AbstinenceSupportCore"]
+        ),
+    ],
+    dependencies: [],
+    targets: [
+        .target(
+            name: "AbstinenceSupportCore",
+            dependencies: []
+        )
+    ]
 )

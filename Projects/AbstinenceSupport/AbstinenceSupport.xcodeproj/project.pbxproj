@@ -23,6 +23,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B0015DA2D57E8D000448669 /* AbstinenceSupportCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +66,7 @@
 			);
 			name = AbstinenceSupport;
 			packageProductDependencies = (
+				7B0015D92D57E8D000448669 /* AbstinenceSupportCore */,
 			);
 			productName = AbstinenceSupport;
 			productReference = 7B0015BA2D57E53100448669 /* AbstinenceSupport.app */;
@@ -254,6 +256,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"AbstinenceSupport/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AbstinenceSupport/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -282,6 +285,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"AbstinenceSupport/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AbstinenceSupport/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -322,6 +326,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B0015D92D57E8D000448669 /* AbstinenceSupportCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AbstinenceSupportCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B0015B22D57E53100448669 /* Project object */;
 }
