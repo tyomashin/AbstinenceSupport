@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Projects/AbstinenceSupport/AbstinenceSupport.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:AbstinenceSupportPackage">
+   </FileRef>
 </Workspace>
