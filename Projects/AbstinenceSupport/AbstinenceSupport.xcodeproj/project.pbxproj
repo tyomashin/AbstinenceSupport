@@ -72,6 +72,7 @@
 			buildPhases = (
 				7B0015B62D57E53100448669 /* Sources */,
 				7B0015B72D57E53100448669 /* Frameworks */,
+				7B0015FC2D58C0C200448669 /* swift-format */,
 				7B0015B82D57E53100448669 /* Resources */,
 			);
 			buildRules = (
@@ -132,6 +133,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7B0015FC2D58C0C200448669 /* swift-format */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "swift-format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Xcode 16 から swift-format が同梱されている\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    swift-format format --configuration $PROJECT_DIR/../../AbstinenceSupportPackage/.swift-format -p -i -r $PROJECT_DIR/../../AbstinenceSupportPackage/Sources/\n    swift-format lint --configuration $PROJECT_DIR/../../AbstinenceSupportPackage/.swift-format -p -r $PROJECT_DIR/../../TagMemoPackage/Sources/\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B0015B62D57E53100448669 /* Sources */ = {
