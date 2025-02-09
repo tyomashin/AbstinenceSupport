@@ -1,0 +1,17 @@
+{
+  "sourceLanguage" : "ja",
+  "strings" : {
+    "onboarding1-title" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲サポートにようこそ"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
