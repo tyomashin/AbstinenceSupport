@@ -27,6 +27,10 @@ let package = Package(
         .target(
             name: "Presentation",
             dependencies: []
+        ),
+        .target(
+            name: "Common",
+            dependencies: []
         )
     ]
 )
