@@ -4,6 +4,7 @@ import Foundation
 
 public enum LocalizedString {
     case onboarding1Title
+    case anyText(_ text: String)
 }
 
 extension LocalizedString {
@@ -11,6 +12,8 @@ extension LocalizedString {
         switch self {
         case .onboarding1Title:
             String(localized: "onboarding1-title", defaultValue: "禁欲サポートにようこそ")
+        case .anyText(let text):
+            text
         }
     }
 }
