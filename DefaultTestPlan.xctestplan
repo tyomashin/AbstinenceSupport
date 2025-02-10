@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "953D2FB2-D7A7-46D7-9AC5-877FF190CBC2",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "InfrastructureTests",
+        "name" : "InfrastructureTests"
+      }
+    }
+  ],
+  "version" : 1
+}
