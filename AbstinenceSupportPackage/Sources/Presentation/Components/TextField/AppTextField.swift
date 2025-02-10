@@ -37,7 +37,7 @@ public struct AppTextField: View {
 
             if let error {
                 Text(error)
-                    .font(.caption)
+                    .font(.footnote)
                     .foregroundStyle(ColorAssets.baseAlert.color)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
@@ -56,6 +56,7 @@ public struct AppTextField: View {
 
     VStack {
         AppTextField(placeholder: .anyText("placeholder"), text: $text, keyboardType: .default)
+        AppTextField(placeholder: .anyText("placeholder"), text: $text, keyboardType: .default, error: "error")
     }
     .padding()
 }
