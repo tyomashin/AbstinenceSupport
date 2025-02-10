@@ -35,6 +35,10 @@ let package = Package(
         .target(
             name: "Interface",
             dependencies: []
+        ),
+        .target(
+            name: "Infrastructure",
+            dependencies: []
         )
     ]
 )
