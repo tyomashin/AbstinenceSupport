@@ -16,7 +16,9 @@ let package = Package(
             targets: ["AbstinenceSupportCore"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.6.3"),
+    ],
     targets: [
         .target(
             name: "AbstinenceSupportCore",
@@ -31,6 +33,17 @@ let package = Package(
         .target(
             name: "Common",
             dependencies: []
+        ),
+        .target(
+            name: "Interface",
+            dependencies: []
+        ),
+        .target(
+            name: "Infrastructure",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                "Interface",
+            ]
         )
     ]
 )
