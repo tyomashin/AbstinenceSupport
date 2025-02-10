@@ -23,6 +23,7 @@ public enum ColorAssets {
     case placeholder
     case shadow
     case baseDisabled
+    case baseAlert
 }
 
 extension ColorAssets {
@@ -56,6 +57,8 @@ extension ColorAssets {
             Color.shadow
         case .baseDisabled:
             Color.baseDisabled
+        case .baseAlert:
+            Color.baseAlert
         }
     }
 }
