@@ -38,7 +38,9 @@ let package = Package(
         ),
         .target(
             name: "Infrastructure",
-            dependencies: []
+            dependencies: [
+                "Interface",
+            ]
         )
     ]
 )
