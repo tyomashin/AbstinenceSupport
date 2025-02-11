@@ -2,11 +2,16 @@
 
 import SwiftUI
 import Common
+import Interface
 
-struct OnboardingView: View {
+struct OnboardingView<ViewModel: OnboardingViewModelProtocol>: View {
 
-    @State var scrollPosition: OnbordingSection? = .welcome
+    @StateObject var viewModel: ViewModel
     @State var scrollPosition: OnboardingSection? = .welcome
+
+    init(viewModel: ViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         VStack(spacing: 20) {
@@ -41,8 +46,7 @@ struct OnboardingView: View {
                 case .welcome, .target, .penalty:
                     self.scrollPosition = .init(rawValue: scrollPosition.rawValue + 1)
                 case .start:
-                    // TODO: 画面遷移
-                    break
+                    viewModel.onTapStartButton()
                 }
             }
         }
@@ -50,5 +54,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(viewModel: .preview)
 }

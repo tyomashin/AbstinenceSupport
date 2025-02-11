@@ -40,7 +40,9 @@ let package = Package(
         .target(
             name: "Presentation",
             dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
                 "Common",
+                "Interface",
             ]
         ),
         .target(
