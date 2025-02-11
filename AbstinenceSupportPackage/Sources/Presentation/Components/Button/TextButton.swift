@@ -27,7 +27,7 @@ public struct TextButton: View {
 
 #Preview {
     VStack {
-        TextButton(.onboarding1Title, tapAction: {})
+        TextButton(.anyText("サンプル"), tapAction: {})
     }
     .padding()
 }

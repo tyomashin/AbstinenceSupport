@@ -23,5 +23,5 @@ public struct CaptionLabel: View {
 }
 
 #Preview {
-    CaptionLabel(.onboarding1Title)
+    CaptionLabel(.anyText("サンプル"))
 }

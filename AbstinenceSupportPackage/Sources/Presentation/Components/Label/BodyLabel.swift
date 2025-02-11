@@ -23,5 +23,5 @@ public struct BodyLabel: View {
 }
 
 #Preview {
-    BodyLabel(.onboarding1Title)
+    BodyLabel(.anyText("サンプル"))
 }

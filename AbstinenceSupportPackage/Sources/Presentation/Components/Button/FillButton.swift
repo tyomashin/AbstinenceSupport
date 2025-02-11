@@ -33,11 +33,11 @@ public struct FillButton: View {
 
 #Preview {
     VStack {
-        FillButton(.onboarding1Title, tapAction: {})
-        FillButton(.onboarding1Title, colorAssets: ColorAssets.baseAccent, tapAction: {})
-        FillButton(.onboarding1Title, tapAction: {})
+        FillButton(.anyText("サンプル"), tapAction: {})
+        FillButton(.anyText("サンプル"), colorAssets: ColorAssets.baseAccent, tapAction: {})
+        FillButton(.anyText("サンプル"), tapAction: {})
             .environment(\.isEnabled, false)
-        FillButton(.onboarding1Title, colorAssets: ColorAssets.baseAccent, tapAction: {})
+        FillButton(.anyText("サンプル"), colorAssets: ColorAssets.baseAccent, tapAction: {})
             .environment(\.isEnabled, false)
     }
     .padding()
