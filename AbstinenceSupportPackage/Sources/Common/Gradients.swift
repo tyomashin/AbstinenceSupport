@@ -8,21 +8,18 @@ public enum Gradients: CaseIterable {
 }
 
 extension Gradients {
-    public var gradient: Gradient {
+    public var gradient: AnyGradient {
         switch self {
         case .basedBlandColor:
-            Gradient(
-                stops: [
-                    .init(color: ColorAssets.subBland.color, location: 0.0),
-                    .init(color: ColorAssets.baseWhite.color, location: 1.0),
-                ]
-            )
+            ColorAssets.subBland.color.gradient
         case .basedAccentColor:
-            Gradient(
-                stops: [
-                    .init(color: ColorAssets.subAccent.color, location: 0.0),
-                    .init(color: ColorAssets.baseWhite.color, location: 1.0),
-                ]
+            AnyGradient(
+                Gradient(
+                    stops: [
+                        .init(color: ColorAssets.subAccent.color, location: 0.0),
+                        .init(color: ColorAssets.baseWhite.color, location: 1.0),
+                    ]
+                )
             )
         }
     }

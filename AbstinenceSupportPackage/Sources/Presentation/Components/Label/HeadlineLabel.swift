@@ -23,5 +23,5 @@ public struct HeadlineLabel: View {
 }
 
 #Preview {
-    HeadlineLabel(.onboarding1Title)
+    HeadlineLabel(.anyText("サンプル"))
 }
