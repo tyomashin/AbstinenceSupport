@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "ja",
   "strings" : {
+    "onboardingNextButtonTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "次へ"
+          }
+        }
+      }
+    },
     "onboardingPenaltyDetail" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -19,6 +30,17 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "自分にペナルティを課す"
+          }
+        }
+      }
+    },
+    "onboardingStartButtonTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲を開始"
           }
         }
       }
@@ -85,28 +107,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "禁欲サポートにようこそ"
-          }
-        }
-      }
-    },
-    "onbordingNextButtonTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "次へ"
-          }
-        }
-      }
-    },
-    "onbordingStartButtonTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "禁欲を開始"
           }
         }
       }
