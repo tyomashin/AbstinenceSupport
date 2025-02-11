@@ -6,12 +6,13 @@ import Common
 struct OnboardingView: View {
 
     @State var scrollPosition: OnbordingSection? = .welcome
+    @State var scrollPosition: OnboardingSection? = .welcome
 
     var body: some View {
         VStack(spacing: 20) {
             ScrollView(.horizontal) {
                 HStack(spacing: 0) {
-                    ForEach(OnbordingSection.allCases, id: \.self) { section in
+                    ForEach(OnboardingSection.allCases, id: \.self) { section in
                         OnboardingPageView(section: section)
                             .containerRelativeFrame(.horizontal)
                     }

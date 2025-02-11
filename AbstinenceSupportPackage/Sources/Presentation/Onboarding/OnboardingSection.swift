@@ -4,7 +4,7 @@ import Foundation
 import Common
 import SwiftUI
 
-enum OnbordingSection: Int, CaseIterable {
+enum OnboardingSection: Int, CaseIterable {
     case welcome
     case target
     case penalty
@@ -13,9 +13,9 @@ enum OnbordingSection: Int, CaseIterable {
     var buttonTitle: LocalizedString {
         switch self {
         case .welcome, .target, .penalty:
-            LocalizedString.onbordingNextButtonTitle
+            LocalizedString.onboardingNextButtonTitle
         case .start:
-            LocalizedString.onbordingStartButtonTitle
+            LocalizedString.onboardingStartButtonTitle
         }
     }
 

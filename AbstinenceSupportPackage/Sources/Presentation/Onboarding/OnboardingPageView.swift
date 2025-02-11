@@ -4,7 +4,7 @@ import SwiftUI
 import Common
 
 struct OnboardingPageView: View {
-    let section: OnbordingSection
+    let section: OnboardingSection
 
     var body: some View {
         VStack(spacing: 40) {

@@ -11,8 +11,8 @@ public enum LocalizedString {
     case onboardingPenaltyDetail
     case onboardingStartTitle
     case onboardingStartDetail
-    case onbordingNextButtonTitle
-    case onbordingStartButtonTitle
+    case onboardingNextButtonTitle
+    case onboardingStartButtonTitle
     case anyText(_ text: String)
 }
 
@@ -76,10 +76,10 @@ extension LocalizedString {
                     このアプリを使用して、一緒に夢を実現しましょう！
                     """
             )
-        case .onbordingNextButtonTitle:
-            String(localized: "onbordingNextButtonTitle", defaultValue: "次へ")
-        case .onbordingStartButtonTitle:
-            String(localized: "onbordingStartButtonTitle", defaultValue: "禁欲を開始")
+        case .onboardingNextButtonTitle:
+            String(localized: "onboardingNextButtonTitle", defaultValue: "次へ")
+        case .onboardingStartButtonTitle:
+            String(localized: "onboardingStartButtonTitle", defaultValue: "禁欲を開始")
         case .anyText(let text):
             text
         }
