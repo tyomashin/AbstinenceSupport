@@ -18,7 +18,7 @@ struct KeyChainHelper: KeyChainHelperProtocl {
 }
 
 extension KeyChainHelper {
-    fileprivate func save<Item: Codable>(item: Item, service: String, account: String) {
+    func save<Item: Codable>(item: Item, service: String, account: String) {
         guard let data = try? JSONEncoder().encode(item) else { return }
         let query =
             [
@@ -41,7 +41,7 @@ extension KeyChainHelper {
         }
     }
 
-    fileprivate func read<Item: Codable>(service: String, account: String) -> Item? {
+    func read<Item: Codable>(service: String, account: String) -> Item? {
         let query =
             [
                 kSecAttrService: service,
@@ -58,13 +58,17 @@ extension KeyChainHelper {
 
     func deleteAll() {
         for item in KeyChainItems.allCases {
-            let query =
-                [
-                    kSecAttrService: item.service,
-                    kSecAttrAccount: item.account,
-                    kSecClass: kSecClassGenericPassword,
-                ] as CFDictionary
-            SecItemDelete(query)
+            delete(service: item.service, account: item.account)
         }
+    }
+
+    func delete(service: String, account: String) {
+        let query =
+            [
+                kSecAttrService: service,
+                kSecAttrAccount: account,
+                kSecClass: kSecClassGenericPassword,
+            ] as CFDictionary
+        SecItemDelete(query)
     }
 }
