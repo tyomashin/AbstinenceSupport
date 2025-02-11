@@ -23,6 +23,10 @@ let package = Package(
             name: "Common",
             targets: ["Common"]
         ),
+        .library(
+            name: "Infrastructure",
+            targets: ["Infrastructure"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.6.3"),
