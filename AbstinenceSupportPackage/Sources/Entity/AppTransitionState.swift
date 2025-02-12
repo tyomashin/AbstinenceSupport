@@ -1,9 +1,8 @@
 // Created by okazakishinya on 2025/02/13.
 
 import Foundation
-import Entity
 
-enum AppScreenState: Sendable {
+public enum AppTransitionState: Sendable {
     case onboarding
     case top(abstinenceInfo: AbstinenceInformation)
     case abstinenceStart
