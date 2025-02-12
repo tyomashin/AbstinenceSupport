@@ -5,11 +5,11 @@ import Dependencies
 import Interface
 
 enum KeyChainHelperKey: DependencyKey {
-    public static let liveValue: any KeyChainHelperProtocl = KeyChainHelper()
+    public static let liveValue: any KeyChainHelperProtocol = KeyChainHelper()
 }
 
 extension DependencyValues {
-    public var keyChainHelper: any KeyChainHelperProtocl {
+    public var keyChainHelper: any KeyChainHelperProtocol {
         get { self[KeyChainHelperKey.self] }
         set { self[KeyChainHelperKey.self] = newValue }
     }

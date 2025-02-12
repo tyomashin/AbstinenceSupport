@@ -2,7 +2,7 @@
 
 import Foundation
 
-public protocol KeyChainHelperProtocl: Sendable {
+public protocol KeyChainHelperProtocol: Sendable {
     func save<Item: Codable>(abstinenceInformation: Item)
     func readAbstinenceInformation<Item: Codable>() -> Item?
 }

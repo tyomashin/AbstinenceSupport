@@ -27,6 +27,14 @@ let package = Package(
             name: "Infrastructure",
             targets: ["Infrastructure"]
         ),
+        .library(
+            name: "Domain",
+            targets: ["Domain"]
+        ),
+        .library(
+            name: "Entity",
+            targets: ["Entity"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.6.3"),
@@ -55,13 +63,41 @@ let package = Package(
         ),
         .target(
             name: "Interface",
-            dependencies: []
+            dependencies: [
+                "Entity"
+            ]
         ),
         .target(
             name: "Infrastructure",
             dependencies: [
                 .product(name: "Dependencies", package: "swift-dependencies"),
                 "Interface",
+            ]
+        ),
+        .target(
+            name: "Domain",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                "Interface",
+                "Entity",
+                "Infrastructure",
+                "Common",
+            ]
+        ),
+        .target(
+            name: "Entity",
+            dependencies: [
+                "Common",
+            ]
+        ),
+        .target(
+            name: "TestHelper",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                "Interface",
+                "Entity",
+                "Infrastructure",
+                "Domain",
             ]
         ),
         
@@ -71,6 +107,21 @@ let package = Package(
             name: "InfrastructureTests",
             dependencies: [
                 "Infrastructure",
+            ]
+        ),
+        .testTarget(
+            name: "DomainTests",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                "Domain",
+                "TestHelper",
+            ]
+        ),
+        .testTarget(
+            name: "EntityTests",
+            dependencies: [
+                "Entity",
+                "Common",
             ]
         ),
     ]
