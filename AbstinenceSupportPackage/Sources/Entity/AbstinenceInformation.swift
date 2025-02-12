@@ -4,7 +4,7 @@ import Foundation
 import Common
 
 /// 禁欲情報
-public struct AbstinenceInformation: Codable, Sendable {
+public struct AbstinenceInformation: Codable, Sendable, Equatable {
     /// 禁欲タイトル
     public var title: String
     /// 詳細
