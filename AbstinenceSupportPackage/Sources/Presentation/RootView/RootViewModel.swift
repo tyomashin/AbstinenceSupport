@@ -10,4 +10,8 @@ public final class RootViewModel: RootViewModelProtocol {
     @Published public var appTransitionState: AppTransitionState?
 
     public init() {}
+
+    public func completedOnboarding() {
+        appTransitionState = .abstinenceStart
+    }
 }

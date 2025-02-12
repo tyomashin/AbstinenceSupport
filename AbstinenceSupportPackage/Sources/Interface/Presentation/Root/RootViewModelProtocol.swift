@@ -6,3 +6,6 @@ import Entity
 @MainActor
 public protocol RootViewModelProtocol: ObservableObject {
     var appTransitionState: AppTransitionState? { get }
+
+    func completedOnboarding()
+}
