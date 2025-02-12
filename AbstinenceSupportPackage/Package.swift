@@ -90,6 +90,16 @@ let package = Package(
                 "Common",
             ]
         ),
+        .target(
+            name: "TestHelper",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                "Interface",
+                "Entity",
+                "Infrastructure",
+                "Domain",
+            ]
+        ),
         
         // MARK: - Tests
         
