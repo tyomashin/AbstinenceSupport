@@ -3,7 +3,11 @@
 import Foundation
 import SwiftUI
 import Interface
+import Entity
 
 public final class RootViewModel: RootViewModelProtocol {
+
+    @Published public var appTransitionState: AppTransitionState?
+
     public init() {}
 }

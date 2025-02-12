@@ -1,6 +1,8 @@
 // Created by okazakishinya on 2025/02/13.
 
 import Foundation
+import Entity
 
 @MainActor
-public protocol RootViewModelProtocol: ObservableObject {}
+public protocol RootViewModelProtocol: ObservableObject {
+    var appTransitionState: AppTransitionState? { get }
