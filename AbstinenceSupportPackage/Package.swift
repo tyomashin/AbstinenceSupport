@@ -27,6 +27,14 @@ let package = Package(
             name: "Infrastructure",
             targets: ["Infrastructure"]
         ),
+        .library(
+            name: "Domain",
+            targets: ["Domain"]
+        ),
+        .library(
+            name: "Entity",
+            targets: ["Entity"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.6.3"),
@@ -55,7 +63,9 @@ let package = Package(
         ),
         .target(
             name: "Interface",
-            dependencies: []
+            dependencies: [
+                "Entity"
+            ]
         ),
         .target(
             name: "Infrastructure",
@@ -63,6 +73,18 @@ let package = Package(
                 .product(name: "Dependencies", package: "swift-dependencies"),
                 "Interface",
             ]
+        ),
+        .target(
+            name: "Domain",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                "Interface",
+                "Entity",
+            ]
+        ),
+        .target(
+            name: "Entity",
+            dependencies: []
         ),
         
         // MARK: - Tests
