@@ -112,7 +112,9 @@ let package = Package(
         .testTarget(
             name: "DomainTests",
             dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
                 "Domain",
+                "TestHelper",
             ]
         ),
         .testTarget(
