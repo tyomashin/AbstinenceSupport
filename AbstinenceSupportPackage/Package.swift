@@ -81,6 +81,7 @@ let package = Package(
                 "Interface",
                 "Entity",
                 "Infrastructure",
+                "Common",
             ]
         ),
         .target(
