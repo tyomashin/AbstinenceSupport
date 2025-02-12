@@ -80,6 +80,7 @@ let package = Package(
                 .product(name: "Dependencies", package: "swift-dependencies"),
                 "Interface",
                 "Entity",
+                "Infrastructure",
             ]
         ),
         .target(
