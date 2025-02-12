@@ -3,7 +3,7 @@
 import Foundation
 import Interface
 
-struct KeyChainHelper: KeyChainHelperProtocl {
+struct KeyChainHelper: KeyChainHelperProtocol {
     func save<Item: Codable>(abstinenceInformation: Item) {
         save(
             item: abstinenceInformation,
