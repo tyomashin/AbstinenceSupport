@@ -3,7 +3,7 @@
 import Foundation
 
 /// 禁欲の進捗
-public enum AbstinenceProgress: Codable, Sendable {
+public enum AbstinenceProgressStatus: Codable, Sendable {
     /// 進行中
     case inProgress
     /// 成功

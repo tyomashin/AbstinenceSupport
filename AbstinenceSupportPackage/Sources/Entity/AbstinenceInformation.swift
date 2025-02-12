@@ -4,7 +4,7 @@ import Foundation
 
 /// 禁欲情報
 public struct AbstinenceInformation: Codable, Sendable {
-    /// やめること
+    /// 禁欲タイトル
     public var title: String
     /// 詳細
     public var detail: String?
@@ -18,7 +18,7 @@ public struct AbstinenceInformation: Codable, Sendable {
     /// ペナルティ
     public var penalties: Penalties
     /// 禁欲の進捗
-    public var progress: AbstinenceProgress
+    public var progressStatus: AbstinenceProgressStatus
     /// 禁欲開始日時
     public let startDate: Date
 }
