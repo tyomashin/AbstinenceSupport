@@ -12,13 +12,24 @@ public struct RootView<ViewModel: RootViewModelProtocol>: View {
     }
 
     public var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        switch viewModel.appTransitionState {
+        case .onboarding:
+            OnboardingView(
+                viewModel: OnboardingViewModel(completionHandler: viewModel.completedOnboarding)
+            )
+        case .top(let abstinenceInfo):
+            // TODO: トップ画面を表示
+            EmptyView()
+        case .abstinenceStart:
+            // TODO: 禁欲開始画面を表示
+            EmptyView()
+        case .abstinenceFailure(let abstinenceInfo):
+            // TODO: 禁欲失敗画面を表示
+            EmptyView()
+        case nil:
+            // TODO: スプラッシュ画面を表示
+            EmptyView()
         }
-        .padding()
     }
 }
 
