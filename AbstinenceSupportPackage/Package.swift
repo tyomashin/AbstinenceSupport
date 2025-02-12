@@ -99,5 +99,18 @@ let package = Package(
                 "Infrastructure",
             ]
         ),
+        .testTarget(
+            name: "DomainTests",
+            dependencies: [
+                "Domain",
+            ]
+        ),
+        .testTarget(
+            name: "EntityTests",
+            dependencies: [
+                "Entity",
+                "Common",
+            ]
+        ),
     ]
 )
