@@ -14,9 +14,23 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:",
+        "containerPath" : "container:..\/..\/AbstinenceSupportPackage",
         "identifier" : "InfrastructureTests",
         "name" : "InfrastructureTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/..\/AbstinenceSupportPackage",
+        "identifier" : "EntityTests",
+        "name" : "EntityTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/..\/AbstinenceSupportPackage",
+        "identifier" : "DomainTests",
+        "name" : "DomainTests"
       }
     }
   ],
