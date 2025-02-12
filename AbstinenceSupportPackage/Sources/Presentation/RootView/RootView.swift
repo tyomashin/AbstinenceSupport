@@ -1,10 +1,15 @@
 // Created by okazakishinya on 2025/02/09.
 
 import SwiftUI
+import Interface
 
-public struct RootView: View {
+public struct RootView<ViewModel: RootViewModelProtocol>: View {
 
-    public init() {}
+    @StateObject var viewModel: ViewModel
+
+    public init(viewModel: ViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     public var body: some View {
         VStack {
@@ -18,5 +23,5 @@ public struct RootView: View {
 }
 
 #Preview {
-    RootView()
+    RootView(viewModel: .preview)
 }
