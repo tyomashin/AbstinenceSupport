@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-public struct ContentView: View {
+public struct RootView: View {
 
     public init() {}
 
@@ -18,5 +18,5 @@ public struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    RootView()
 }
