@@ -11,8 +11,7 @@ public struct AbstinenceInformation: Codable, Sendable {
     /// 禁欲目標日数
     public var targetDays: Int
     public var normalizedTargetDays: Int {
-        if days < 0 { 0 }
-        else { days }
+        if targetDays < 0 { 0 } else { targetDays }
     }
     /// 報告予定時刻
     public var scheduledReportDate: Date
