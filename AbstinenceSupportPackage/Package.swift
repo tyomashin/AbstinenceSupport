@@ -86,7 +86,9 @@ let package = Package(
         ),
         .target(
             name: "Entity",
-            dependencies: []
+            dependencies: [
+                "Common",
+            ]
         ),
         
         // MARK: - Tests
