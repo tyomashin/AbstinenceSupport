@@ -22,6 +22,8 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable {
     public var progressStatus: AbstinenceProgressStatus
     /// 禁欲開始日時
     public let startDate: Date
+    /// 前回の禁欲報告日時
+    public var currentReportedDate: Date?
     /// 進捗率(0.0〜1.0)
     public var rateOfProgress: Float {
         guard normalizedTargetDays > 0 else { return 1 }
