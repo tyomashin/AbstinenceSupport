@@ -21,7 +21,7 @@ struct UserDefaultsHelperTests {
     }
     
     @Test("UserDefaults のデフォルト値をチェックする") func defaultValues() async {
-        #expect(await userDefaultsHelper.getIsFirstLaunch() == false)
+        #expect(await userDefaultsHelper.getIsFirstLaunch() == true)
     }
     
     @Test("isFirstLaunch の保存処理をチェック", arguments: [true, false]) func isFirstLaunch(_ value: Bool) async {
