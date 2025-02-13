@@ -24,10 +24,15 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable {
     public let startDate: Date
     /// 前回の禁欲報告日時
     public var currentReportedDate: Date?
+    /// 報告回数
+    public var reportedCount: Int = 0
+    public var normalizedReportedCount: Int {
+        if reportedCount < 0 { 0 } else { reportedCount }
+    }
     /// 進捗率(0.0〜1.0)
     public var rateOfProgress: Float {
         guard normalizedTargetDays > 0 else { return 1 }
-        return min(Float(elapsedDays) / Float(normalizedTargetDays), 1)
+        return min(Float(normalizedReportedCount) / Float(normalizedTargetDays), 1)
     }
     /// 開始日時からの経過日数
     public var elapsedDays: Int {
