@@ -18,17 +18,30 @@ struct AbstinenceInformationTests {
         #expect(abstinenceInformation.normalizedTargetDays == expectedResult)
     }
     
+    @Test("正規化された報告回数（normalizedReportedCount）が意図した範囲に制御されていること", arguments: [
+        // 例）報告回数が100の場合、正規化された回数も100
+        (100, 100),
+        (0, 0),
+        // 例）報告回数が-1という不正値の場合、正規化された回数は0
+        (-1, 0),
+    ]) func normalizedReportedCount(reportedCount: Int, expectedResult: Int) async throws {
+        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: 0, scheduledReportDate: Date(), penalties: .free, progressStatus: .inProgress, startDate: Date(), reportedCount: reportedCount)
+        #expect(abstinenceInformation.normalizedReportedCount == expectedResult)
+    }
+    
     @Test("進捗率（rateOfProgress）が意図した範囲に制御されていること", arguments: [
-        // 例）目標日数が10日、5日前に禁欲開始した場合、進捗率は50%
-        (10, DateUtils.add(days: -5, to: Date())!, 0.5),
-        // 例）目標日数が20日、20日前に禁欲開始した場合、進捗率は100%
-        (20, DateUtils.add(days: -20, to: Date())!, 1),
-        // 例）目標日数が20日、10日前に禁欲開始した場合、進捗率は50%
-        (20, DateUtils.add(days: -10, to: Date())!, 0.5),
-        // 例）目標日数が20日、1日後に禁欲開始という不正値の場合は本日に補正され、進捗率は0%
-        (20, DateUtils.add(days: 1, to: Date())!, 0),
-    ]) func rateOfProgress(targetDays: Int, startDate: Date, expectedResult: Float) async throws {
-        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: targetDays, scheduledReportDate: Date(), penalties: .free, progressStatus: .inProgress, startDate: startDate)
+        // 例）目標日数が10日、報告回数が5回の場合、進捗率は50%
+        (10, 5, 0.5),
+        // 例）目標日数が20日、報告回数が20回の場合、進捗率は100%
+        (20, 20, 1),
+        // 例）目標日数が20日、報告回数が10回の場合、進捗率は50%
+        (20, 10, 0.5),
+        // 例）目標日数が20日、報告回数が-1という不正値の場合は、進捗率は0%
+        (20, -1, 0),
+        // 例）目標日数が-1日で不正値、報告回数が10の場合は、進捗率は100%
+        (-1, 10, 1),
+    ]) func rateOfProgress(targetDays: Int, reportedCount: Int, expectedResult: Float) async throws {
+        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: targetDays, scheduledReportDate: Date(), penalties: .free, progressStatus: .inProgress, startDate: Date(), reportedCount: reportedCount)
         #expect(abstinenceInformation.rateOfProgress == expectedResult)
     }
     
