@@ -55,6 +55,8 @@ let package = Package(
                 .product(name: "Dependencies", package: "swift-dependencies"),
                 "Common",
                 "Interface",
+                "Domain",
+                "Entity",
             ]
         ),
         .target(

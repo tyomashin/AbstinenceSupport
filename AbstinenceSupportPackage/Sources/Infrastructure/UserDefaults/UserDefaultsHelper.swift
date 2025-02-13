@@ -4,7 +4,7 @@ import Foundation
 import Interface
 
 @MainActor struct UserDefaultsHelper: UserDefaultsHelperProtocol {
-    @UserDefaultsWrapper(key: "isFirstLaunch", defaultValue: false)
+    @UserDefaultsWrapper(key: "isFirstLaunch", defaultValue: true)
     static var isFirstLaunch: Bool
 
     func setIsFirstLaunch(_ value: Bool) async {

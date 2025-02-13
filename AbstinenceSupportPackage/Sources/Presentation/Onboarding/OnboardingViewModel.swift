@@ -12,8 +12,6 @@ final class OnboardingViewModel: OnboardingViewModelProtocol {
     }
 
     func onTapStartButton() {
-        // TODO: オンボーディング完了後の処理を実行する
-
         completionHandler()
     }
 }
