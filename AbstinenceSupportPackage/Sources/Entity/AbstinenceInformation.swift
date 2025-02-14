@@ -14,7 +14,7 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable {
     public var normalizedTargetDays: Int {
         if targetDays < 0 { 0 } else { targetDays }
     }
-    /// 報告予定時刻
+    /// 日々の報告予定時刻
     public var scheduledReportDate: Date
     /// 次回の報告開始日時
     public var nextReportStartDate: Date {
