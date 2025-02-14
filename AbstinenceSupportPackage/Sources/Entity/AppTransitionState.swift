@@ -2,7 +2,7 @@
 
 import Foundation
 
-public enum AppTransitionState: Sendable {
+public enum AppTransitionState: Sendable, Equatable {
     case onboarding
     case top(abstinenceInfo: AbstinenceInformation)
     case abstinenceStart
