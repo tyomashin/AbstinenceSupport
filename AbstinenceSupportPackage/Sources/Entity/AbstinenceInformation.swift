@@ -16,6 +16,22 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable {
     }
     /// 報告予定時刻
     public var scheduledReportDate: Date
+    /// 次回の報告開始日時
+    public var nextReportStartDate: Date {
+        // 次回の報告日を決定する
+        guard var tmpNextReportStartDate = DateUtils.add(days: reportedCount + 1, to: startDate) else { return startDate }
+        // 予定時刻になるように調整
+        tmpNextReportStartDate = DateUtils.apply(time: DateUtils.time(from: scheduledReportDate), to: tmpNextReportStartDate)
+        // 初回のみ、もし禁欲開始日時と次回報告日時が30時間以上空いている場合は当日になるように調整
+        if reportedCount == 0 && DateUtils.hoursBetween(from: startDate, to: tmpNextReportStartDate) >= 30 {
+            tmpNextReportStartDate = DateUtils.add(days: -1, to: tmpNextReportStartDate) ?? tmpNextReportStartDate
+        }
+        return tmpNextReportStartDate
+    }
+    /// 次回の報告終了時刻
+    public var nextReportEndDate: Date {
+        DateUtils.add(hours: 1, to: nextReportStartDate) ?? nextReportStartDate
+    }
     /// ペナルティ
     public var penalties: Penalties
     /// 禁欲の進捗
