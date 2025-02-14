@@ -12,4 +12,13 @@ public enum AbstinenceProgressStatus: Codable, Sendable {
     case penaltyUnpaidForFailure
     /// 失敗（ペナルティ支払い済み）
     case penaltyPaidForFailure
+
+    var isFailure: Bool {
+        switch self {
+        case .inProgress, .success:
+            false
+        case .penaltyUnpaidForFailure, .penaltyPaidForFailure:
+            true
+        }
+    }
 }

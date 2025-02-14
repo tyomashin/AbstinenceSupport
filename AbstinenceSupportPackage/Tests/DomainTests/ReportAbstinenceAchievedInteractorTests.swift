@@ -32,4 +32,9 @@ struct ReportAbstinenceAchievedInteractorTests {
         #expect(result.currentReportedDate == reportDate)
         #expect(keyChainHelperStub.abstinenceInformation == result)
     }
+
+    @Test("報告回数が正常に加算されていることを確認") func reportAbstinenceAchieved() async throws {
+        let result = await interactor.execute(with: testEntity, reportDate: Date())
+        #expect(result.reportedCount == testEntity.reportedCount + 1)
+    }
 }

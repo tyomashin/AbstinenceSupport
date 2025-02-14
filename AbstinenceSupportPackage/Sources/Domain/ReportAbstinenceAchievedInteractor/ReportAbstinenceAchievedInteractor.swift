@@ -13,8 +13,10 @@ struct ReportAbstinenceAchievedInteractor: ReportAbstinenceAchievedUseCase {
     func execute(with abstinenceInformation: AbstinenceInformation, reportDate: Date) async -> AbstinenceInformation {
         var currentInfo = abstinenceInformation
         currentInfo.currentReportedDate = reportDate
+        currentInfo.reportedCount += 1
 
-        // TODO: 進捗状況を最新化する処理を実行
+        // 進捗状況を最新化する処理を実行
+        currentInfo.updateProgressStatus(currentDate: Date())
 
         keyChainHelper.save(abstinenceInformation: currentInfo)
         return currentInfo
