@@ -54,4 +54,24 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable {
     public var elapsedDays: Int {
         max(0, DateUtils.daysBetween(from: startDate, to: Date()))
     }
+
+    /// 禁欲ステータスを更新する
+    /// - Parameter currentDate: 現在日時
+    public mutating func updateProgressStatus(currentDate: Date) {
+        // すでに禁欲失敗ステータスの場合は何もしない
+        guard !progressStatus.isFailure else { return }
+
+        // 報告回数が禁欲目標日数以上なら、禁欲成功ステータスにする
+        if reportedCount >= targetDays {
+            progressStatus = .success
+        }
+        // 現在日時が次回報告終了時刻を過ぎてしまっている場合は失敗にする
+        else if currentDate > nextReportEndDate {
+            progressStatus = .penaltyUnpaidForFailure
+        }
+        // いずれにも当てはまらない場合は進行中とする
+        else {
+            progressStatus = .inProgress
+        }
+    }
 }
