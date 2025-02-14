@@ -7,5 +7,6 @@ import Entity
 public protocol RootViewModelProtocol: ObservableObject {
     var appTransitionState: AppTransitionState? { get }
 
+    func startupSequenceIfNeeded() async
     func completedOnboarding()
 }

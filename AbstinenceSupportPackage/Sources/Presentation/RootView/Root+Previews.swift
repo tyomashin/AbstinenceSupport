@@ -6,6 +6,7 @@ import Entity
 
 class RootViewModelPreview: RootViewModelProtocol {
     var appTransitionState: AppTransitionState?
+    func startupSequenceIfNeeded() async {}
     func completedOnboarding() {}
 }
 
