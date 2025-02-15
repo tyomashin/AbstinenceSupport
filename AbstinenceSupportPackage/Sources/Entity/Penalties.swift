@@ -3,7 +3,9 @@
 import Foundation
 
 /// ペナルティ種別
-public enum Penalties: CaseIterable, Codable, Sendable {
+public enum Penalties: Codable, Sendable, Equatable {
+    /// 無料ペナルティ
     case free
-    // TODO: 詳細なペナルティを定義
+    /// 有料ペナルティ
+    case product(productID: String)
 }
