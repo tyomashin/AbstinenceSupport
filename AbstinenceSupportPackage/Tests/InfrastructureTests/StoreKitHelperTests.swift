@@ -3,6 +3,7 @@
 import Testing
 import StoreKitTest
 @testable import Infrastructure
+@testable import TestHelper
 
 @Suite(.serialized)
 struct StoreKitHelperTests {
@@ -11,7 +12,7 @@ struct StoreKitHelperTests {
     
     init() throws {
         // StoreKit configuration file を指定する
-        let url = Bundle.module.url(forResource: "LocalProducts", withExtension: "storekit")!
+        let url = ResourceURL.url(forResource: "LocalProducts", withExtension: "storekit")!
         session = try SKTestSession(contentsOf: url)
         // テスト間で副作用が起きないように初期化
         session.resetToDefaultState()
