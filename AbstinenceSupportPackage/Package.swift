@@ -109,6 +109,9 @@ let package = Package(
             name: "InfrastructureTests",
             dependencies: [
                 "Infrastructure",
+            ],
+            resources: [
+                .process("TestConfig")
             ]
         ),
         .testTarget(

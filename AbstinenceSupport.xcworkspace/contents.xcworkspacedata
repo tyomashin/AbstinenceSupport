@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:LocalProducts.storekit">
+   </FileRef>
+   <FileRef
       location = "group:DefaultTestPlan.xctestplan">
    </FileRef>
    <FileRef
