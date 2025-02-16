@@ -18,7 +18,8 @@ public struct CaptionLabel: View {
             .foregroundStyle(colorAssets.color)
             .font(.caption)
             .fontWeight(.regular)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .multilineTextAlignment(.leading)
     }
 }
 

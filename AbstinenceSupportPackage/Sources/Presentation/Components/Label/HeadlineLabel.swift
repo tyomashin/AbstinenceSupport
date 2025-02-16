@@ -18,7 +18,8 @@ public struct HeadlineLabel: View {
             .foregroundStyle(colorAssets.color)
             .font(.headline)
             .fontWeight(.bold)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .multilineTextAlignment(.leading)
     }
 }
 

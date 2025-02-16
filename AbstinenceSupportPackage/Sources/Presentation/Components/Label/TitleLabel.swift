@@ -18,7 +18,8 @@ public struct TitleLabel: View {
             .foregroundStyle(colorAssets.color)
             .font(.title)
             .fontWeight(.bold)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .multilineTextAlignment(.center)
     }
 }
 
