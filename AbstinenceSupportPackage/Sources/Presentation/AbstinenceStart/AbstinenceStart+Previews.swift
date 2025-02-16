@@ -7,9 +7,11 @@ import Entity
 class AbstinenceStartRootViewModelPreview: AbstinenceStartRootViewModelProtocol {
     var navigationPath: [AbstinenceStartNavigationPath] = []
     var targetDays: Int = 10
+    var reportTime: Date = Date()
 
     func tappedNameEntryNextButton(title: String, detail: String?) {}
     func tappedTargetDaysNextButton(targetDays: Int) {}
+    func tappedReportTimeNextButton(reportTime: Date) {}
 }
 
 extension AbstinenceStartRootViewModelProtocol where Self == AbstinenceStartRootViewModelPreview {
