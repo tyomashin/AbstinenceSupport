@@ -20,6 +20,7 @@ public struct HeadlineLabel: View {
             .fontWeight(.bold)
             .frame(maxWidth: .infinity, alignment: .leading)
             .multilineTextAlignment(.leading)
+            .lineSpacing(4)
     }
 }
 

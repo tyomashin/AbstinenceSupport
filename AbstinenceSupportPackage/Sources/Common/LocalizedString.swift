@@ -35,6 +35,11 @@ public enum LocalizedString {
     case abstinenceStartTargetDaysSelectionTitle
     case abstinenceStartTargetDaysSelectionDetail
     case abstinenceStartTargetDaysSelectionItem(days: Int)
+    case abstinenceReportTimeSelectionTitle
+    case abstinenceReportTimeSelectionDetail
+    case abstinenceReportTimeSelectionPickerTitle
+    case abstinenceReportTimeSelectionPickerCaption
+    case abstinenceReportTimeSelectionAlert
 
     // MARK: その他
 
@@ -139,6 +144,22 @@ extension LocalizedString {
             )
         case .abstinenceStartTargetDaysSelectionItem(let days):
             String(localized: "abstinenceStartDetailTextEditorTitle", defaultValue: "\(days) 日")
+        case .abstinenceReportTimeSelectionTitle:
+            String(localized: "abstinenceReportTimeSelectionTitle", defaultValue: "禁欲の報告時間を決める")
+        case .abstinenceReportTimeSelectionDetail:
+            String(
+                localized: "abstinenceReportTimeSelectionDetail",
+                defaultValue:
+                    """
+                    禁欲を開始すると、あなたは毎日決められた時間にアプリから「達成報告」をする必要があります。
+                    """
+            )
+        case .abstinenceReportTimeSelectionPickerTitle:
+            String(localized: "abstinenceReportTimeSelectionPickerTitle", defaultValue: "報告時間")
+        case .abstinenceReportTimeSelectionPickerCaption:
+            String(localized: "abstinenceReportTimeSelectionPickerCaption", defaultValue: "この時間から1時間以内にアプリを開いて「報告ボタン」をタップしてください")
+        case .abstinenceReportTimeSelectionAlert:
+            String(localized: "abstinenceReportTimeSelectionAlert", defaultValue: "※ 報告時間から1時間以内に報告できなければ、禁欲は失敗となります。")
         }
     }
 }
