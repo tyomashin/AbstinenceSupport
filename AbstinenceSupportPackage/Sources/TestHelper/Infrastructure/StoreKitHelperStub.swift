@@ -9,6 +9,7 @@ import Interface
 final class StoreKitHelperStub: StoreKitHelperProtocol, @unchecked Sendable {
 
     var purchaseResult: Result<Product.PurchaseResult, Error>!
+    var isErrorFetchAllProducts = false
     let session: SKTestSession
 
     init(configURL: URL) {
@@ -23,7 +24,11 @@ final class StoreKitHelperStub: StoreKitHelperProtocol, @unchecked Sendable {
     }
 
     func fetchAllProducts() async throws -> [Product] {
-        try await Product.products(for: PurchaseProductIDs.enableIDs)
+        if isErrorFetchAllProducts {
+            throw StoreKitError.unknown
+        } else {
+            try await Product.products(for: PurchaseProductIDs.enableIDs)
+        }
     }
 
     func purchase(_ product: Product) async throws -> Product.PurchaseResult {
