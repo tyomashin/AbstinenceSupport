@@ -3,6 +3,18 @@
 import Foundation
 
 public enum LocalizedString {
+
+    // MARK: 共通
+
+    case nextButton
+    case closeButton
+
+    // MARK: バリデーションエラー
+
+    case validationErrorEmpty
+
+    // MARK: オンボーディング
+
     case onboardingWelcomeTitle
     case onboardingWelcomeDetail
     case onboardingTargetTitle
@@ -11,14 +23,33 @@ public enum LocalizedString {
     case onboardingPenaltyDetail
     case onboardingStartTitle
     case onboardingStartDetail
-    case onboardingNextButtonTitle
     case onboardingStartButtonTitle
+
+    // MARK: 禁欲開始
+
+    case abstinenceStartNameEntryTitle
+    case abstinenceStartNameEntryDetail
+    case abstinenceStartNameTextFieldTitle
+    case abstinenceStartNameTextFieldPlaceholder
+    case abstinenceStartDetailTextEditorTitle
+
+    // MARK: その他
+
     case anyText(_ text: String)
+
 }
 
 extension LocalizedString {
     public var localizedString: String {
         switch self {
+        case .nextButton:
+            String(localized: "nextButton", defaultValue: "次へ")
+        case .closeButton:
+            String(localized: "closeButton", defaultValue: "閉じる")
+
+        case .validationErrorEmpty:
+            String(localized: "validationErrorEmpty", defaultValue: "入力してください")
+
         case .onboardingWelcomeTitle:
             String(localized: "onboardingWelcomeTitle", defaultValue: "禁欲サポートにようこそ")
         case .onboardingWelcomeDetail:
@@ -76,12 +107,20 @@ extension LocalizedString {
                     このアプリを使用して、一緒に夢を実現しましょう！
                     """
             )
-        case .onboardingNextButtonTitle:
-            String(localized: "onboardingNextButtonTitle", defaultValue: "次へ")
         case .onboardingStartButtonTitle:
             String(localized: "onboardingStartButtonTitle", defaultValue: "禁欲を開始")
         case .anyText(let text):
             text
+        case .abstinenceStartNameEntryTitle:
+            String(localized: "abstinenceStartNameEntryTitle", defaultValue: "禁欲を開始する")
+        case .abstinenceStartNameEntryDetail:
+            String(localized: "abstinenceStartNameEntryDetail", defaultValue: "あなたのやめたいことを入力してください")
+        case .abstinenceStartNameTextFieldTitle:
+            String(localized: "abstinenceStartNameTextFieldTitle", defaultValue: "やめること")
+        case .abstinenceStartNameTextFieldPlaceholder:
+            String(localized: "abstinenceStartNameTextFieldPlaceholder", defaultValue: "例）おやつ、お酒、ギャンブル")
+        case .abstinenceStartDetailTextEditorTitle:
+            String(localized: "abstinenceStartDetailTextEditorTitle", defaultValue: "詳細（任意）")
         }
     }
 }

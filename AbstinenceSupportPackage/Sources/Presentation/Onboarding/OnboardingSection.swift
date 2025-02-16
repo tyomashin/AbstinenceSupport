@@ -13,7 +13,7 @@ enum OnboardingSection: Int, CaseIterable {
     var buttonTitle: LocalizedString {
         switch self {
         case .welcome, .target, .penalty:
-            LocalizedString.onboardingNextButtonTitle
+            LocalizedString.nextButton
         case .start:
             LocalizedString.onboardingStartButtonTitle
         }
