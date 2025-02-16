@@ -9,6 +9,7 @@ public struct AppTextField: View {
     let error: String?
     let keyboardType: UIKeyboardType
     @Environment(\.isEnabled) var isEnabled: Bool
+    private let errorTextHeight: CGFloat = 20
 
     public init(placeholder: LocalizedString, text: Binding<String>, keyboardType: UIKeyboardType, error: String? = nil) {
         self.placeholder = placeholder
@@ -39,8 +40,11 @@ public struct AppTextField: View {
                 Text(error)
                     .font(.footnote)
                     .foregroundStyle(ColorAssets.baseAlert.color)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(maxWidth: .infinity, minHeight: errorTextHeight, alignment: .leading)
                     .multilineTextAlignment(.leading)
+            } else {
+                Spacer()
+                    .frame(height: errorTextHeight)
             }
         }
     }
