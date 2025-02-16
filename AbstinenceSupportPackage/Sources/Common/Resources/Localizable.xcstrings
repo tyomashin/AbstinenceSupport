@@ -51,7 +51,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "禁欲報告時間を決める"
+            "value" : "禁欲の報告時間を決める"
           }
         }
       }
@@ -250,6 +250,28 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "禁欲サポートにようこそ"
+          }
+        }
+      }
+    },
+    "penaltyFreeDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "初めてアプリを利用する方にオススメです。"
+          }
+        }
+      }
+    },
+    "penaltyFreeTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "0 円"
           }
         }
       }

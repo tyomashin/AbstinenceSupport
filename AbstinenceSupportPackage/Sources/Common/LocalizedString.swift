@@ -41,6 +41,12 @@ public enum LocalizedString {
     case abstinenceReportTimeSelectionPickerCaption
     case abstinenceReportTimeSelectionAlert
 
+    // MARK: ペナルティ
+
+    case penaltyFreeTitle
+    case penaltyFreeDetail
+    case penaltyFeeTitle(price: Int, description: String)
+
     // MARK: その他
 
     case anyText(_ text: String)
@@ -160,6 +166,18 @@ extension LocalizedString {
             String(localized: "abstinenceReportTimeSelectionPickerCaption", defaultValue: "この時間から1時間以内にアプリを開いて「報告ボタン」をタップしてください")
         case .abstinenceReportTimeSelectionAlert:
             String(localized: "abstinenceReportTimeSelectionAlert", defaultValue: "※ 報告時間から1時間以内に報告できなければ、禁欲は失敗となります。")
+        case .penaltyFreeTitle:
+            String(localized: "penaltyFreeTitle", defaultValue: "0 円: ペナルティなし")
+        case .penaltyFreeDetail:
+            String(
+                localized: "penaltyFreeDetail",
+                defaultValue:
+                    """
+                    初めてアプリを利用する方にオススメです。
+                    """
+            )
+        case let .penaltyFeeTitle(price: price, description: description):
+            String(localized: "penaltyFeeTitle", defaultValue: "\(price) 円:  \(description)")
         }
     }
 }
