@@ -18,7 +18,8 @@ public struct BodyLabel: View {
             .foregroundStyle(colorAssets.color)
             .font(.body)
             .fontWeight(.regular)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .multilineTextAlignment(.leading)
     }
 }
 

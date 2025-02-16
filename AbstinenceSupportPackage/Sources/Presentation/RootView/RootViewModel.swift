@@ -17,7 +17,7 @@ public final class RootViewModel: RootViewModelProtocol {
     public init() {}
 
     public func startupSequenceIfNeeded() async {
-        guard isExecutedStartupSequence else { return }
+        guard !isExecutedStartupSequence else { return }
         isExecutedStartupSequence = true
         appTransitionState = await startupSequenceInteractor.execute(currentDate: Date())
     }

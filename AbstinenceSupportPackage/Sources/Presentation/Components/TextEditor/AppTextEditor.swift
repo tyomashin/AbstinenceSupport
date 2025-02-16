@@ -6,14 +6,14 @@ import Common
 
 public struct AppTextEditor: View {
 
-    let placeholder: LocalizedString
+    let placeholder: LocalizedString?
     @Binding var text: String
     let error: String?
     let keyboardType: UIKeyboardType
     @Environment(\.isEnabled) var isEnabled: Bool
     let height: CGFloat = 150
 
-    public init(placeholder: LocalizedString, text: Binding<String>, keyboardType: UIKeyboardType, error: String? = nil) {
+    public init(placeholder: LocalizedString? = nil, text: Binding<String>, keyboardType: UIKeyboardType, error: String? = nil) {
         self.placeholder = placeholder
         self._text = text
         self.keyboardType = keyboardType
@@ -37,7 +37,7 @@ public struct AppTextEditor: View {
                     .onTapGesture {}
 
                 // プレースホルダー
-                if text.isEmpty {
+                if text.isEmpty, let placeholder {
                     Text(placeholder.localizedString)
                         .font(.body)
                         .foregroundColor(ColorAssets.placeholder.color)

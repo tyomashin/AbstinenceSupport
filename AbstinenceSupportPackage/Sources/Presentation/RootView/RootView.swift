@@ -18,12 +18,15 @@ public struct RootView<ViewModel: RootViewModelProtocol>: View {
                 OnboardingView(
                     viewModel: OnboardingViewModel(completionHandler: viewModel.completedOnboarding)
                 )
+                .transition(.opacity)
             case .top(let abstinenceInfo):
                 // TODO: トップ画面を表示
                 EmptyView()
             case .abstinenceStart:
-                // TODO: 禁欲開始画面を表示
-                EmptyView()
+                AbstinenceStartRootView(
+                    viewModel: AbstinenceStartRootViewModel()
+                )
+                .transition(.opacity)
             case .abstinenceFailure(let abstinenceInfo):
                 // TODO: 禁欲失敗画面を表示
                 EmptyView()
@@ -35,6 +38,7 @@ public struct RootView<ViewModel: RootViewModelProtocol>: View {
         .task {
             await viewModel.startupSequenceIfNeeded()
         }
+        .animation(.default, value: viewModel.appTransitionState)
     }
 }
 
