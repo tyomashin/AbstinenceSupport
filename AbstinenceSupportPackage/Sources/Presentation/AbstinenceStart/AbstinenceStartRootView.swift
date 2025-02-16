@@ -24,7 +24,8 @@ struct AbstinenceStartRootView<ViewModel: AbstinenceStartRootViewModelProtocol>:
                 case .nameEntry:
                     EmptyView()
                 case .targetDaysEntry:
-                    EmptyView()
+                    AbstinenceStartTargetDaysSelectionView(viewModel: viewModel, targetDays: viewModel.targetDays)
+                        .toolbarRole(.editor)
                 case .scheduledReportDateEntry:
                     EmptyView()
                 case .penaltiessSlection:
@@ -36,6 +37,7 @@ struct AbstinenceStartRootView<ViewModel: AbstinenceStartRootViewModelProtocol>:
                 }
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
