@@ -19,7 +19,7 @@ struct AbstinenceStartNameEntryView<ViewModel: AbstinenceStartRootViewModelProto
                 VStack(alignment: .leading, spacing: 20) {
                     TitleLabel(.abstinenceStartNameEntryTitle)
 
-                    HeadlineLabel(.abstinenceStartNameEntryDetail)
+                    HeadlineLabel(.abstinenceStartNameEntryDetail, colorAssets: .subText)
 
                     VStack(alignment: .leading, spacing: 8) {
                         BodyLabel(.abstinenceStartNameTextFieldTitle)

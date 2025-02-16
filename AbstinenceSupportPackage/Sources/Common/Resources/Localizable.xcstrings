@@ -7,7 +7,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "詳細（任意）"
+            "value" : "%lld 日"
           }
         }
       }
@@ -52,6 +52,28 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "やめること"
+          }
+        }
+      }
+    },
+    "abstinenceStartTargetDaysSelectionDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲を継続する日数を決めてください。\n\nまずは達成可能な日数から始めてみましょう。\n禁欲に慣れてきた方や、強い意志で禁欲する方は、長めの日数を指定しましょう。"
+          }
+        }
+      }
+    },
+    "abstinenceStartTargetDaysSelectionTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲の目標日数"
           }
         }
       }

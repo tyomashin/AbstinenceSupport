@@ -11,6 +11,8 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
     private var abstinenceTitle: String = ""
     /// やめることの詳細（任意）
     private var detail: String?
+    /// 禁欲日数
+    var targetDays: Int = 10
 
     func tappedNameEntryNextButton(title: String, detail: String?) {
         self.abstinenceTitle = title
@@ -19,4 +21,9 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
         navigationPath.append(.targetDaysEntry)
     }
 
+    func tappedTargetDaysNextButton(targetDays: Int) {
+        self.targetDays = targetDays
+
+        navigationPath.append(.scheduledReportDateEntry)
+    }
 }

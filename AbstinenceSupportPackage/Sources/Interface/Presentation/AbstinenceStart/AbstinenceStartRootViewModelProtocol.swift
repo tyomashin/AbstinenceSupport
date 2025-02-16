@@ -7,6 +7,8 @@ import Entity
 public protocol AbstinenceStartRootViewModelProtocol: ObservableObject {
 
     var navigationPath: [AbstinenceStartNavigationPath] { get set }
+    var targetDays: Int { get }
 
     func tappedNameEntryNextButton(title: String, detail: String?)
+    func tappedTargetDaysNextButton(targetDays: Int)
 }
