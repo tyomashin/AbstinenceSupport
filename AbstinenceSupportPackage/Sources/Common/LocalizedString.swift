@@ -32,6 +32,9 @@ public enum LocalizedString {
     case abstinenceStartNameTextFieldTitle
     case abstinenceStartNameTextFieldPlaceholder
     case abstinenceStartDetailTextEditorTitle
+    case abstinenceStartTargetDaysSelectionTitle
+    case abstinenceStartTargetDaysSelectionDetail
+    case abstinenceStartTargetDaysSelectionItem(days: Int)
 
     // MARK: その他
 
@@ -121,6 +124,21 @@ extension LocalizedString {
             String(localized: "abstinenceStartNameTextFieldPlaceholder", defaultValue: "例）おやつ、お酒、ギャンブル")
         case .abstinenceStartDetailTextEditorTitle:
             String(localized: "abstinenceStartDetailTextEditorTitle", defaultValue: "詳細（任意）")
+        case .abstinenceStartTargetDaysSelectionTitle:
+            String(localized: "abstinenceStartTargetDaysSelectionTitle", defaultValue: "禁欲の目標日数")
+        case .abstinenceStartTargetDaysSelectionDetail:
+            String(
+                localized: "abstinenceStartTargetDaysSelectionDetail",
+                defaultValue:
+                    """
+                    禁欲を継続する日数を決めてください。
+
+                    まずは達成可能な日数から始めてみましょう。
+                    禁欲に慣れてきた方や、強い意志で禁欲する方は、長めの日数を指定しましょう。
+                    """
+            )
+        case .abstinenceStartTargetDaysSelectionItem(let days):
+            String(localized: "abstinenceStartDetailTextEditorTitle", defaultValue: "\(days) 日")
         }
     }
 }
