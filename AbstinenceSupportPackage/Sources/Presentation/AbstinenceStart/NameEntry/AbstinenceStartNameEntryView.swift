@@ -21,24 +21,26 @@ struct AbstinenceStartNameEntryView<ViewModel: AbstinenceStartRootViewModelProto
 
                     HeadlineLabel(.abstinenceStartNameEntryDetail)
 
-                    BodyLabel(.abstinenceStartNameTextFieldTitle)
-                        .padding(.top, 10)
+                    VStack(alignment: .leading, spacing: 8) {
+                        BodyLabel(.abstinenceStartNameTextFieldTitle)
+                            .padding(.top, 10)
 
-                    AppTextField(
-                        placeholder: .abstinenceStartNameTextFieldPlaceholder,
-                        text: $nameInputForm.text,
-                        keyboardType: .default,
-                        error: nameInputForm.error
-                    )
-                    .focused($focusState)
+                        AppTextField(
+                            placeholder: .abstinenceStartNameTextFieldPlaceholder,
+                            text: $nameInputForm.text,
+                            keyboardType: .default,
+                            error: nameInputForm.error
+                        )
+                        .focused($focusState)
 
-                    BodyLabel(.abstinenceStartDetailTextEditorTitle)
+                        BodyLabel(.abstinenceStartDetailTextEditorTitle)
 
-                    AppTextEditor(
-                        text: $detail,
-                        keyboardType: .default
-                    )
-                    .focused($focusState)
+                        AppTextEditor(
+                            text: $detail,
+                            keyboardType: .default
+                        )
+                        .focused($focusState)
+                    }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
