@@ -1,6 +1,61 @@
 {
   "sourceLanguage" : "ja",
   "strings" : {
+    "abstinenceReportTimeSelectionAlert" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "※ 報告時間から1時間以内に報告できなければ、禁欲は失敗となります。"
+          }
+        }
+      }
+    },
+    "abstinenceReportTimeSelectionDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲を開始すると、あなたは毎日決められた時間にアプリから「達成報告」をする必要があります。"
+          }
+        }
+      }
+    },
+    "abstinenceReportTimeSelectionPickerCaption" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "この時間から1時間以内にアプリを開いて「報告ボタン」をタップしてください"
+          }
+        }
+      }
+    },
+    "abstinenceReportTimeSelectionPickerTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "報告時間"
+          }
+        }
+      }
+    },
+    "abstinenceReportTimeSelectionTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲報告時間を決める"
+          }
+        }
+      }
+    },
     "abstinenceStartDetailTextEditorTitle" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
