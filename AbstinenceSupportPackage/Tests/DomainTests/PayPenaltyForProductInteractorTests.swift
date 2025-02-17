@@ -33,7 +33,7 @@ struct PayPenaltyForProductInteractorTests {
     
     @Test("課金商品が存在しない場合は正常終了すること")
     func normalWithNotExistProduct() async throws {
-        let info = AbstinenceInformation(title: "", targetDays: 0, scheduledReportDate: Date(), penalties: .free, progressStatus: .penaltyUnpaidForFailure, startDate: Date())
+        let info = AbstinenceInformation(title: "", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .penaltyUnpaidForFailure, startDate: Date())
         fetchAbstinenceInfoInteractorStub.abstinenceInformation = info
         
         await confirmation(expectedCount: 1) { handler in
@@ -57,7 +57,7 @@ struct PayPenaltyForProductInteractorTests {
     @Test("課金商品のペナルティ支払い時に .pending ステータスの場合は正常終了すること", arguments: PurchaseProductIDs.allCases.map(\.rawValue))
     func normalWithPending(productID: String) async throws {
         storeKitHelperStub.purchaseResult = .success(.pending)
-        let info = AbstinenceInformation(title: "", targetDays: 0, scheduledReportDate: Date(), penalties: .free, progressStatus: .penaltyUnpaidForFailure, startDate: Date())
+        let info = AbstinenceInformation(title: "", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .penaltyUnpaidForFailure, startDate: Date())
         fetchAbstinenceInfoInteractorStub.abstinenceInformation = info
         
         await confirmation(expectedCount: 1) { handler in
@@ -80,7 +80,7 @@ struct PayPenaltyForProductInteractorTests {
     @Test("課金商品のペナルティ支払い時にユーザーがキャンセルした場合はエラーとなること", arguments: PurchaseProductIDs.allCases.map(\.rawValue))
     func userCancelled(productID: String) async throws {
         storeKitHelperStub.purchaseResult = .success(.userCancelled)
-        let info = AbstinenceInformation(title: "", targetDays: 0, scheduledReportDate: Date(), penalties: .free, progressStatus: .penaltyUnpaidForFailure, startDate: Date())
+        let info = AbstinenceInformation(title: "", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .penaltyUnpaidForFailure, startDate: Date())
         fetchAbstinenceInfoInteractorStub.abstinenceInformation = info
         
         await confirmation(expectedCount: 0) { handler in

@@ -24,6 +24,7 @@ public enum ColorAssets {
     case shadow
     case baseDisabled
     case baseAlert
+    case baseSelectableCard
 }
 
 extension ColorAssets {
@@ -59,6 +60,8 @@ extension ColorAssets {
             Color.baseDisabled
         case .baseAlert:
             Color.baseAlert
+        case .baseSelectableCard:
+            Color.baseSelectableCard
         }
     }
 }

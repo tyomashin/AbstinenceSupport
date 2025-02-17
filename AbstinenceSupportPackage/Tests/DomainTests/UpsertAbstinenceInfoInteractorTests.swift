@@ -22,7 +22,7 @@ struct UpsertAbstinenceInfoInteractorTests {
     }
     
     @Test("禁欲情報を正常に保存できることを確認", arguments: [
-        AbstinenceInformation(title: "", detail: nil, targetDays: 0, scheduledReportDate: Date(), penalties: .free, progressStatus: .inProgress, startDate: Date())
+        AbstinenceInformation(title: "", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: Date())
     ]) func fetch(abstinenceInfo: AbstinenceInformation) async throws {
         await interactor.execute(abstinenceInfo)
         #expect(keyChainHelperStub.readAbstinenceInformation() == abstinenceInfo)
