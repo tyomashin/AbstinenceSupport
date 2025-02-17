@@ -33,7 +33,7 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable {
         DateUtils.add(hours: 1, to: nextReportStartDate) ?? nextReportStartDate
     }
     /// ペナルティ
-    public var penalties: Penalties
+    public var penaltyInfo: PenaltyInfo
     /// 禁欲の進捗
     public var progressStatus: AbstinenceProgressStatus
     /// 禁欲開始日時

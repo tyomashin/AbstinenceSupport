@@ -14,7 +14,7 @@ struct AbstinenceInformationTests {
         // 例）目標日数が-1日という不正値の場合、正規化された日数は0日
         (-1, 0),
     ]) func normalizedTargetDays(targetDays: Int, expectedResult: Int) async throws {
-        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: targetDays, scheduledReportDate: Date(), penalties: .free, progressStatus: .inProgress, startDate: Date())
+        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: targetDays, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: Date())
         #expect(abstinenceInformation.normalizedTargetDays == expectedResult)
     }
     
@@ -25,7 +25,7 @@ struct AbstinenceInformationTests {
         // 例）報告回数が-1という不正値の場合、正規化された回数は0
         (-1, 0),
     ]) func normalizedReportedCount(reportedCount: Int, expectedResult: Int) async throws {
-        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: 0, scheduledReportDate: Date(), penalties: .free, progressStatus: .inProgress, startDate: Date(), reportedCount: reportedCount)
+        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: Date(), reportedCount: reportedCount)
         #expect(abstinenceInformation.normalizedReportedCount == expectedResult)
     }
     
@@ -41,7 +41,7 @@ struct AbstinenceInformationTests {
         // 例）目標日数が-1日で不正値、報告回数が10の場合は、進捗率は100%
         (-1, 10, 1),
     ]) func rateOfProgress(targetDays: Int, reportedCount: Int, expectedResult: Float) async throws {
-        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: targetDays, scheduledReportDate: Date(), penalties: .free, progressStatus: .inProgress, startDate: Date(), reportedCount: reportedCount)
+        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: targetDays, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: Date(), reportedCount: reportedCount)
         #expect(abstinenceInformation.rateOfProgress == expectedResult)
     }
     
@@ -55,7 +55,7 @@ struct AbstinenceInformationTests {
         (DateUtils.add(days: 1, to: Date())!, 0),
         (DateUtils.add(days: 1000, to: Date())!, 0),
     ]) func elapsedDays(startDate: Date, expectedResult: Int) async throws {
-        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: 0, scheduledReportDate: Date(), penalties: .free, progressStatus: .inProgress, startDate: startDate)
+        let abstinenceInformation = AbstinenceInformation(title: "sample", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: startDate)
         #expect(abstinenceInformation.elapsedDays == expectedResult)
     }
     
@@ -70,7 +70,7 @@ struct AbstinenceInformationTests {
         // 禁欲開始時間を9時とする
         let startDate = DateUtils.makeDate(year: targetYearMonthDay.year, month: targetYearMonthDay.month, day: targetYearMonthDay.day, time: (9, 0, 0))!
         // reportedCount は 0 で初回の達成報告前とする
-        let info = AbstinenceInformation(title: "sample", targetDays: 10, scheduledReportDate: scheduledReportDate, penalties: .free, progressStatus: .inProgress, startDate: startDate, reportedCount: 0)
+        let info = AbstinenceInformation(title: "sample", targetDays: 10, scheduledReportDate: scheduledReportDate, penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: startDate, reportedCount: 0)
         // 次回報告予定日の時分秒を取得
         let nextReportStartTime = DateUtils.time(from: info.nextReportStartDate)
 
@@ -95,7 +95,7 @@ struct AbstinenceInformationTests {
         // 禁欲開始時間を9時とする
         let startDate = DateUtils.makeDate(year: targetYearMonthDay.year, month: targetYearMonthDay.month, day: targetYearMonthDay.day, time: (9, 0, 0))!
         // reportedCount は 0 で初回の達成報告前とする
-        let info = AbstinenceInformation(title: "sample", targetDays: 10, scheduledReportDate: scheduledReportDate, penalties: .free, progressStatus: .inProgress, startDate: startDate, reportedCount: 0)
+        let info = AbstinenceInformation(title: "sample", targetDays: 10, scheduledReportDate: scheduledReportDate, penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: startDate, reportedCount: 0)
         // 次回報告予定日の時分秒を取得
         let nextReportStartTime = DateUtils.time(from: info.nextReportStartDate)
 
@@ -119,7 +119,7 @@ struct AbstinenceInformationTests {
         let targetYearMonthDay: DateUtils.YearMonthDay = (2024, 1, 1)
         // 禁欲開始時間を9時とする
         let startDate = DateUtils.makeDate(year: targetYearMonthDay.year, month: targetYearMonthDay.month, day: targetYearMonthDay.day, time: (9, 0, 0))!
-        let info = AbstinenceInformation(title: "sample", targetDays: 10, scheduledReportDate: scheduledReportDate, penalties: .free, progressStatus: .inProgress, startDate: startDate, reportedCount: reportedCount)
+        let info = AbstinenceInformation(title: "sample", targetDays: 10, scheduledReportDate: scheduledReportDate, penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: startDate, reportedCount: reportedCount)
         // 次回報告予定日の時分秒を取得
         let nextReportStartTime = DateUtils.time(from: info.nextReportStartDate)
 
@@ -140,7 +140,7 @@ struct AbstinenceInformationTests {
             AbstinenceProgressStatus.penaltyPaidForFailure,
             AbstinenceProgressStatus.penaltyUnpaidForFailure,
         ]) func alreadyFailed(status: AbstinenceProgressStatus) async throws {
-            var info = AbstinenceInformation(title: "sample", targetDays: 0, scheduledReportDate: Date(), penalties: .free, progressStatus: status, startDate: Date())
+            var info = AbstinenceInformation(title: "sample", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: status, startDate: Date())
             info.updateProgressStatus(currentDate: Date())
             #expect(info.progressStatus == status)
         }
@@ -150,7 +150,7 @@ struct AbstinenceInformationTests {
             (20, 20),
             (30, 20),
         ]) func success(reportedCount: Int, targetDays: Int) async throws {
-            var info = AbstinenceInformation(title: "sample", targetDays: targetDays, scheduledReportDate: Date(), penalties: .free, progressStatus: .inProgress, startDate: Date(), reportedCount: reportedCount)
+            var info = AbstinenceInformation(title: "sample", targetDays: targetDays, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: Date(), reportedCount: reportedCount)
             info.updateProgressStatus(currentDate: Date())
             #expect(info.progressStatus == .success)
         }
@@ -183,7 +183,7 @@ struct AbstinenceInformationTests {
                 8
             ),
         ]) func penaltyUnpaidForFailure(currentDate: Date, startDate: Date, scheduledReportDate: Date, reportedCount: Int) async throws {
-            var info = AbstinenceInformation(title: "sample", targetDays: 20, scheduledReportDate: scheduledReportDate, penalties: .free, progressStatus: .inProgress, startDate: startDate, reportedCount: reportedCount)
+            var info = AbstinenceInformation(title: "sample", targetDays: 20, scheduledReportDate: scheduledReportDate, penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: startDate, reportedCount: reportedCount)
             info.updateProgressStatus(currentDate: currentDate)
             #expect(info.progressStatus == .penaltyUnpaidForFailure)
         }
@@ -220,7 +220,7 @@ struct AbstinenceInformationTests {
                 9
             ),
         ]) func inProgress(currentDate: Date, startDate: Date, scheduledReportDate: Date, reportedCount: Int) async throws {
-            var info = AbstinenceInformation(title: "sample", targetDays: 20, scheduledReportDate: scheduledReportDate, penalties: .free, progressStatus: .inProgress, startDate: startDate, reportedCount: reportedCount)
+            var info = AbstinenceInformation(title: "sample", targetDays: 20, scheduledReportDate: scheduledReportDate, penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: startDate, reportedCount: reportedCount)
             info.updateProgressStatus(currentDate: currentDate)
             #expect(info.progressStatus == .inProgress)
         }
