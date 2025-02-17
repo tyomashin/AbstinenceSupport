@@ -4,7 +4,7 @@ import Foundation
 import Common
 
 /// ペナルティ種別
-public enum Penalties: Codable, Sendable, Equatable {
+public enum Penalties: Codable, Sendable, Equatable, Hashable {
     /// 無料ペナルティ
     case free
     /// 有料ペナルティ
@@ -12,7 +12,7 @@ public enum Penalties: Codable, Sendable, Equatable {
 }
 
 /// ペナルティ情報
-public struct PenaltyInfo: Sendable, Equatable {
+public struct PenaltyInfo: Codable, Sendable, Equatable, Hashable {
     public let title: String
     public let detail: String
     public let penaltyCategory: Penalties

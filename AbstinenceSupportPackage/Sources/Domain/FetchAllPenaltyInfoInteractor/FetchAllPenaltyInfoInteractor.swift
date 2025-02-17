@@ -17,8 +17,8 @@ struct FetchAllPenaltyInfoInteractor: FetchAllPenaltyInfoUseCase {
         return results
             + products.sorted(by: { $0.price < $1.price }).map {
                 .init(
-                    title: $0.displayName,
-                    detail: LocalizedString.penaltyFeeTitle(price: $0.price.intValue, description: $0.description).localizedString,
+                    title: LocalizedString.penaltyFeeTitle(price: $0.price.intValue, description: $0.displayName).localizedString,
+                    detail: $0.description,
                     penaltyCategory: .product(productID: $0.id)
                 )
             }

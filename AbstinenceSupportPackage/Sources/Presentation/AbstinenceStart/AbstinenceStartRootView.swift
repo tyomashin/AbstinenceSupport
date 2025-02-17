@@ -30,7 +30,8 @@ struct AbstinenceStartRootView<ViewModel: AbstinenceStartRootViewModelProtocol>:
                     AbstinenceStartReportTimeSelectionView(viewModel: viewModel, reportTime: viewModel.reportTime)
                         .toolbarRole(.editor)
                 case .penaltiessSlection:
-                    EmptyView()
+                    AbstinenceStartPenaltySelectionView(viewModel: viewModel, selectedPenalty: viewModel.penaltyInfo)
+                        .toolbarRole(.editor)
                 case .confirmation:
                     EmptyView()
                 case .completion:
