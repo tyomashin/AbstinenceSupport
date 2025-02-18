@@ -73,4 +73,18 @@ public struct DateUtils {
     public static func add(hours: Int, to date: Date) -> Date? {
         calendar.date(byAdding: .hour, value: hours, to: date)
     }
+
+    static func dateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.timeZone = .current
+        formatter.calendar = calendar
+        return formatter
+    }
+
+    public static func dateString(from date: Date, dateFormat: String) -> String? {
+        let formatter = dateFormatter()
+        formatter.dateFormat = dateFormat
+        return formatter.string(from: date)
+    }
 }
