@@ -35,8 +35,13 @@ struct AbstinenceStartRootView<ViewModel: AbstinenceStartRootViewModelProtocol>:
                 case .confirmation:
                     AbstinenceStartConfirmationView(viewModel: viewModel)
                         .toolbarRole(.editor)
-                case .completion:
-                    EmptyView()
+                case .completion(let info):
+                    AbstinenceStartCompletionView(
+                        viewModel: AbstinenceStartCompletionViewModel(
+                            abstinenceInformation: info,
+                            completionHandler: viewModel.completionHandler
+                        )
+                    )
                 }
             }
         }

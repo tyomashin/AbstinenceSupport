@@ -11,6 +11,7 @@ class AbstinenceStartRootViewModelPreview: AbstinenceStartRootViewModelProtocol 
     var targetDays: Int = 10
     var reportTime: Date = Date()
     var penaltyInfo: PenaltyInfo = .freePenaltyInfo()
+    var completionHandler: (AbstinenceInformation) -> Void = { _ in }
 
     func tappedNameEntryNextButton(title: String, detail: String?) {}
     func tappedTargetDaysNextButton(targetDays: Int) {}
@@ -23,5 +24,15 @@ class AbstinenceStartRootViewModelPreview: AbstinenceStartRootViewModelProtocol 
 extension AbstinenceStartRootViewModelProtocol where Self == AbstinenceStartRootViewModelPreview {
     static var preview: Self {
         AbstinenceStartRootViewModelPreview()
+    }
+}
+
+class AbstinenceStartCompletionViewModelPreview: AbstinenceStartCompletionViewModelProtocol {
+    func tappedCloseButton() {}
+}
+
+extension AbstinenceStartCompletionViewModelProtocol where Self == AbstinenceStartCompletionViewModelPreview {
+    static var preview: Self {
+        AbstinenceStartCompletionViewModelPreview()
     }
 }
