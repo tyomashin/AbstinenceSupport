@@ -10,9 +10,9 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
     @Published var navigationPath: [AbstinenceStartNavigationPath] = []
 
     /// やめること
-    private var abstinenceTitle: String = ""
+    var abstinenceTitle: String = ""
     /// やめることの詳細（任意）
-    private var detail: String?
+    var detail: String?
     /// 禁欲日数
     var targetDays: Int = 10
     /// 報告時間
@@ -21,6 +21,7 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
     var penaltyInfo: PenaltyInfo = .freePenaltyInfo()
 
     @Dependency(\.fetchAllPenaltyInfoInteractor) var fetchAllPenaltyInfoInteractor
+    @Dependency(\.upsertAbstinenceInfoInteractor) var upsertAbstinenceInfoInteractor
 
     func tappedNameEntryNextButton(title: String, detail: String?) {
         self.abstinenceTitle = title
@@ -41,6 +42,21 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
     func tappedPenaltyNextButton(penaltyInfo: PenaltyInfo) {
         self.penaltyInfo = penaltyInfo
         navigationPath.append(.confirmation)
+    }
+
+    func tappedConfirmationStartButton() {
+        Task {
+            let info = AbstinenceInformation(
+                title: abstinenceTitle,
+                detail: detail,
+                targetDays: targetDays,
+                scheduledReportDate: reportTime,
+                penaltyInfo: penaltyInfo,
+                startDate: Date()
+            )
+            await upsertAbstinenceInfoInteractor.execute(info)
+            navigationPath.append(.completion)
+        }
     }
 
     func fetchAllPenalties() async -> [PenaltyInfo] {

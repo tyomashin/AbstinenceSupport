@@ -55,6 +55,26 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable {
         max(0, DateUtils.daysBetween(from: startDate, to: Date()))
     }
 
+    public init(
+        title: String,
+        detail: String? = nil,
+        targetDays: Int,
+        scheduledReportDate: Date,
+        penaltyInfo: PenaltyInfo,
+        startDate: Date
+    ) {
+        self.title = title
+        if let detail, !detail.isEmpty {
+            self.detail = detail
+        }
+        self.targetDays = targetDays
+        self.scheduledReportDate = scheduledReportDate
+        self.penaltyInfo = penaltyInfo
+        self.startDate = startDate
+        self.progressStatus = .inProgress
+        self.updateProgressStatus(currentDate: startDate)
+    }
+
     /// 禁欲ステータスを更新する
     /// - Parameter currentDate: 現在日時
     public mutating func updateProgressStatus(currentDate: Date) {

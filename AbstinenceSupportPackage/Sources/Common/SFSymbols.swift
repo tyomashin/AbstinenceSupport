@@ -11,6 +11,7 @@ public enum SFSymbols: String, CaseIterable {
     case personCropCircleFillBadgeCheckmark = "person.crop.circle.fill.badge.checkmark"
     case handThumbsdownCircleFill = "hand.thumbsdown.circle.fill"
     case playCircle = "play.circle"
+    case xmarkCircle = "xmark.circle"
 
     public var swiftUIImage: Image {
         .init(systemName: rawValue)

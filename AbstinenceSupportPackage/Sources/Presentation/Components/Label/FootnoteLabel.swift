@@ -1,30 +1,28 @@
-// Created by okazakishinya on 2025/02/10.
+// Created by okazakishinya on 2025/02/18.
 
 import SwiftUI
 import Common
 
-public struct BodyLabel: View {
+public struct FootnoteLabel: View {
 
     let text: LocalizedString
     let colorAssets: ColorAssets
-    let weight: Font.Weight
 
-    public init(_ text: LocalizedString, colorAssets: ColorAssets = ColorAssets.subText, weight: Font.Weight = .regular) {
+    public init(_ text: LocalizedString, colorAssets: ColorAssets = ColorAssets.subText) {
         self.text = text
         self.colorAssets = colorAssets
-        self.weight = weight
     }
 
     public var body: some View {
         Text(text.localizedString)
             .foregroundStyle(colorAssets.color)
-            .font(.body)
-            .fontWeight(weight)
+            .font(.footnote)
+            .fontWeight(.regular)
             .frame(maxWidth: .infinity, alignment: .leading)
             .multilineTextAlignment(.leading)
     }
 }
 
 #Preview {
-    BodyLabel(.anyText("サンプル"))
+    FootnoteLabel(.anyText("サンプル"))
 }

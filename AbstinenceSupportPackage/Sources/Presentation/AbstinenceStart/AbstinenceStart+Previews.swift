@@ -5,6 +5,8 @@ import Interface
 import Entity
 
 class AbstinenceStartRootViewModelPreview: AbstinenceStartRootViewModelProtocol {
+    var abstinenceTitle: String = "sample"
+    var detail: String?
     var navigationPath: [AbstinenceStartNavigationPath] = []
     var targetDays: Int = 10
     var reportTime: Date = Date()
@@ -13,7 +15,8 @@ class AbstinenceStartRootViewModelPreview: AbstinenceStartRootViewModelProtocol 
     func tappedNameEntryNextButton(title: String, detail: String?) {}
     func tappedTargetDaysNextButton(targetDays: Int) {}
     func tappedReportTimeNextButton(reportTime: Date) {}
-    func tappedPenaltyNextButton(penaltyInfo: Entity.PenaltyInfo) {}
+    func tappedPenaltyNextButton(penaltyInfo: PenaltyInfo) {}
+    func tappedConfirmationStartButton() {}
     func fetchAllPenalties() async -> [PenaltyInfo] { [.freePenaltyInfo()] }
 }
 

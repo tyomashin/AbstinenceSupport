@@ -1,6 +1,160 @@
 {
   "sourceLanguage" : "ja",
   "strings" : {
+    "abstinenceConfirmationButton" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲を開始する"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "以下の内容で禁欲を開始します。"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationDetailTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "詳細"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationFailConditionFirst" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "毎日の報告時間から1時間以内に達成報告ができなかった場合"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationFailConditionSecond" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "毎日の達成報告で自ら失敗を認めた場合"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationFailConditionTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲失敗の条件"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationNameTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "やめること"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationPenaltyTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "失敗時のペナルティ"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationReportTimeTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "毎日の報告時間"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationSuccessConditionFirst" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "目標日数以上に禁欲を継続できた場合"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationSuccessConditionTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲成功の条件"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationTargetDaysDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%lld 日間"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationTargetDaysTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "目標日数"
+          }
+        }
+      }
+    },
+    "abstinenceConfirmationTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲内容の確認"
+          }
+        }
+      }
+    },
     "abstinencePenaltySelectionDetail" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -305,6 +459,17 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "0 円: ペナルティなし"
+          }
+        }
+      }
+    },
+    "timeFormat" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "H 時 mm 分"
           }
         }
       }
