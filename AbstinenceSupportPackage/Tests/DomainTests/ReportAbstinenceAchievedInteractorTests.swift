@@ -12,7 +12,7 @@ struct ReportAbstinenceAchievedInteractorTests {
 
     var interactor: ReportAbstinenceAchievedInteractor!
     let keyChainHelperStub: KeyChainHelperStub
-    var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: Date(), currentReportedDate: nil)
+    var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
     
     init() {
         self.keyChainHelperStub = KeyChainHelperStub()

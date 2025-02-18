@@ -15,7 +15,7 @@ struct CheckAppTransitionStateInteractorTests {
     var abstinenceInformation: AbstinenceInformation
     
     init() {
-        self.abstinenceInformation = .init(title: "sample", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), progressStatus: .inProgress, startDate: Date())
+        self.abstinenceInformation = .init(title: "sample", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
         self.fetchAbstinenceInfoInteractor = FetchAbstinenceInfoInteractorStub()
         self.userDefaultsHelperStub = UserDefaultsHelperStub()
         self.interactor = withDependencies {
