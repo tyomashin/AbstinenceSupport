@@ -9,4 +9,5 @@ public protocol RootViewModelProtocol: ObservableObject {
 
     func startupSequenceIfNeeded() async
     func completedOnboarding()
+    func completedAbstinenceStart(with info: AbstinenceInformation)
 }

@@ -24,7 +24,7 @@ public struct RootView<ViewModel: RootViewModelProtocol>: View {
                 EmptyView()
             case .abstinenceStart:
                 AbstinenceStartRootView(
-                    viewModel: AbstinenceStartRootViewModel()
+                    viewModel: AbstinenceStartRootViewModel(completionHandler: viewModel.completedAbstinenceStart)
                 )
                 .transition(.opacity)
             case .abstinenceFailure(let abstinenceInfo):

@@ -57,6 +57,8 @@ public enum LocalizedString {
     case abstinenceConfirmationFailConditionFirst
     case abstinenceConfirmationFailConditionSecond
     case abstinenceConfirmationButton
+    case abstinenceCompletionTitle
+    case abstinenceCompletionDetail
 
     // MARK: ペナルティ
 
@@ -237,7 +239,10 @@ extension LocalizedString {
             String(localized: "abstinenceConfirmationFailConditionSecond", defaultValue: "毎日の達成報告で自ら失敗を認めた場合")
         case .abstinenceConfirmationButton:
             String(localized: "abstinenceConfirmationButton", defaultValue: "禁欲を開始する")
-
+        case .abstinenceCompletionTitle:
+            String(localized: "abstinenceCompletionTitle", defaultValue: "禁欲を開始しました")
+        case .abstinenceCompletionDetail:
+            String(localized: "abstinenceCompletionDetail", defaultValue: "目標に向かって頑張りましょう！")
         }
     }
 }
