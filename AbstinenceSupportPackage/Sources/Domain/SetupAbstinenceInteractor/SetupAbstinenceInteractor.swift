@@ -15,7 +15,7 @@ struct SetupAbstinenceInteractor: SetupAbstinenceUseCase {
             _ = await attManager.requestTrackingAuthorization()
             try? await Task.sleep(for: .seconds(0.5))
         }
-        if await userNotificationsHelper.getNotificationSettings().authorizationStatus == .notDetermined {
+        if await userNotificationsHelper.getAuthorizationStatus() == .notDetermined {
             _ = await userNotificationsHelper.requestAuthorization()
             try? await Task.sleep(for: .seconds(0.5))
         }

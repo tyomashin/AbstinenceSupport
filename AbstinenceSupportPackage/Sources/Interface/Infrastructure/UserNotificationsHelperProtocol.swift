@@ -5,7 +5,7 @@ import UserNotifications
 
 public protocol UserNotificationsHelperProtocol: Sendable {
     /// 現在の通知設定を取得する
-    func getNotificationSettings() async -> UNNotificationSettings
+    func getAuthorizationStatus() async -> UNAuthorizationStatus
     /// 通知権限要求する
     func requestAuthorization() async -> Bool
     /// 指定日時に通知をスケジュルする

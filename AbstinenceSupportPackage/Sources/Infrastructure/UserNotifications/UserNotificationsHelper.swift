@@ -6,8 +6,8 @@ import Interface
 
 struct UserNotificationsHelper: UserNotificationsHelperProtocol {
 
-    func getNotificationSettings() async -> UNNotificationSettings {
-        await UNUserNotificationCenter.current().notificationSettings()
+    func getAuthorizationStatus() async -> UNAuthorizationStatus {
+        await UNUserNotificationCenter.current().notificationSettings().authorizationStatus
     }
 
     func requestAuthorization() async -> Bool {
@@ -20,7 +20,7 @@ struct UserNotificationsHelper: UserNotificationsHelperProtocol {
     }
 
     func scheduleNotification(id: String, title: String, body: String?, date: Date) async {
-        guard await getNotificationSettings().authorizationStatus == .authorized else { return }
+        guard await getAuthorizationStatus() == .authorized else { return }
 
         let content = UNMutableNotificationContent()
         content.title = title
