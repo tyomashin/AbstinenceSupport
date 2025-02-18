@@ -8,6 +8,7 @@ class RootViewModelPreview: RootViewModelProtocol {
     var appTransitionState: AppTransitionState?
     func startupSequenceIfNeeded() async {}
     func completedOnboarding() {}
+    func completedAbstinenceStart(with info: AbstinenceInformation) {}
 }
 
 extension RootViewModelProtocol where Self == RootViewModelPreview {

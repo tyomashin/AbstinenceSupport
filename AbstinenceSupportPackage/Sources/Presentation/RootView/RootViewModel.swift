@@ -25,4 +25,8 @@ public final class RootViewModel: RootViewModelProtocol {
     public func completedOnboarding() {
         appTransitionState = .abstinenceStart
     }
+
+    public func completedAbstinenceStart(with info: AbstinenceInformation) {
+        appTransitionState = .top(abstinenceInfo: info)
+    }
 }

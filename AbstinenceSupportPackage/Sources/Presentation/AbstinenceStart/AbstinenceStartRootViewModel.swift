@@ -23,6 +23,12 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
     @Dependency(\.fetchAllPenaltyInfoInteractor) var fetchAllPenaltyInfoInteractor
     @Dependency(\.upsertAbstinenceInfoInteractor) var upsertAbstinenceInfoInteractor
 
+    let completionHandler: (_ info: AbstinenceInformation) -> Void
+
+    init(completionHandler: @escaping (_ info: AbstinenceInformation) -> Void) {
+        self.completionHandler = completionHandler
+    }
+
     func tappedNameEntryNextButton(title: String, detail: String?) {
         self.abstinenceTitle = title
         self.detail = detail
@@ -55,7 +61,7 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
                 startDate: Date()
             )
             await upsertAbstinenceInfoInteractor.execute(info)
-            navigationPath.append(.completion)
+            navigationPath.append(.completion(info: info))
         }
     }
 
