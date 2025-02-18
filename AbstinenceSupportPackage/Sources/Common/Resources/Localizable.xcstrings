@@ -469,7 +469,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "H 時 m 分"
+            "value" : "H 時 mm 分"
           }
         }
       }

@@ -78,7 +78,7 @@ extension LocalizedString {
         case .closeButton:
             String(localized: "closeButton", defaultValue: "閉じる")
         case .timeFormat:
-            String(localized: "timeFormat", defaultValue: "H 時 m 分")
+            String(localized: "timeFormat", defaultValue: "H 時 mm 分")
 
         case .validationErrorEmpty:
             String(localized: "validationErrorEmpty", defaultValue: "入力してください")
