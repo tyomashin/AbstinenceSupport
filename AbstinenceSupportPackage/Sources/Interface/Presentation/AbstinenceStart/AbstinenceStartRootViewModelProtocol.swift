@@ -7,6 +7,8 @@ import Entity
 public protocol AbstinenceStartRootViewModelProtocol: ObservableObject {
 
     var navigationPath: [AbstinenceStartNavigationPath] { get set }
+    var abstinenceTitle: String { get }
+    var detail: String? { get }
     var targetDays: Int { get }
     var reportTime: Date { get }
     var penaltyInfo: PenaltyInfo { get }
@@ -15,5 +17,6 @@ public protocol AbstinenceStartRootViewModelProtocol: ObservableObject {
     func tappedTargetDaysNextButton(targetDays: Int)
     func tappedReportTimeNextButton(reportTime: Date)
     func tappedPenaltyNextButton(penaltyInfo: PenaltyInfo)
+    func tappedConfirmationStartButton()
     func fetchAllPenalties() async -> [PenaltyInfo]
 }
