@@ -17,16 +17,19 @@ struct AbstinenceStartCompletionView<ViewModel: AbstinenceStartCompletionViewMod
 
     var body: some View {
         VStack(alignment: .leading) {
-            ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                TitleLabel(.abstinenceCompletionTitle)
 
-                VStack(alignment: .leading, spacing: 20) {
-                    TitleLabel(.abstinenceCompletionTitle)
+                HeadlineLabel(.abstinenceCompletionDetail, colorAssets: .subText)
+                    .padding(.top, 30)
 
-                    HeadlineLabel(.abstinenceCompletionDetail, colorAssets: .subText)
-                }
+                Spacer()
+
+                AppLottieView(animation: .abstinenceStart)
+
+                Spacer()
+                Spacer()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .safeAreaPadding(.bottom, 20)
 
             FillButton(.closeButton, colorAssets: .baseAccent) {
                 viewModel.tappedCloseButton()
