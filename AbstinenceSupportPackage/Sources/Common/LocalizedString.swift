@@ -8,6 +8,7 @@ public enum LocalizedString {
 
     case nextButton
     case closeButton
+    case timeFormat
 
     // MARK: バリデーションエラー
 
@@ -42,6 +43,20 @@ public enum LocalizedString {
     case abstinenceReportTimeSelectionAlert
     case abstinencePenaltySelectionTitle
     case abstinencePenaltySelectionDetail
+    case abstinenceConfirmationTitle
+    case abstinenceConfirmationDetail
+    case abstinenceConfirmationNameTitle
+    case abstinenceConfirmationDetailTitle
+    case abstinenceConfirmationTargetDaysTitle
+    case abstinenceConfirmationTargetDaysDetail(days: Int)
+    case abstinenceConfirmationReportTimeTitle
+    case abstinenceConfirmationPenaltyTitle
+    case abstinenceConfirmationSuccessConditionTitle
+    case abstinenceConfirmationSuccessConditionFirst
+    case abstinenceConfirmationFailConditionTitle
+    case abstinenceConfirmationFailConditionFirst
+    case abstinenceConfirmationFailConditionSecond
+    case abstinenceConfirmationButton
 
     // MARK: ペナルティ
 
@@ -62,6 +77,8 @@ extension LocalizedString {
             String(localized: "nextButton", defaultValue: "次へ")
         case .closeButton:
             String(localized: "closeButton", defaultValue: "閉じる")
+        case .timeFormat:
+            String(localized: "timeFormat", defaultValue: "H 時 m 分")
 
         case .validationErrorEmpty:
             String(localized: "validationErrorEmpty", defaultValue: "入力してください")
@@ -192,6 +209,35 @@ extension LocalizedString {
             )
         case let .penaltyFeeTitle(price: price, description: description):
             String(localized: "penaltyFeeTitle", defaultValue: "\(price) 円:  \(description)")
+        case .abstinenceConfirmationTitle:
+            String(localized: "abstinenceConfirmationTitle", defaultValue: "禁欲内容の確認")
+        case .abstinenceConfirmationDetail:
+            String(localized: "abstinenceConfirmationDetail", defaultValue: "以下の内容で禁欲を開始します。")
+        case .abstinenceConfirmationNameTitle:
+            String(localized: "abstinenceConfirmationNameTitle", defaultValue: "やめること")
+        case .abstinenceConfirmationDetailTitle:
+            String(localized: "abstinenceConfirmationDetailTitle", defaultValue: "詳細")
+        case .abstinenceConfirmationTargetDaysTitle:
+            String(localized: "abstinenceConfirmationTargetDaysTitle", defaultValue: "目標日数")
+        case let .abstinenceConfirmationTargetDaysDetail(days: days):
+            String(localized: "abstinenceConfirmationTargetDaysDetail", defaultValue: "\(days) 日間")
+        case .abstinenceConfirmationReportTimeTitle:
+            String(localized: "abstinenceConfirmationReportTimeTitle", defaultValue: "毎日の報告時間")
+        case .abstinenceConfirmationPenaltyTitle:
+            String(localized: "abstinenceConfirmationPenaltyTitle", defaultValue: "失敗時のペナルティ")
+        case .abstinenceConfirmationSuccessConditionTitle:
+            String(localized: "abstinenceConfirmationSuccessConditionTitle", defaultValue: "禁欲成功の条件")
+        case .abstinenceConfirmationSuccessConditionFirst:
+            String(localized: "abstinenceConfirmationSuccessConditionFirst", defaultValue: "目標日数以上に禁欲を継続できた場合")
+        case .abstinenceConfirmationFailConditionTitle:
+            String(localized: "abstinenceConfirmationFailConditionTitle", defaultValue: "禁欲失敗の条件")
+        case .abstinenceConfirmationFailConditionFirst:
+            String(localized: "abstinenceConfirmationFailConditionFirst", defaultValue: "毎日の報告時間から1時間以内に達成報告ができなかった場合")
+        case .abstinenceConfirmationFailConditionSecond:
+            String(localized: "abstinenceConfirmationFailConditionSecond", defaultValue: "毎日の達成報告で自ら失敗を認めた場合")
+        case .abstinenceConfirmationButton:
+            String(localized: "abstinenceConfirmationButton", defaultValue: "禁欲を開始する")
+
         }
     }
 }
