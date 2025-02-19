@@ -8,6 +8,7 @@ final class UserNotificationsHelperStub: UserNotificationsHelperProtocol, @unche
 
     var testAuthorizationStatus: UNAuthorizationStatus = .notDetermined
     var onCalledRequetAuth: (() -> Void)?
+    var onCalledRemoveAllNotification: (() -> Void)?
 
     func getAuthorizationStatus() async -> UNAuthorizationStatus {
         testAuthorizationStatus
@@ -23,6 +24,6 @@ final class UserNotificationsHelperStub: UserNotificationsHelperProtocol, @unche
     }
 
     func removeAllScheduledNotifications() async {
-
+        onCalledRemoveAllNotification?()
     }
 }
