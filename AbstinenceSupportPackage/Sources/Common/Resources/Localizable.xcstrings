@@ -485,6 +485,17 @@
         }
       }
     },
+    "reportDateFormat" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "M月d日 H時mm分"
+          }
+        }
+      }
+    },
     "timeFormat" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -492,6 +503,149 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "H 時 mm 分"
+          }
+        }
+      }
+    },
+    "topAbortButtonTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲を中止する"
+          }
+        }
+      }
+    },
+    "topAbortCondition" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%lld 日経過後に禁欲を中止できます"
+          }
+        }
+      }
+    },
+    "topAbortDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "現在進行中の禁欲を中止して、新しい禁欲を開始しますか？一度禁欲を中止すると、しばらくの期間は禁欲を中止できなくなります。"
+          }
+        }
+      }
+    },
+    "topAbortTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲の中止"
+          }
+        }
+      }
+    },
+    "topAbstinenceDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "詳細"
+          }
+        }
+      }
+    },
+    "topAbstinenceInprogressDays" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%lld 日間"
+          }
+        }
+      }
+    },
+    "topAbstinenceInprogressTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲 継続中"
+          }
+        }
+      }
+    },
+    "topAbstinenceSuccessDays" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%lld 日"
+          }
+        }
+      }
+    },
+    "topAbstinenceSuccessTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲 成功🎉"
+          }
+        }
+      }
+    },
+    "topNewStartButtonTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "新しい禁欲を開始する"
+          }
+        }
+      }
+    },
+    "topReportDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%@ から1時間以内に報告してください。"
+          }
+        }
+      }
+    },
+    "topReportFailButtonTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲の失敗報告"
+          }
+        }
+      }
+    },
+    "topReportSuccessButtonTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "本日の禁欲達成報告"
           }
         }
       }

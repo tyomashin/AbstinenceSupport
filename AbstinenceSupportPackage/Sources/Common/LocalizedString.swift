@@ -9,6 +9,7 @@ public enum LocalizedString {
     case nextButton
     case closeButton
     case timeFormat
+    case reportDateFormat
 
     // MARK: バリデーションエラー
 
@@ -66,6 +67,22 @@ public enum LocalizedString {
     case penaltyFreeDetail
     case penaltyFeeTitle(price: Int, description: String)
 
+    // MARK: トップ
+
+    case topAbstinenceDetail
+    case topAbstinenceInprogressTitle
+    case topAbstinenceInprogressDays(days: Int)
+    case topAbstinenceSuccessTitle
+    case topAbstinenceSuccessDays(days: Int)
+    case topReportSuccessButtonTitle
+    case topReportFailButtonTitle
+    case topAbortButtonTitle
+    case topAbortTitle
+    case topAbortDetail
+    case topAbortCondition(days: Int)
+    case topNewStartButtonTitle
+    case topReportDetail(startDate: String)
+
     // MARK: その他
 
     case anyText(_ text: String)
@@ -81,6 +98,8 @@ extension LocalizedString {
             String(localized: "closeButton", defaultValue: "閉じる")
         case .timeFormat:
             String(localized: "timeFormat", defaultValue: "H 時 mm 分")
+        case .reportDateFormat:
+            String(localized: "reportDateFormat", defaultValue: "M月d日 H時mm分")
 
         case .validationErrorEmpty:
             String(localized: "validationErrorEmpty", defaultValue: "入力してください")
@@ -243,6 +262,32 @@ extension LocalizedString {
             String(localized: "abstinenceCompletionTitle", defaultValue: "禁欲を開始しました")
         case .abstinenceCompletionDetail:
             String(localized: "abstinenceCompletionDetail", defaultValue: "目標に向かって頑張りましょう！")
+        case .topAbstinenceDetail:
+            String(localized: "topAbstinenceDetail", defaultValue: "詳細")
+        case .topAbstinenceInprogressTitle:
+            String(localized: "topAbstinenceInprogressTitle", defaultValue: "禁欲 継続中")
+        case .topAbstinenceInprogressDays(let days):
+            String(localized: "topAbstinenceInprogressDays", defaultValue: "\(days) 日間")
+        case .topAbstinenceSuccessTitle:
+            String(localized: "topAbstinenceSuccessTitle", defaultValue: "禁欲 成功🎉")
+        case .topAbstinenceSuccessDays(let days):
+            String(localized: "topAbstinenceSuccessDays", defaultValue: "\(days) 日")
+        case .topReportSuccessButtonTitle:
+            String(localized: "topReportSuccessButtonTitle", defaultValue: "本日の禁欲達成報告")
+        case .topReportFailButtonTitle:
+            String(localized: "topReportFailButtonTitle", defaultValue: "禁欲の失敗報告")
+        case .topAbortButtonTitle:
+            String(localized: "topAbortButtonTitle", defaultValue: "禁欲を中止する")
+        case .topAbortTitle:
+            String(localized: "topAbortTitle", defaultValue: "禁欲の中止")
+        case .topAbortDetail:
+            String(localized: "topAbortDetail", defaultValue: "現在進行中の禁欲を中止して、新しい禁欲を開始しますか？一度禁欲を中止すると、しばらくの期間は禁欲を中止できなくなります。")
+        case .topAbortCondition(let days):
+            String(localized: "topAbortCondition", defaultValue: "\(days) 日経過後に禁欲を中止できます")
+        case .topNewStartButtonTitle:
+            String(localized: "topNewStartButtonTitle", defaultValue: "新しい禁欲を開始する")
+        case .topReportDetail(let startDate):
+            String(localized: "topReportDetail", defaultValue: "\(startDate) から1時間以内に報告してください。")
         }
     }
 }
