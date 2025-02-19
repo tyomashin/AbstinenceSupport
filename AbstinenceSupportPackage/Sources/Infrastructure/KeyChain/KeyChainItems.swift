@@ -2,6 +2,7 @@
 
 enum KeyChainItems: CaseIterable {
     case abstinenceInformation
+    case abortDate
 
     var account: String {
         "com.tyomashin.AbstinenceSupport"
@@ -11,6 +12,8 @@ enum KeyChainItems: CaseIterable {
         switch self {
         case .abstinenceInformation:
             "abstinenceInformation"
+        case .abortDate:
+            "abortDate"
         }
     }
 }

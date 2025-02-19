@@ -9,6 +9,7 @@ import Entity
 struct ReportAbstinenceAchievedInteractor: ReportAbstinenceAchievedUseCase {
 
     @Dependency(\.keyChainHelper) var keyChainHelper
+    @Dependency(\.userNotificationsHelper) var userNotificationsHelper
 
     func execute(with abstinenceInformation: AbstinenceInformation, reportDate: Date) async -> AbstinenceInformation {
         var currentInfo = abstinenceInformation
@@ -17,6 +18,11 @@ struct ReportAbstinenceAchievedInteractor: ReportAbstinenceAchievedUseCase {
 
         // 進捗状況を最新化する処理を実行
         currentInfo.updateProgressStatus(currentDate: Date())
+
+        // 成功ステータスに更新されていたらスケジュールされた通知を破棄する
+        if currentInfo.progressStatus == .success {
+            await userNotificationsHelper.removeAllScheduledNotifications()
+        }
 
         keyChainHelper.save(abstinenceInformation: currentInfo)
         return currentInfo

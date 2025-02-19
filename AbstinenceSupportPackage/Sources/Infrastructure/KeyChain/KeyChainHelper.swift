@@ -15,6 +15,18 @@ struct KeyChainHelper: KeyChainHelperProtocol {
     func readAbstinenceInformation<Item: Codable>() -> Item? {
         read(service: KeyChainItems.abstinenceInformation.service, account: KeyChainItems.abstinenceInformation.account)
     }
+
+    func save<Item: Codable>(abortDate: Item) {
+        save(
+            item: abortDate,
+            service: KeyChainItems.abortDate.service,
+            account: KeyChainItems.abortDate.account
+        )
+    }
+
+    func readAbortDate<Item: Codable>() -> Item? {
+        read(service: KeyChainItems.abortDate.service, account: KeyChainItems.abortDate.account)
+    }
 }
 
 extension KeyChainHelper {
