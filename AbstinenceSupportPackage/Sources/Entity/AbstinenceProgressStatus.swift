@@ -21,4 +21,13 @@ public enum AbstinenceProgressStatus: Codable, Sendable {
             true
         }
     }
+
+    public var isSuccess: Bool {
+        switch self {
+        case .success:
+            true
+        case .inProgress, .penaltyUnpaidForFailure, .penaltyPaidForFailure:
+            false
+        }
+    }
 }
