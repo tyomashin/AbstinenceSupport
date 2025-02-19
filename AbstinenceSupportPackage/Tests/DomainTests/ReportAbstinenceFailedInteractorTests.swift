@@ -12,12 +12,15 @@ struct ReportAbstinenceFailedInteractorTests {
 
     var interactor: ReportAbstinenceFailedInteractor!
     let keyChainHelperStub: KeyChainHelperStub
+    let userNotificationsHelperStub: UserNotificationsHelperStub
     var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
     
     init() {
         self.keyChainHelperStub = KeyChainHelperStub()
+        self.userNotificationsHelperStub = UserNotificationsHelperStub()
         interactor = withDependencies {
             $0.keyChainHelper = keyChainHelperStub
+            $0.userNotificationsHelper = userNotificationsHelperStub
         } operation: {
             ReportAbstinenceFailedInteractor()
         }
@@ -28,5 +31,15 @@ struct ReportAbstinenceFailedInteractorTests {
         let result = await interactor.execute(with: testEntity)
         #expect(result.progressStatus == .penaltyUnpaidForFailure)
         #expect(keyChainHelperStub.abstinenceInformation == result)
+    }
+    
+    @Test("スケジュールされた通知削除が実行されていることを確認")
+    func removeAllScheduledNotificationsIfSuccess() async throws {
+        await confirmation(expectedCount: 1) { handler in
+            userNotificationsHelperStub.onCalledRemoveAllNotification = {
+                handler()
+            }
+            _ = await interactor.execute(with: testEntity)
+        }
     }
 }
