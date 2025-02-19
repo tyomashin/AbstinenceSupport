@@ -8,11 +8,18 @@ public struct BodyLabel: View {
     let text: LocalizedString
     let colorAssets: ColorAssets
     let weight: Font.Weight
+    let alignment: LabelAlignment
 
-    public init(_ text: LocalizedString, colorAssets: ColorAssets = ColorAssets.subText, weight: Font.Weight = .regular) {
+    public init(
+        _ text: LocalizedString,
+        colorAssets: ColorAssets = ColorAssets.subText,
+        weight: Font.Weight = .regular,
+        alignment: LabelAlignment = .leading
+    ) {
         self.text = text
         self.colorAssets = colorAssets
         self.weight = weight
+        self.alignment = alignment
     }
 
     public var body: some View {
@@ -20,8 +27,8 @@ public struct BodyLabel: View {
             .foregroundStyle(colorAssets.color)
             .font(.body)
             .fontWeight(weight)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: alignment.alignment)
+            .multilineTextAlignment(alignment.textAlignment)
     }
 }
 

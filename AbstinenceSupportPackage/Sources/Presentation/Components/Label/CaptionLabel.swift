@@ -7,10 +7,16 @@ public struct CaptionLabel: View {
 
     let text: LocalizedString
     let colorAssets: ColorAssets
+    let alignment: LabelAlignment
 
-    public init(_ text: LocalizedString, colorAssets: ColorAssets = ColorAssets.subText) {
+    public init(
+        _ text: LocalizedString,
+        colorAssets: ColorAssets = ColorAssets.subText,
+        alignment: LabelAlignment = .leading
+    ) {
         self.text = text
         self.colorAssets = colorAssets
+        self.alignment = alignment
     }
 
     public var body: some View {
@@ -18,8 +24,8 @@ public struct CaptionLabel: View {
             .foregroundStyle(colorAssets.color)
             .font(.caption)
             .fontWeight(.regular)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: alignment.alignment)
+            .multilineTextAlignment(alignment.textAlignment)
     }
 }
 

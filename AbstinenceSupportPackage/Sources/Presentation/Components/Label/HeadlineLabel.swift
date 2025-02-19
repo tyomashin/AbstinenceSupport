@@ -7,10 +7,16 @@ public struct HeadlineLabel: View {
 
     let text: LocalizedString
     let colorAssets: ColorAssets
+    let alignment: LabelAlignment
 
-    public init(_ text: LocalizedString, colorAssets: ColorAssets = ColorAssets.baseText) {
+    public init(
+        _ text: LocalizedString,
+        colorAssets: ColorAssets = ColorAssets.baseText,
+        alignment: LabelAlignment = .leading
+    ) {
         self.text = text
         self.colorAssets = colorAssets
+        self.alignment = alignment
     }
 
     public var body: some View {
@@ -18,8 +24,8 @@ public struct HeadlineLabel: View {
             .foregroundStyle(colorAssets.color)
             .font(.headline)
             .fontWeight(.bold)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: alignment.alignment)
+            .multilineTextAlignment(alignment.textAlignment)
             .lineSpacing(4)
     }
 }
