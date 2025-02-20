@@ -11,10 +11,11 @@ struct AbortAbstinenceInteractor: AbortAbstinenceUseCase {
     @Dependency(\.keyChainHelper) var keyChainHelper
     @Dependency(\.userNotificationsHelper) var userNotificationsHelper
 
-    func execute(with abstinenceInformation: AbstinenceInformation) async -> AbstinenceInformation {
+    func execute(with abstinenceInformation: AbstinenceInformation, abortedDate: Date) async -> AbstinenceInformation {
         var currentInfo = abstinenceInformation
         currentInfo.progressStatus = .penaltyPaidForFailure
         keyChainHelper.save(abstinenceInformation: currentInfo)
+        keyChainHelper.save(abortDate: abortedDate)
         // スケジュール中の通知を破棄する
         await userNotificationsHelper.removeAllScheduledNotifications()
         return currentInfo
