@@ -1,6 +1,7 @@
 // Created by okazakishinya on 2025/02/09.
 
 import SwiftUI
+import Dependencies
 import AbstinenceSupportCore
 import Presentation
 
@@ -8,10 +9,11 @@ import Presentation
 struct AbstinenceSupportApp: App {
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
+    @Dependency(\.rootViewModel) var rootViewModel
+    
     var body: some Scene {
         WindowGroup {
-            RootView(viewModel: RootViewModel())
+            RootView(viewModel: rootViewModel)
         }
     }
 }

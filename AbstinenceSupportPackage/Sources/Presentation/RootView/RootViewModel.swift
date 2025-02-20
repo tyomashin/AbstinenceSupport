@@ -13,6 +13,7 @@ public final class RootViewModel: RootViewModelProtocol {
     private var isExecutedStartupSequence = false
 
     @Dependency(\.startupSequenceInteractor) var startupSequenceInteractor
+    @Dependency(\.checkAppTransitionStateInteractor) var checkAppTransitionStateInteractor
 
     public init() {}
 
@@ -28,5 +29,11 @@ public final class RootViewModel: RootViewModelProtocol {
 
     public func completedAbstinenceStart(with info: AbstinenceInformation) {
         appTransitionState = .top(abstinenceInfo: info)
+    }
+
+    public func notifyChangedAppTransitionState() {
+        Task {
+            appTransitionState = await checkAppTransitionStateInteractor.execute()
+        }
     }
 }
