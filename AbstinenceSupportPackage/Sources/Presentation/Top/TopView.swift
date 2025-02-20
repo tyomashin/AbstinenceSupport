@@ -181,6 +181,7 @@ extension TopView {
             startAreaView
 
             AppLottieView(animation: .celebrate1, loopMode: .loop)
+                .padding(.top, 20)
                 .frame(maxWidth: .infinity)
         }
     }
