@@ -28,6 +28,9 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable, Hashable {
         }
         return tmpNextReportStartDate
     }
+    public var nextReportStartDateString: String? {
+        DateUtils.dateString(from: nextReportStartDate, dateFormat: LocalizedString.reportDateFormat.localizedString)
+    }
     /// 次回の報告終了時刻
     public var nextReportEndDate: Date {
         DateUtils.add(hours: 1, to: nextReportStartDate) ?? nextReportStartDate
