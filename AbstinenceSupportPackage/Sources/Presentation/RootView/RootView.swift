@@ -20,8 +20,12 @@ public struct RootView<ViewModel: RootViewModelProtocol>: View {
                 )
                 .transition(.opacity)
             case .top(let abstinenceInfo):
-                // TODO: トップ画面を表示
-                EmptyView()
+                TopView(
+                    viewModel: TopViewModel(
+                        abstinenceInformation: abstinenceInfo
+                    )
+                )
+                .transition(.opacity)
             case .abstinenceStart:
                 AbstinenceStartRootView(
                     viewModel: AbstinenceStartRootViewModel(completionHandler: viewModel.completedAbstinenceStart)
