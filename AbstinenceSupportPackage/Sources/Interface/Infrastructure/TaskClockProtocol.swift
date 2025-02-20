@@ -3,6 +3,6 @@
 import Foundation
 
 public protocol TaskClockProtocol: Sendable {
-    func register(_ task: @escaping @MainActor () -> Void) async
+    func register(_ task: @escaping @MainActor () async -> Void) async
     func unregister() async
 }

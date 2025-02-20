@@ -7,9 +7,9 @@ import Common
 actor MinuteTaskClock: TaskClockProtocol {
 
     var timerTask: Task<Void, Error>?
-    var registeredTask: (@MainActor @Sendable () -> Void)?
+    var registeredTask: (@MainActor @Sendable () async -> Void)?
 
-    func register(_ task: @escaping @MainActor () -> Void) {
+    func register(_ task: @escaping @MainActor () async -> Void) {
         unregister()
         registeredTask = task
         timerTask = Task(priority: .high) {
