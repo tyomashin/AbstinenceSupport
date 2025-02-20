@@ -19,6 +19,8 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
     var reportTime: Date = Date()
     /// ペナルティ
     var penaltyInfo: PenaltyInfo = .freePenaltyInfo()
+    /// 処理中フラグ
+    var isProcessing: Bool = false
 
     @Dependency(\.fetchAllPenaltyInfoInteractor) var fetchAllPenaltyInfoInteractor
     @Dependency(\.upsertAbstinenceInfoInteractor) var upsertAbstinenceInfoInteractor
@@ -51,6 +53,8 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
     }
 
     func tappedConfirmationStartButton() {
+        guard !isProcessing else { return }
+        isProcessing = true
         Task {
             let info = AbstinenceInformation(
                 title: abstinenceTitle,
@@ -62,6 +66,7 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
             )
             await upsertAbstinenceInfoInteractor.execute(info)
             navigationPath.append(.completion(info: info))
+            isProcessing = false
         }
     }
 
