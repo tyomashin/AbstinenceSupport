@@ -8,6 +8,7 @@ public enum LocalizedString {
 
     case nextButton
     case closeButton
+    case cancelButton
     case timeFormat
     case reportDateFormat
 
@@ -76,9 +77,12 @@ public enum LocalizedString {
     case topAbstinenceSuccessDays(days: Int)
     case topReportSuccessButtonTitle
     case topReportFailButtonTitle
+    case topReportFailAlertTitle
+    case topReportFailAlertDetail
+    case topReportFailAlertOKButton
     case topAbortButtonTitle
-    case topAbortTitle
-    case topAbortDetail
+    case topAbortAlertTitle
+    case topAbortAlertDetail
     case topAbortCondition(days: Int)
     case topNewStartButtonTitle
     case topReportDetail(startDate: String)
@@ -96,6 +100,8 @@ extension LocalizedString {
             String(localized: "nextButton", defaultValue: "次へ")
         case .closeButton:
             String(localized: "closeButton", defaultValue: "閉じる")
+        case .cancelButton:
+            String(localized: "cancelButton", defaultValue: "キャンセル")
         case .timeFormat:
             String(localized: "timeFormat", defaultValue: "H 時 mm 分")
         case .reportDateFormat:
@@ -276,12 +282,18 @@ extension LocalizedString {
             String(localized: "topReportSuccessButtonTitle", defaultValue: "本日の禁欲達成報告")
         case .topReportFailButtonTitle:
             String(localized: "topReportFailButtonTitle", defaultValue: "禁欲の失敗報告")
+        case .topReportFailAlertTitle:
+            String(localized: "topReportFailAlertTitle", defaultValue: "禁欲の失敗")
+        case .topReportFailAlertDetail:
+            String(localized: "topReportFailAlertDetail", defaultValue: "禁欲に失敗したことを自己申告しますか？事前に設定したペナルティを支払う必要があります。")
+        case .topReportFailAlertOKButton:
+            String(localized: "topReportFailAlertOKButton", defaultValue: "失敗を報告する")
         case .topAbortButtonTitle:
             String(localized: "topAbortButtonTitle", defaultValue: "禁欲を中止する")
-        case .topAbortTitle:
-            String(localized: "topAbortTitle", defaultValue: "禁欲の中止")
-        case .topAbortDetail:
-            String(localized: "topAbortDetail", defaultValue: "現在進行中の禁欲を中止して、新しい禁欲を開始しますか？一度禁欲を中止すると、しばらくの期間は禁欲を中止できなくなります。")
+        case .topAbortAlertTitle:
+            String(localized: "topAbortAlertTitle", defaultValue: "禁欲の中止")
+        case .topAbortAlertDetail:
+            String(localized: "topAbortAlertDetail", defaultValue: "現在進行中の禁欲を中止して、新しい禁欲を開始しますか？一度禁欲を中止すると、しばらくの期間は禁欲を中止できなくなります。")
         case .topAbortCondition(let days):
             String(localized: "topAbortCondition", defaultValue: "\(days) 日経過後に禁欲を中止できます")
         case .topNewStartButtonTitle:

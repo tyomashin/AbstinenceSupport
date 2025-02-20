@@ -331,6 +331,17 @@
         }
       }
     },
+    "cancelButton" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "キャンセル"
+          }
+        }
+      }
+    },
     "closeButton" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -507,6 +518,28 @@
         }
       }
     },
+    "topAbortAlertDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "現在進行中の禁欲を中止して、新しい禁欲を開始しますか？一度禁欲を中止すると、しばらくの期間は禁欲を中止できなくなります。"
+          }
+        }
+      }
+    },
+    "topAbortAlertTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲の中止"
+          }
+        }
+      }
+    },
     "topAbortButtonTitle" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -525,28 +558,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%lld 日経過後に禁欲を中止できます"
-          }
-        }
-      }
-    },
-    "topAbortDetail" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "現在進行中の禁欲を中止して、新しい禁欲を開始しますか？一度禁欲を中止すると、しばらくの期間は禁欲を中止できなくなります。"
-          }
-        }
-      }
-    },
-    "topAbortTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "禁欲の中止"
           }
         }
       }
@@ -624,6 +635,39 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ から1時間以内に報告してください。"
+          }
+        }
+      }
+    },
+    "topReportFailAlertDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲に失敗したことを自己申告しますか？事前に設定したペナルティを支払う必要があります。"
+          }
+        }
+      }
+    },
+    "topReportFailAlertOKButton" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "失敗を報告する"
+          }
+        }
+      }
+    },
+    "topReportFailAlertTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲の失敗"
           }
         }
       }
