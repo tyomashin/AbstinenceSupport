@@ -28,6 +28,9 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable, Hashable {
         }
         return tmpNextReportStartDate
     }
+    public var nextReportStartDateString: String? {
+        DateUtils.dateString(from: nextReportStartDate, dateFormat: LocalizedString.reportDateFormat.localizedString)
+    }
     /// 次回の報告終了時刻
     public var nextReportEndDate: Date {
         DateUtils.add(hours: 1, to: nextReportStartDate) ?? nextReportStartDate
@@ -78,8 +81,9 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable, Hashable {
     /// 禁欲ステータスを更新する
     /// - Parameter currentDate: 現在日時
     public mutating func updateProgressStatus(currentDate: Date) {
-        // すでに禁欲失敗ステータスの場合は何もしない
+        // すでに禁欲成功 or 失敗ステータスの場合は何もしない
         guard !progressStatus.isFailure else { return }
+        guard !progressStatus.isSuccess else { return }
 
         // 報告回数が禁欲目標日数以上なら、禁欲成功ステータスにする
         if reportedCount >= targetDays {

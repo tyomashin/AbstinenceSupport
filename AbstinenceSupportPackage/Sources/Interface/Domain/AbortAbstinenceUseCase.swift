@@ -5,5 +5,5 @@ import Entity
 
 /// 禁欲処理を中断する
 public protocol AbortAbstinenceUseCase: Sendable {
-    func execute(with abstinenceInformation: AbstinenceInformation) async -> AbstinenceInformation
+    func execute(with abstinenceInformation: AbstinenceInformation, abortedDate: Date) async -> AbstinenceInformation
 }

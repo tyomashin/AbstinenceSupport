@@ -37,6 +37,7 @@ struct AbstinenceStartConfirmationView<ViewModel: AbstinenceStartRootViewModelPr
             FillButton(.abstinenceConfirmationButton, colorAssets: .baseAccent) {
                 viewModel.tappedConfirmationStartButton()
             }
+            .disabled(viewModel.isProcessing)
         }
         .padding(.bottom, 20)
         .safeAreaPadding(.horizontal, 16)

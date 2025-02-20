@@ -11,6 +11,7 @@ class AbstinenceStartRootViewModelPreview: AbstinenceStartRootViewModelProtocol 
     var targetDays: Int = 10
     var reportTime: Date = Date()
     var penaltyInfo: PenaltyInfo = .freePenaltyInfo()
+    var isProcessing = false
     var completionHandler: (AbstinenceInformation) -> Void = { _ in }
 
     func tappedNameEntryNextButton(title: String, detail: String?) {}

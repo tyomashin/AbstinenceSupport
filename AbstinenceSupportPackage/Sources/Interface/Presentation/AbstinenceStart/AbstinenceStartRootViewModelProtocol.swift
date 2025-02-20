@@ -12,6 +12,7 @@ public protocol AbstinenceStartRootViewModelProtocol: ObservableObject {
     var targetDays: Int { get }
     var reportTime: Date { get }
     var penaltyInfo: PenaltyInfo { get }
+    var isProcessing: Bool { get }
     var completionHandler: (_ info: AbstinenceInformation) -> Void { get }
 
     func tappedNameEntryNextButton(title: String, detail: String?)

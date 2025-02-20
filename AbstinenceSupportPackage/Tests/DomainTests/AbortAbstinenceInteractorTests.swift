@@ -28,7 +28,7 @@ struct AbortAbstinenceInteractorTests {
     
     @Test("失敗ステータスに更新されていることを確認")
     func updateFailureStatus() async throws {
-        let result = await interactor.execute(with: testEntity)
+        let result = await interactor.execute(with: testEntity, abortedDate: Date())
         #expect(result.progressStatus == .penaltyPaidForFailure)
         #expect(keyChainHelperStub.abstinenceInformation == result)
     }
@@ -39,7 +39,14 @@ struct AbortAbstinenceInteractorTests {
             userNotificationsHelperStub.onCalledRemoveAllNotification = {
                 handler()
             }
-            _ = await interactor.execute(with: testEntity)
+            _ = await interactor.execute(with: testEntity, abortedDate: Date())
         }
+    }
+    
+    @Test("中止日時が保存されていることを確認")
+    func saveAbortedDate() async throws {
+        let abortedDate = Date()
+        let result = await interactor.execute(with: testEntity, abortedDate: abortedDate)
+        #expect(keyChainHelperStub.abortDate == abortedDate)
     }
 }

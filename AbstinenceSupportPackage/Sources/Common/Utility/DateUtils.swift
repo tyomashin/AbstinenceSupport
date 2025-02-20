@@ -87,4 +87,8 @@ public struct DateUtils {
         formatter.dateFormat = dateFormat
         return formatter.string(from: date)
     }
+
+    public static func nextZeroSeconds(from date: Date) -> Date? {
+        calendar.nextDate(after: date, matching: DateComponents(second: .zero), matchingPolicy: .strict)
+    }
 }
