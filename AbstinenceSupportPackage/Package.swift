@@ -47,7 +47,11 @@ let package = Package(
         .target(
             name: "AbstinenceSupportCore",
             dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+                "Common",
                 "Presentation",
+                "Domain",
+                "Entity",
             ]
         ),
         .target(
