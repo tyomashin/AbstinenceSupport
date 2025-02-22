@@ -8,7 +8,7 @@ import Entity
 
 struct ReportAbstinenceAchievedInteractor: ReportAbstinenceAchievedUseCase {
 
-    @Dependency(\.keyChainHelper) var keyChainHelper
+    @Dependency(\.upsertAbstinenceInfoInteractor) var upsertAbstinenceInfoInteractor
     @Dependency(\.userNotificationsHelper) var userNotificationsHelper
 
     func execute(with abstinenceInformation: AbstinenceInformation, reportDate: Date) async -> AbstinenceInformation {
@@ -24,7 +24,7 @@ struct ReportAbstinenceAchievedInteractor: ReportAbstinenceAchievedUseCase {
             await userNotificationsHelper.removeAllScheduledNotifications()
         }
 
-        keyChainHelper.save(abstinenceInformation: currentInfo)
+        await upsertAbstinenceInfoInteractor.execute(currentInfo)
         return currentInfo
     }
 }

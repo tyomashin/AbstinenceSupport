@@ -11,15 +11,15 @@ import Dependencies
 struct ReportAbstinenceAchievedInteractorTests {
 
     var interactor: ReportAbstinenceAchievedInteractor!
-    let keyChainHelperStub: KeyChainHelperStub
+    let upsertAbstinenceInfoInteractorStub: UpsertAbstinenceInfoInteractorStub
     let userNotificationsHelperStub: UserNotificationsHelperStub
     var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
     
     init() {
-        self.keyChainHelperStub = KeyChainHelperStub()
+        self.upsertAbstinenceInfoInteractorStub = UpsertAbstinenceInfoInteractorStub()
         self.userNotificationsHelperStub = UserNotificationsHelperStub()
         interactor = withDependencies {
-            $0.keyChainHelper = keyChainHelperStub
+            $0.upsertAbstinenceInfoInteractor = upsertAbstinenceInfoInteractorStub
             $0.userNotificationsHelper = userNotificationsHelperStub
         } operation: {
             ReportAbstinenceAchievedInteractor()
@@ -31,9 +31,13 @@ struct ReportAbstinenceAchievedInteractorTests {
         DateUtils.makeDate(year: 2024, month: 1, day: 1)!,
         DateUtils.makeDate(year: 2025, month: 12, day: 31)!,
     ]) func reportAbstinenceAchieved(reportDate: Date) async throws {
-        let result = await interactor.execute(with: testEntity, reportDate: reportDate)
-        #expect(result.currentReportedDate == reportDate)
-        #expect(keyChainHelperStub.abstinenceInformation == result)
+        await confirmation(expectedCount: 1) { handler in
+            upsertAbstinenceInfoInteractorStub.onCalled = { _ in
+                handler()
+            }
+            let result = await interactor.execute(with: testEntity, reportDate: reportDate)
+            #expect(result.currentReportedDate == reportDate)
+        }
     }
 
     @Test("報告回数が正常に加算されていることを確認") func reportAbstinenceAchieved() async throws {
