@@ -61,7 +61,7 @@ struct AbstinenceInformationTests {
         #expect(abstinenceInformation.elapsedDays == expectedResult)
     }
     
-    @Test("次回の報告予定日のチェック：初回の達成報告前、かつ禁欲開始日時が報告予定日時の６時間未満だったら翌日が報告予定日になること", arguments: [
+    @Test("次回の報告予定日のチェック：初回禁欲開始日時が報告予定日時の６時間未満だった場合、初回報告予定日は開始日翌日になること", arguments: [
         (9, 0, 0),
         (12, 0, 0),
         (14, 0, 0)
@@ -86,7 +86,7 @@ struct AbstinenceInformationTests {
         #expect(info.nextReportEndDate == DateUtils.add(hours: 1, to: info.nextReportStartDate))
     }
     
-    @Test("次回の報告予定日のチェック：初回の達成報告前、かつ禁欲開始日時が報告予定日時を６時間以上離れていたら当日が報告予定日になること", arguments: [
+    @Test("次回の報告予定日のチェック：初回禁欲開始日時が報告予定日時を６時間以上離れていた場合、初回報告予定日は開始日当日になること", arguments: [
         (15, 0, 0),
         (20, 0, 0),
         (23, 0, 0)
@@ -111,9 +111,12 @@ struct AbstinenceInformationTests {
         #expect(info.nextReportEndDate == DateUtils.add(hours: 1, to: info.nextReportStartDate))
     }
     
-    @Test("次回の報告予定日のチェック：初回達成報告済みの場合、次回報告予定日は「報告回数+1」日後になっていること", arguments: [
+    @Test("次回の報告予定日のチェック：初回禁欲開始日時が報告予定日時を６時間以上離れていた場合、2回目以降の報告予定日は「報告回数」日後になっていること", arguments: [
+        // 報告予定時間：15:00 、報告回数：1回
         ((15, 0, 0), 1),
+        // 報告予定時間：20:00 、報告回数：4回
         ((20, 0, 0), 4),
+        // 報告予定時間：23:00 、報告回数：10回
         ((23, 0, 0), 10)
     ])
     func nextReportStartDateWhenReported(scheduledReportTime: DateUtils.Time, reportedCount: Int) async throws {
@@ -130,8 +133,8 @@ struct AbstinenceInformationTests {
         
         // 次回報告予定日の時分秒が scheduledReportDate と同じになっていること
         #expect(nextReportStartTime == scheduledReportTime)
-        // 次回報告予定日が「報告回数+1」日後になっていること
-        #expect(DateUtils.daysBetween(from: startDate, to: info.nextReportStartDate) == reportedCount + 1)
+        // 次回報告予定日が「報告回数」日後になっていること
+        #expect(DateUtils.daysBetween(from: startDate, to: info.nextReportStartDate) == reportedCount)
         // 次回報告終了日は次回報告予定日の1時間後になっていること
         #expect(info.nextReportEndDate == DateUtils.add(hours: 1, to: info.nextReportStartDate))
     }
@@ -215,12 +218,12 @@ struct AbstinenceInformationTests {
                 DateUtils.makeDate(from: (2,0,0))!,
                 9
             ),
-            // 現在日時が2024/1/10 9:00、開始日時が2024/1/1 0:00
+            // 現在日時が2024/1/9 9:00、開始日時が2024/1/1 0:00
             // 初回報告日時は2024/1/1 6:00
             // 報告済み回数が9
-            // -> 次回報告終了時刻は2024/1/11 7:00
+            // -> 次回報告終了時刻は2024/1/10 7:00
             (
-                DateUtils.makeDate(year: 2024, month: 1, day: 10, time: (9,0,0))!,
+                DateUtils.makeDate(year: 2024, month: 1, day: 9, time: (9,0,0))!,
                 DateUtils.makeDate(year: 2024, month: 1, day: 1, time: (0,0,0))!,
                 DateUtils.makeDate(from: (6,0,0))!,
                 9

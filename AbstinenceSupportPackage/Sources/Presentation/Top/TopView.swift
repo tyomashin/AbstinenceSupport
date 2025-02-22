@@ -126,6 +126,7 @@ extension TopView {
             reportAreaView
                 .padding(.top, 20)
         }
+        .animation(.default, value: viewModel.abstinenceInformation.rateOfProgress)
     }
 
     /// 報告エリア

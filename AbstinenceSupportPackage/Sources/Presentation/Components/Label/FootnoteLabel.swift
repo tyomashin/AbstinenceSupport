@@ -7,15 +7,18 @@ public struct FootnoteLabel: View {
 
     let text: LocalizedString
     let colorAssets: ColorAssets
+    let weight: Font.Weight
     let alignment: LabelAlignment
 
     public init(
         _ text: LocalizedString,
         colorAssets: ColorAssets = ColorAssets.subText,
+        weight: Font.Weight = .regular,
         alignment: LabelAlignment = .leading
     ) {
         self.text = text
         self.colorAssets = colorAssets
+        self.weight = weight
         self.alignment = alignment
     }
 
@@ -23,7 +26,7 @@ public struct FootnoteLabel: View {
         Text(text.localizedString)
             .foregroundStyle(colorAssets.color)
             .font(.footnote)
-            .fontWeight(.regular)
+            .fontWeight(weight)
             .frame(maxWidth: .infinity, alignment: alignment.alignment)
             .multilineTextAlignment(alignment.textAlignment)
     }

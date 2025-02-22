@@ -38,6 +38,7 @@ public final class TopViewModel: TopViewModelProtocol {
     @Dependency(\.abortAbstinenceInteractor) var abortAbstinenceInteractor
     @Dependency(\.fetchRestrictiveAbortStateInteractor) var fetchRestrictiveAbortStateInteractor
     @Dependency(\.notifyChangedAppTransitionState) var notifyChangedAppTransitionState
+    @Dependency(\.upsertAbstinenceInfoInteractor) var upsertAbstinenceInfoInteractor
 
     init(
         abstinenceInformation: AbstinenceInformation
@@ -63,6 +64,8 @@ public final class TopViewModel: TopViewModelProtocol {
         // 禁欲ステータスを最新化する
         let currentDate = Date()
         abstinenceInformation.updateProgressStatus(currentDate: currentDate)
+        await upsertAbstinenceInfoInteractor.execute(abstinenceInformation)
+
         switch abstinenceInformation.progressStatus {
         case .inProgress:
             // 中止ボタンの活性・非活性化処理
@@ -146,6 +149,7 @@ extension TopViewModel {
     fileprivate func checkCurrentStatus() async {
         let currentDate = Date()
         abstinenceInformation.updateProgressStatus(currentDate: currentDate)
+        await upsertAbstinenceInfoInteractor.execute(abstinenceInformation)
 
         switch abstinenceInformation.progressStatus {
         case .inProgress:

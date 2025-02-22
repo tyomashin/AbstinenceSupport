@@ -18,12 +18,12 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable, Hashable {
     public var scheduledReportDate: Date
     /// 次回の報告開始日時
     public var nextReportStartDate: Date {
-        // 次回の報告日を決定する
-        guard var tmpNextReportStartDate = DateUtils.add(days: reportedCount + 1, to: startDate) else { return startDate }
-        // 予定時刻になるように調整
-        tmpNextReportStartDate = DateUtils.apply(time: DateUtils.time(from: scheduledReportDate), to: tmpNextReportStartDate)
-        // 初回のみ、もし禁欲開始日時と次回報告日時が30時間以上空いている場合は当日になるように調整
-        if reportedCount == 0 && DateUtils.hoursBetween(from: startDate, to: tmpNextReportStartDate) >= 30 {
+        // 初回の報告予定日を取得
+        let firstScheduledReportDate = makeScheduledReportDate(withReportedCount: 0)
+        // 次回の報告予定日（仮）
+        var tmpNextReportStartDate = makeScheduledReportDate(withReportedCount: reportedCount)
+        // もし初回報告予定日が禁欲開始日時から30時間以上空いている場合、当日になるように調整をかける
+        if DateUtils.hoursBetween(from: startDate, to: firstScheduledReportDate) >= 30 {
             tmpNextReportStartDate = DateUtils.add(days: -1, to: tmpNextReportStartDate) ?? tmpNextReportStartDate
         }
         return tmpNextReportStartDate
@@ -97,5 +97,12 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable, Hashable {
         else {
             progressStatus = .inProgress
         }
+    }
+
+    /// 報告回数をもとに次回報告予定日を計算する
+    private func makeScheduledReportDate(withReportedCount reportedCount: Int) -> Date {
+        guard var tmpNextReportStartDate = DateUtils.add(days: reportedCount + 1, to: startDate) else { return startDate }
+        tmpNextReportStartDate = DateUtils.apply(time: DateUtils.time(from: scheduledReportDate), to: tmpNextReportStartDate)
+        return tmpNextReportStartDate
     }
 }

@@ -704,6 +704,105 @@
           }
         }
       }
+    },
+    "widgetDescription" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲の進行状況が確認できます"
+          }
+        }
+      }
+    },
+    "widgetEmptyTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲情報が読み取れませんでした。アプリを起動してください。"
+          }
+        }
+      }
+    },
+    "widgetInprogressDays" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%lld 日間"
+          }
+        }
+      }
+    },
+    "widgetProgressFailureTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲 失敗"
+          }
+        }
+      }
+    },
+    "widgetProgressInProgressTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲継続中"
+          }
+        }
+      }
+    },
+    "widgetProgressSuccessTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲成功🎉"
+          }
+        }
+      }
+    },
+    "widgetScheduledReportDateForNormal" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "報告予定日時：\n%@〜"
+          }
+        }
+      }
+    },
+    "widgetScheduledReportDateForSmall" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%@〜"
+          }
+        }
+      }
+    },
+    "widgetTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲サポート"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

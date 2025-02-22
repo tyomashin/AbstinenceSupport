@@ -87,6 +87,18 @@ public enum LocalizedString {
     case topNewStartButtonTitle
     case topReportDetail(startDate: String)
 
+    // MARK: ウィジェット
+
+    case widgetTitle
+    case widgetDescription
+    case widgetEmptyTitle
+    case widgetScheduledReportDateForSmall(startDate: String)
+    case widgetScheduledReportDateForNormal(startDate: String)
+    case widgetProgressSuccessTitle
+    case widgetProgressInProgressTitle
+    case widgetProgressFailureTitle
+    case widgetInprogressDays(days: Int)
+
     // MARK: その他
 
     case anyText(_ text: String)
@@ -300,6 +312,24 @@ extension LocalizedString {
             String(localized: "topNewStartButtonTitle", defaultValue: "新しい禁欲を開始する")
         case .topReportDetail(let startDate):
             String(localized: "topReportDetail", defaultValue: "\(startDate) から1時間以内に報告してください。")
+        case .widgetTitle:
+            String(localized: "widgetTitle", defaultValue: "禁欲サポート")
+        case .widgetDescription:
+            String(localized: "widgetDescription", defaultValue: "禁欲の進行状況が確認できます")
+        case .widgetEmptyTitle:
+            String(localized: "widgetEmptyTitle", defaultValue: "禁欲情報が読み取れませんでした。アプリを起動してください。")
+        case .widgetScheduledReportDateForSmall(let startDate):
+            String(localized: "widgetScheduledReportDateForSmall", defaultValue: "\(startDate)〜")
+        case .widgetScheduledReportDateForNormal(let startDate):
+            String(localized: "widgetScheduledReportDateForNormal", defaultValue: "報告予定日時：\n\(startDate)〜")
+        case .widgetProgressSuccessTitle:
+            String(localized: "widgetProgressSuccessTitle", defaultValue: "禁欲成功🎉")
+        case .widgetProgressInProgressTitle:
+            String(localized: "widgetProgressInProgressTitle", defaultValue: "禁欲継続中")
+        case .widgetProgressFailureTitle:
+            String(localized: "widgetProgressFailureTitle", defaultValue: "禁欲 失敗")
+        case .widgetInprogressDays(let days):
+            String(localized: "widgetInprogressDays", defaultValue: "\(days) 日間")
         }
     }
 }

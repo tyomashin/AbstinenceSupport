@@ -11,11 +11,14 @@ struct UpsertAbstinenceInfoInteractorTests {
 
     var interactor: UpsertAbstinenceInfoInteractor!
     let keyChainHelperStub: KeyChainHelperStub
+    let widgetKitHelperStub: WidgetKitHelperStub
     
     init() {
         self.keyChainHelperStub = KeyChainHelperStub()
+        self.widgetKitHelperStub = WidgetKitHelperStub()
         interactor = withDependencies {
             $0.keyChainHelper = keyChainHelperStub
+            $0.widgetKitHelper = widgetKitHelperStub
         } operation: {
             UpsertAbstinenceInfoInteractor()
         }
@@ -28,4 +31,14 @@ struct UpsertAbstinenceInfoInteractorTests {
         #expect(keyChainHelperStub.readAbstinenceInformation() == abstinenceInfo)
     }
 
+    @Test("Widget のタイムライン再読み込みが実行されていることを確認", arguments: [
+        AbstinenceInformation(title: "", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
+    ]) func reloadWidget(abstinenceInfo: AbstinenceInformation) async throws {
+        await confirmation(expectedCount: 1) { handler in
+            widgetKitHelperStub.onCalledReloadAllTimelines = {
+                handler()
+            }
+            await interactor.execute(abstinenceInfo)
+        }
+    }
 }

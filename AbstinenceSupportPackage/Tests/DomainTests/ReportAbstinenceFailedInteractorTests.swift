@@ -11,15 +11,15 @@ import Dependencies
 struct ReportAbstinenceFailedInteractorTests {
 
     var interactor: ReportAbstinenceFailedInteractor!
-    let keyChainHelperStub: KeyChainHelperStub
+    let upsertAbstinenceInfoInteractorStub: UpsertAbstinenceInfoInteractorStub
     let userNotificationsHelperStub: UserNotificationsHelperStub
     var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
     
     init() {
-        self.keyChainHelperStub = KeyChainHelperStub()
+        self.upsertAbstinenceInfoInteractorStub = UpsertAbstinenceInfoInteractorStub()
         self.userNotificationsHelperStub = UserNotificationsHelperStub()
         interactor = withDependencies {
-            $0.keyChainHelper = keyChainHelperStub
+            $0.upsertAbstinenceInfoInteractor = upsertAbstinenceInfoInteractorStub
             $0.userNotificationsHelper = userNotificationsHelperStub
         } operation: {
             ReportAbstinenceFailedInteractor()
@@ -28,9 +28,13 @@ struct ReportAbstinenceFailedInteractorTests {
     
     @Test("失敗ステータスに更新されていることを確認")
     func updateFailureStatus() async throws {
-        let result = await interactor.execute(with: testEntity)
-        #expect(result.progressStatus == .penaltyUnpaidForFailure)
-        #expect(keyChainHelperStub.abstinenceInformation == result)
+        await confirmation(expectedCount: 1) { handler in
+            upsertAbstinenceInfoInteractorStub.onCalled = { _ in
+                handler()
+            }
+            let result = await interactor.execute(with: testEntity)
+            #expect(result.progressStatus == .penaltyUnpaidForFailure)
+        }
     }
     
     @Test("スケジュールされた通知削除が実行されていることを確認")

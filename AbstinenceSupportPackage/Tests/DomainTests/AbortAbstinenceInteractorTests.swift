@@ -13,14 +13,17 @@ struct AbortAbstinenceInteractorTests {
     var interactor: AbortAbstinenceInteractor!
     let keyChainHelperStub: KeyChainHelperStub
     let userNotificationsHelperStub: UserNotificationsHelperStub
+    let upsertAbstinenceInfoInteractorStub: UpsertAbstinenceInfoInteractorStub
     var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
     
     init() {
         self.keyChainHelperStub = KeyChainHelperStub()
         self.userNotificationsHelperStub = UserNotificationsHelperStub()
+        self.upsertAbstinenceInfoInteractorStub = UpsertAbstinenceInfoInteractorStub()
         interactor = withDependencies {
             $0.keyChainHelper = keyChainHelperStub
             $0.userNotificationsHelper = userNotificationsHelperStub
+            $0.upsertAbstinenceInfoInteractor = upsertAbstinenceInfoInteractorStub
         } operation: {
             AbortAbstinenceInteractor()
         }
@@ -28,9 +31,13 @@ struct AbortAbstinenceInteractorTests {
     
     @Test("失敗ステータスに更新されていることを確認")
     func updateFailureStatus() async throws {
-        let result = await interactor.execute(with: testEntity, abortedDate: Date())
-        #expect(result.progressStatus == .penaltyPaidForFailure)
-        #expect(keyChainHelperStub.abstinenceInformation == result)
+        await confirmation(expectedCount: 1) { handler in
+            upsertAbstinenceInfoInteractorStub.onCalled = { _ in
+                handler()
+            }
+            let result = await interactor.execute(with: testEntity, abortedDate: Date())
+            #expect(result.progressStatus == .penaltyPaidForFailure)
+        }
     }
     
     @Test("スケジュールされた通知削除が実行されていることを確認")
@@ -46,7 +53,7 @@ struct AbortAbstinenceInteractorTests {
     @Test("中止日時が保存されていることを確認")
     func saveAbortedDate() async throws {
         let abortedDate = Date()
-        let result = await interactor.execute(with: testEntity, abortedDate: abortedDate)
+        _ = await interactor.execute(with: testEntity, abortedDate: abortedDate)
         #expect(keyChainHelperStub.abortDate == abortedDate)
     }
 }
