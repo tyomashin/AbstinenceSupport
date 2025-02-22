@@ -4,6 +4,9 @@ import Foundation
 import Interface
 
 struct KeyChainHelper: KeyChainHelperProtocol {
+
+    let teamID = "38BV25GUUS.com.tyomashin.AbstinenceSupport.SharedItems"
+
     func save<Item: Codable>(abstinenceInformation: Item) {
         save(
             item: abstinenceInformation,
@@ -38,6 +41,8 @@ extension KeyChainHelper {
                 kSecClass: kSecClassGenericPassword,
                 kSecAttrService: service,
                 kSecAttrAccount: account,
+                kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlock,
+                kSecAttrAccessGroup: teamID,
             ] as CFDictionary
 
         let matchingStatus = SecItemCopyMatching(query, nil)
@@ -60,6 +65,8 @@ extension KeyChainHelper {
                 kSecAttrAccount: account,
                 kSecClass: kSecClassGenericPassword,
                 kSecReturnData: true,
+                kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlock,
+                kSecAttrAccessGroup: teamID,
             ] as CFDictionary
 
         var result: AnyObject?
@@ -80,6 +87,8 @@ extension KeyChainHelper {
                 kSecAttrService: service,
                 kSecAttrAccount: account,
                 kSecClass: kSecClassGenericPassword,
+                kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlock,
+                kSecAttrAccessGroup: teamID,
             ] as CFDictionary
         SecItemDelete(query)
     }
