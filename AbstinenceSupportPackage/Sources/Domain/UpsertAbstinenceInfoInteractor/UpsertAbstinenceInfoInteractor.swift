@@ -9,8 +9,11 @@ import Infrastructure
 struct UpsertAbstinenceInfoInteractor: UpsertAbstinenceInfoUseCase {
 
     @Dependency(\.keyChainHelper) var keyChainHelper
+    @Dependency(\.widgetKitHelper) var widgetKitHelper
 
     func execute(_ info: AbstinenceInformation) async {
         keyChainHelper.save(abstinenceInformation: info)
+        // ウィジェットのタイムラインを更新する
+        await widgetKitHelper.reloadAllTimelines()
     }
 }
