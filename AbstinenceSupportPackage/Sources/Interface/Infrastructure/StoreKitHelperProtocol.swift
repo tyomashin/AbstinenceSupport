@@ -10,4 +10,6 @@ public protocol StoreKitHelperProtocol: Sendable {
     /// 商品を購入する
     /// - Parameter product: 購入する商品
     func purchase(_ product: Product) async throws -> Product.PurchaseResult
+    /// トランザクションを監視して購入処理を完了させる
+    func subscriptionTransactionUpdate() async
 }

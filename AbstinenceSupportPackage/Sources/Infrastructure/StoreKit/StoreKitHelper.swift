@@ -4,7 +4,7 @@ import Foundation
 import StoreKit
 import Interface
 
-struct StoreKitHelper: StoreKitHelperProtocol {
+actor StoreKitHelper: StoreKitHelperProtocol {
 
     func fetchAllProducts() async throws -> [Product] {
         try await Product.products(for: PurchaseProductIDs.enableIDs)
@@ -28,4 +28,16 @@ struct StoreKitHelper: StoreKitHelperProtocol {
         }
     }
 
+    func subscriptionTransactionUpdate() async {
+        Task(priority: .background) {
+            for await verificationResult in Transaction.updates {
+                switch verificationResult {
+                case .unverified:
+                    continue
+                case .verified(let transaction):
+                    await transaction.finish()
+                }
+            }
+        }
+    }
 }
