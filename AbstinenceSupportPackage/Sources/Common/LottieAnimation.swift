@@ -7,6 +7,7 @@ public enum LottieAnimation: String {
     case abstinenceStart = "AbstinenceStart"
     case celebrate1 = "Celebrate1"
     case celebrate2 = "Celebrate2"
+    case failed = "Failed"
 }
 
 public struct AppLottieView: View {
