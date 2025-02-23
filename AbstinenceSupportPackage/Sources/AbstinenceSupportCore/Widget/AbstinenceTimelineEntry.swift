@@ -32,9 +32,9 @@ struct AbstinenceTimelineEntry: TimelineEntry {
     /// 進捗 View の色
     func progressColor(with entity: AbstinenceInformation) -> ColorAssets {
         switch entity.progressStatus {
-        case .inProgress, .success:
+        case .inProgress, .success, .penaltyPaidForFailure:
             ColorAssets.deepAccent
-        case .penaltyUnpaidForFailure, .penaltyPaidForFailure:
+        case .penaltyUnpaidForFailure:
             ColorAssets.subBland
         }
     }
@@ -52,6 +52,26 @@ struct AbstinenceTimelineEntry: TimelineEntry {
             }
         case .success, .penaltyUnpaidForFailure, .penaltyPaidForFailure:
             return nil
+        }
+    }
+
+    /// ウィジェットタイトル
+    func title(with entity: AbstinenceInformation) -> LocalizedString? {
+        switch entity.progressStatus {
+        case .inProgress, .success, .penaltyUnpaidForFailure:
+            .anyText(entity.title)
+        case .penaltyPaidForFailure:
+            nil
+        }
+    }
+
+    /// ウィジェット詳細
+    func detail(with entity: AbstinenceInformation) -> LocalizedString? {
+        switch entity.progressStatus {
+        case .inProgress, .success, .penaltyUnpaidForFailure:
+            nil
+        case .penaltyPaidForFailure:
+            .widgetContentPaidTitle
         }
     }
 }

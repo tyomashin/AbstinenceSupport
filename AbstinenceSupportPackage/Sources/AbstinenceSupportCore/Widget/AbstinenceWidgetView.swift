@@ -118,7 +118,13 @@ struct AbstinenceWidgetView: View {
 
                 // MARK: 禁欲情報
 
-                BodyLabel(.anyText(entity.title), colorAssets: .baseBland, weight: .bold, alignment: .leading)
+                if let title = entry.title(with: entity) {
+                    BodyLabel(title, colorAssets: .baseBland, weight: .bold, alignment: .leading)
+                }
+
+                if let detail = entry.detail(with: entity) {
+                    BodyLabel(detail, colorAssets: .baseText, weight: .regular, alignment: .leading)
+                }
 
                 // MARK: 次回報告予定日
 

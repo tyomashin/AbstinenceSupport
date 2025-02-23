@@ -353,6 +353,105 @@
         }
       }
     },
+    "failureDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "最初の決意を日々思い出して、禁欲を習慣にすることが大切です。\n気持ちの整理ができたら、再度チャレンジしましょう。"
+          }
+        }
+      }
+    },
+    "failurePayCompletionAlertDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ペナルティの支払いが完了しました。新しい禁欲を開始できます。"
+          }
+        }
+      }
+    },
+    "failurePayCompletionAlertTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "支払い完了"
+          }
+        }
+      }
+    },
+    "failurePayFailedAlertDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ペナルティの支払いが完了できませんでした。"
+          }
+        }
+      }
+    },
+    "failurePayFailedAlertTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "エラー"
+          }
+        }
+      }
+    },
+    "failurePayPenaltyButtonTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ペナルティを支払う"
+          }
+        }
+      }
+    },
+    "failurePenaltyNotice" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "アプリの利用を継続するにはペナルティを支払う必要があります。"
+          }
+        }
+      }
+    },
+    "failurePenaltyTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "あなたが設定したペナルティ"
+          }
+        }
+      }
+    },
+    "failureTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲に失敗しました"
+          }
+        }
+      }
+    },
     "nextButton" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -360,6 +459,17 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "次へ"
+          }
+        }
+      }
+    },
+    "okButton" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "OK"
           }
         }
       }
@@ -701,6 +811,17 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "入力してください"
+          }
+        }
+      }
+    },
+    "widgetContentPaidTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "新しい禁欲を開始できます。"
           }
         }
       }
