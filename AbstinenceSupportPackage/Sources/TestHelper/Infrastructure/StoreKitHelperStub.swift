@@ -39,4 +39,6 @@ final class StoreKitHelperStub: StoreKitHelperProtocol, @unchecked Sendable {
             throw failure
         }
     }
+
+    func subscriptionTransactionUpdate() async {}
 }
