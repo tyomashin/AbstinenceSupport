@@ -24,6 +24,7 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
 
     @Dependency(\.fetchAllPenaltyInfoInteractor) var fetchAllPenaltyInfoInteractor
     @Dependency(\.upsertAbstinenceInfoInteractor) var upsertAbstinenceInfoInteractor
+    @Dependency(\.registerAbstinenceNotificationInteractor) var registerAbstinenceNotificationInteractor
 
     let completionHandler: (_ info: AbstinenceInformation) -> Void
 
@@ -65,6 +66,7 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
                 startDate: Date()
             )
             await upsertAbstinenceInfoInteractor.execute(info)
+            await registerAbstinenceNotificationInteractor.execute()
             navigationPath.append(.completion(info: info))
             isProcessing = false
         }

@@ -463,6 +463,50 @@
         }
       }
     },
+    "notificationEndDateDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲の報告可能時間は %@ に終了しました。最新のステータスを確認してください"
+          }
+        }
+      }
+    },
+    "notificationEndDateTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲状況の確認"
+          }
+        }
+      }
+    },
+    "notificationStartDateDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%@ から1時間以内に、本日の禁欲達成状況を報告してください"
+          }
+        }
+      }
+    },
+    "notificationStartDateTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "禁欲状況の報告"
+          }
+        }
+      }
+    },
     "okButton" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {

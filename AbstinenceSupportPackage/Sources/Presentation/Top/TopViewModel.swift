@@ -39,6 +39,7 @@ public final class TopViewModel: TopViewModelProtocol {
     @Dependency(\.fetchRestrictiveAbortStateInteractor) var fetchRestrictiveAbortStateInteractor
     @Dependency(\.notifyChangedAppTransitionState) var notifyChangedAppTransitionState
     @Dependency(\.upsertAbstinenceInfoInteractor) var upsertAbstinenceInfoInteractor
+    @Dependency(\.registerAbstinenceNotificationInteractor) var registerAbstinenceNotificationInteractor
 
     init(
         abstinenceInformation: AbstinenceInformation
@@ -92,7 +93,8 @@ public final class TopViewModel: TopViewModelProtocol {
             if abstinenceInformation.progressStatus.isSuccess {
                 detectedSuccessAbstinence()
             } else {
-                // TODO: 通知を再スケジュールする処理
+                // 通知を再スケジュール
+                await registerAbstinenceNotificationInteractor.execute()
             }
             isProcessing = false
         }

@@ -113,6 +113,13 @@ public enum LocalizedString {
     case widgetContentPaidTitle
     case widgetInprogressDays(days: Int)
 
+    // MARK: 通知
+
+    case notificationStartDateTitle
+    case notificationStartDateDetail(startDate: String)
+    case notificationEndDateTitle
+    case notificationEndDateDetail(endDate: String)
+
     // MARK: その他
 
     case anyText(_ text: String)
@@ -379,6 +386,14 @@ extension LocalizedString {
             )
         case .widgetInprogressDays(let days):
             String(localized: "widgetInprogressDays", defaultValue: "\(days) 日間")
+        case .notificationStartDateTitle:
+            String(localized: "notificationStartDateTitle", defaultValue: "禁欲状況の報告")
+        case .notificationStartDateDetail(let startDate):
+            String(localized: "notificationStartDateDetail", defaultValue: "\(startDate) から1時間以内に、本日の禁欲達成状況を報告してください")
+        case .notificationEndDateTitle:
+            String(localized: "notificationEndDateTitle", defaultValue: "禁欲状況の確認")
+        case .notificationEndDateDetail(let endDate):
+            String(localized: "notificationEndDateDetail", defaultValue: "禁欲の報告可能時間は \(endDate) に終了しました。最新のステータスを確認してください")
         }
     }
 }

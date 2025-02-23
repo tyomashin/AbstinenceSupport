@@ -12,13 +12,16 @@ struct SetupAbstinenceInteractorTests {
     var interactor: SetupAbstinenceInteractor!
     let attManagerStub: ATTManagerStub
     let userNotificationsHelperStub: UserNotificationsHelperStub
+    let registerAbstinenceNotificationInteractorStub: RegisterAbstinenceNotificationInteractorStub
     
     init() {
         self.attManagerStub = .init()
         self.userNotificationsHelperStub = .init()
+        self.registerAbstinenceNotificationInteractorStub = .init()
         self.interactor = withDependencies {
             $0.attManager = attManagerStub
             $0.userNotificationsHelper = userNotificationsHelperStub
+            $0.registerAbstinenceNotificationInteractor = registerAbstinenceNotificationInteractorStub
         } operation: {
             SetupAbstinenceInteractor()
         }
@@ -36,18 +39,21 @@ struct SetupAbstinenceInteractorTests {
         }
     }
     
-    @Test("通知権限が未設定の場合、通知権限要求が実施されること")
+    @Test("通知権限が未設定の場合、「通知権限要求」と「通知の再スケジュール」が実施されること")
     func requestedNotificationAuthWhenNotDetermined() async throws {
         userNotificationsHelperStub.testAuthorizationStatus = .notDetermined
         
-        await confirmation(expectedCount: 1) { handler in
+        await confirmation(expectedCount: 2) { handler in
             userNotificationsHelperStub.onCalledRequetAuth = {
+                handler()
+            }
+            registerAbstinenceNotificationInteractorStub.onCalled = {
                 handler()
             }
             await interactor.execute()
         }
     }
-
+    
     @Test("通知権限もATT権限も設定済みの場合、権限要求されないこと")
     func notRequested() async throws {
         userNotificationsHelperStub.testAuthorizationStatus = .authorized

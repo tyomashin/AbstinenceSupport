@@ -9,6 +9,7 @@ struct SetupAbstinenceInteractor: SetupAbstinenceUseCase {
 
     @Dependency(\.attManager) var attManager
     @Dependency(\.userNotificationsHelper) var userNotificationsHelper
+    @Dependency(\.registerAbstinenceNotificationInteractor) var registerAbstinenceNotificationInteractor
 
     func execute() async {
         if attManager.trackingAuthorizationStatus() == .notDetermined {
@@ -18,6 +19,7 @@ struct SetupAbstinenceInteractor: SetupAbstinenceUseCase {
         if await userNotificationsHelper.getAuthorizationStatus() == .notDetermined {
             _ = await userNotificationsHelper.requestAuthorization()
             try? await Task.sleep(for: .seconds(0.5))
+            await registerAbstinenceNotificationInteractor.execute()
         }
     }
 }

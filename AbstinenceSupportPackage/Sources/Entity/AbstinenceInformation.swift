@@ -35,6 +35,9 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable, Hashable {
     public var nextReportEndDate: Date {
         DateUtils.add(hours: 1, to: nextReportStartDate) ?? nextReportStartDate
     }
+    public var nextReportEndDateString: String? {
+        DateUtils.dateString(from: nextReportEndDate, dateFormat: LocalizedString.reportDateFormat.localizedString)
+    }
     /// ペナルティ
     public var penaltyInfo: PenaltyInfo
     /// 禁欲の進捗
