@@ -32,8 +32,10 @@ public struct RootView<ViewModel: RootViewModelProtocol>: View {
                 )
                 .transition(.opacity)
             case .abstinenceFailure(let abstinenceInfo):
-                // TODO: 禁欲失敗画面を表示
-                EmptyView()
+                FailureView(
+                    viewModel: FailureViewModel(
+                        abstinenceInformation: abstinenceInfo)
+                )
             case nil:
                 // TODO: スプラッシュ画面を表示
                 EmptyView()
