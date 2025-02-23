@@ -6,6 +6,7 @@ public enum LocalizedString {
 
     // MARK: 共通
 
+    case okButton
     case nextButton
     case closeButton
     case cancelButton
@@ -87,6 +88,18 @@ public enum LocalizedString {
     case topNewStartButtonTitle
     case topReportDetail(startDate: String)
 
+    // MARK: 禁欲失敗
+
+    case failureTitle
+    case failureDetail
+    case failurePenaltyTitle
+    case failurePenaltyNotice
+    case failurePayPenaltyButtonTitle
+    case failurePayCompletionAlertTitle
+    case failurePayCompletionAlertDetail
+    case failurePayFailedAlertTitle
+    case failurePayFailedAlertDetail
+
     // MARK: ウィジェット
 
     case widgetTitle
@@ -97,6 +110,7 @@ public enum LocalizedString {
     case widgetProgressSuccessTitle
     case widgetProgressInProgressTitle
     case widgetProgressFailureTitle
+    case widgetContentPaidTitle
     case widgetInprogressDays(days: Int)
 
     // MARK: その他
@@ -108,6 +122,8 @@ public enum LocalizedString {
 extension LocalizedString {
     public var localizedString: String {
         switch self {
+        case .okButton:
+            String(localized: "okButton", defaultValue: "OK")
         case .nextButton:
             String(localized: "nextButton", defaultValue: "次へ")
         case .closeButton:
@@ -312,6 +328,32 @@ extension LocalizedString {
             String(localized: "topNewStartButtonTitle", defaultValue: "新しい禁欲を開始する")
         case .topReportDetail(let startDate):
             String(localized: "topReportDetail", defaultValue: "\(startDate) から1時間以内に報告してください。")
+        case .failureTitle:
+            String(localized: "failureTitle", defaultValue: "禁欲に失敗しました")
+        case .failureDetail:
+            String(
+                localized: "failureDetail",
+                defaultValue:
+                    """
+                    ⚠️ 初心を大切に
+                    禁欲の決意を毎日思い出して、禁欲を習慣にすることが大切です。
+                    気持ちの整理ができたら、再度チャレンジしましょう。
+                    """
+            )
+        case .failurePenaltyTitle:
+            String(localized: "failurePenaltyTitle", defaultValue: "あなたが設定したペナルティ")
+        case .failurePenaltyNotice:
+            String(localized: "failurePenaltyNotice", defaultValue: "アプリの利用を継続するにはペナルティを支払う必要があります。")
+        case .failurePayPenaltyButtonTitle:
+            String(localized: "failurePayPenaltyButtonTitle", defaultValue: "ペナルティを支払う")
+        case .failurePayCompletionAlertTitle:
+            String(localized: "failurePayCompletionAlertTitle", defaultValue: "支払い完了")
+        case .failurePayCompletionAlertDetail:
+            String(localized: "failurePayCompletionAlertDetail", defaultValue: "ペナルティの支払いが完了しました。新しい禁欲を開始できます。")
+        case .failurePayFailedAlertTitle:
+            String(localized: "failurePayFailedAlertTitle", defaultValue: "エラー")
+        case .failurePayFailedAlertDetail:
+            String(localized: "failurePayFailedAlertDetail", defaultValue: "ペナルティの支払いが完了できませんでした。")
         case .widgetTitle:
             String(localized: "widgetTitle", defaultValue: "禁欲サポート")
         case .widgetDescription:
@@ -328,6 +370,14 @@ extension LocalizedString {
             String(localized: "widgetProgressInProgressTitle", defaultValue: "禁欲継続中")
         case .widgetProgressFailureTitle:
             String(localized: "widgetProgressFailureTitle", defaultValue: "禁欲 失敗")
+        case .widgetContentPaidTitle:
+            String(
+                localized: "widgetContentPaidTitle",
+                defaultValue:
+                    """
+                    新しい禁欲を開始できます。
+                    """
+            )
         case .widgetInprogressDays(let days):
             String(localized: "widgetInprogressDays", defaultValue: "\(days) 日間")
         }
