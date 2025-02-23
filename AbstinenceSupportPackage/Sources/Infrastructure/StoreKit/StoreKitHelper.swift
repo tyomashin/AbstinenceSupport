@@ -11,7 +11,21 @@ struct StoreKitHelper: StoreKitHelperProtocol {
     }
 
     func purchase(_ product: Product) async throws -> Product.PurchaseResult {
-        try await product.purchase()
+        let result = try await product.purchase()
+        switch result {
+        case .success(let verificationResult):
+            switch verificationResult {
+            case .unverified:
+                return result
+            case .verified(let transaction):
+                await transaction.finish()
+                return result
+            }
+        case .userCancelled, .pending:
+            return result
+        @unknown default:
+            return result
+        }
     }
 
 }
