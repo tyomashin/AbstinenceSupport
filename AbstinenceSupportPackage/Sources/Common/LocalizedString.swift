@@ -335,8 +335,7 @@ extension LocalizedString {
                 localized: "failureDetail",
                 defaultValue:
                     """
-                    ⚠️ 初心を大切に
-                    禁欲の決意を毎日思い出して、禁欲を習慣にすることが大切です。
+                    最初の決意を日々思い出して、禁欲を習慣にすることが大切です。
                     気持ちの整理ができたら、再度チャレンジしましょう。
                     """
             )
