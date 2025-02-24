@@ -22,6 +22,7 @@ struct TopView<ViewModel: TopViewModelProtocol>: View {
             if viewModel.isCompletedInitialization {
                 contentView
                     .disabled(viewModel.isProcessing)
+                    .animation(.default, value: viewModel.isProcessing)
             }
         }
         .overlay {
