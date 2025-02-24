@@ -31,7 +31,7 @@ struct AbstinenceStartCompletionView<ViewModel: AbstinenceStartCompletionViewMod
                 Spacer()
             }
 
-            FillButton(.closeButton, colorAssets: .baseAccent) {
+            FillButton(.closeButton, colorAssets: .subBland) {
                 viewModel.tappedCloseButton()
             }
         }

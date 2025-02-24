@@ -50,7 +50,7 @@ struct AbstinenceStartPenaltySelectionView<ViewModel: AbstinenceStartRootViewMod
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .safeAreaPadding(.bottom, 20)
 
-            FillButton(.nextButton, colorAssets: .baseAccent) {
+            FillButton(.nextButton, colorAssets: .subBland) {
                 viewModel.tappedPenaltyNextButton(penaltyInfo: selectedPenalty)
             }
         }

@@ -45,7 +45,7 @@ struct AbstinenceStartNameEntryView<ViewModel: AbstinenceStartRootViewModelProto
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-            FillButton(.nextButton, colorAssets: .baseAccent) {
+            FillButton(.nextButton, colorAssets: .subBland) {
                 nameInputForm.validate()
                 guard !nameInputForm.isError else { return }
 

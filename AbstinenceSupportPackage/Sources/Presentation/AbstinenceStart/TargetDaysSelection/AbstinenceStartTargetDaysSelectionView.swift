@@ -36,7 +36,7 @@ struct AbstinenceStartTargetDaysSelectionView<ViewModel: AbstinenceStartRootView
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-            FillButton(.nextButton, colorAssets: .baseAccent) {
+            FillButton(.nextButton, colorAssets: .subBland) {
                 viewModel.tappedTargetDaysNextButton(targetDays: selectedDays)
             }
         }
