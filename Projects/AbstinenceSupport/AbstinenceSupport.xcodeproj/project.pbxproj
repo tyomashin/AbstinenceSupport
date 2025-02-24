@@ -210,11 +210,12 @@
 				};
 			};
 			buildConfigurationList = 7B0015B52D57E53100448669 /* Build configuration list for PBXProject "AbstinenceSupport" */;
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 7B0015B12D57E53100448669;
 			minimizedProjectReferenceProxies = 1;
@@ -433,6 +434,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AbstinenceSupport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "「許可」すると最適な広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -476,6 +478,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AbstinenceSupport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "「許可」すると最適な広告が表示されます";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -517,7 +520,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 38BV25GUUS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AbstinenceSupportWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AbstinenceSupportWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -555,7 +558,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 38BV25GUUS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AbstinenceSupportWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AbstinenceSupportWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_NAME)";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
