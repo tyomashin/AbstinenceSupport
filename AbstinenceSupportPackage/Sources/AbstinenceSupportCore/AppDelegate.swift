@@ -2,6 +2,9 @@
 
 import Foundation
 import UIKit
+import FirebaseCore
+import FirebaseAnalytics
+import Common
 
 public final class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -9,6 +12,7 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        setupFirebase()
         return true
     }
 
@@ -22,4 +26,15 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate {
         return config
     }
 
+}
+
+extension AppDelegate {
+    private func setupFirebase() {
+        FirebaseApp.configure()
+        Analytics.setAnalyticsCollectionEnabled(true)
+        Analytics.logEvent(
+            "AppLaunch",
+            parameters: ["AppName": Constants.appName, "AppVersion": Constants.appVersion, "BuildVersion": Constants.buildVersion]
+        )
+    }
 }
