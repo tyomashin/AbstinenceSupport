@@ -39,6 +39,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.6.3"),
         .package(url: "https://github.com/airbnb/lottie-ios.git", from: "4.5.0"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "11.7.0"),
     ],
     targets: [
         
@@ -48,6 +49,7 @@ let package = Package(
             name: "AbstinenceSupportCore",
             dependencies: [
                 .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "FirebaseAnalytics", package: "firebase-ios-sdk"),
                 "Common",
                 "Presentation",
                 "Domain",
