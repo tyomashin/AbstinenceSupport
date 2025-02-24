@@ -37,8 +37,7 @@ public struct RootView<ViewModel: RootViewModelProtocol>: View {
                         abstinenceInformation: abstinenceInfo)
                 )
             case nil:
-                // TODO: スプラッシュ画面を表示
-                EmptyView()
+                SplashView()
             }
         }
         .task {
