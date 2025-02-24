@@ -14,6 +14,7 @@ public final class TopViewModel: TopViewModelProtocol {
     @Published public var abstinenceInformation: AbstinenceInformation
     @Published public var isCompletedInitialization = false
     @Published public var isPresentedAlert = false
+    @Published public var isProcessing: Bool = false
     public var alertInfo: AlertInfo? {
         didSet {
             self.isPresentedAlert = alertInfo != nil
@@ -27,7 +28,6 @@ public final class TopViewModel: TopViewModelProtocol {
         return true
     }
     public var restrictiveAbortState: RestrictiveAbortState = .unrestricted
-    public var isProcessing: Bool = false
     private var isExecutedSetup = false
 
     @Dependency(\.setupAbstinenceInteractor) var setupAbstinenceInteractor
