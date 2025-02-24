@@ -20,7 +20,6 @@ struct AbstinenceStartReportTimeSelectionView<ViewModel: AbstinenceStartRootView
         VStack(alignment: .leading) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    TitleLabel(.abstinenceReportTimeSelectionTitle)
 
                     HeadlineLabel(.abstinenceReportTimeSelectionDetail, colorAssets: .subText)
 
@@ -41,11 +40,13 @@ struct AbstinenceStartReportTimeSelectionView<ViewModel: AbstinenceStartRootView
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .safeAreaPadding(.vertical, 20)
 
             FillButton(.nextButton, colorAssets: .subBland) {
                 viewModel.tappedReportTimeNextButton(reportTime: selectedReportTime)
             }
         }
+        .navigationTitle(LocalizedString.abstinenceReportTimeSelectionTitle.localizedString)
         .padding(.bottom, 20)
         .padding(.horizontal, 16)
     }

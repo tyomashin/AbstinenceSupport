@@ -18,7 +18,6 @@ struct AbstinenceStartCompletionView<ViewModel: AbstinenceStartCompletionViewMod
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 0) {
-                TitleLabel(.abstinenceCompletionTitle)
 
                 HeadlineLabel(.abstinenceCompletionDetail, colorAssets: .subText)
                     .padding(.top, 30)
@@ -35,9 +34,10 @@ struct AbstinenceStartCompletionView<ViewModel: AbstinenceStartCompletionViewMod
                 viewModel.tappedCloseButton()
             }
         }
-        .padding(.vertical, 20)
+        .safeAreaPadding(.vertical, 20)
         .safeAreaPadding(.horizontal, 16)
         .navigationBarBackButtonHidden()
+        .navigationTitle(LocalizedString.abstinenceCompletionTitle.localizedString)
     }
 }
 

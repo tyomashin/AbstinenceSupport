@@ -17,8 +17,6 @@ struct AbstinenceStartNameEntryView<ViewModel: AbstinenceStartRootViewModelProto
         VStack(alignment: .leading) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    TitleLabel(.abstinenceStartNameEntryTitle)
-
                     HeadlineLabel(.abstinenceStartNameEntryDetail, colorAssets: .subText)
 
                     VStack(alignment: .leading, spacing: 8) {
@@ -44,6 +42,7 @@ struct AbstinenceStartNameEntryView<ViewModel: AbstinenceStartRootViewModelProto
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .safeAreaPadding(.vertical, 20)
 
             FillButton(.nextButton, colorAssets: .subBland) {
                 nameInputForm.validate()
@@ -52,7 +51,7 @@ struct AbstinenceStartNameEntryView<ViewModel: AbstinenceStartRootViewModelProto
                 viewModel.tappedNameEntryNextButton(title: nameInputForm.text, detail: detail)
             }
         }
-        .padding(.vertical, 20)
+        .padding(.bottom, 20)
         .padding(.horizontal, 16)
         .onTapGesture {
             focusState = false
@@ -60,6 +59,7 @@ struct AbstinenceStartNameEntryView<ViewModel: AbstinenceStartRootViewModelProto
         .onChange(of: nameInputForm.text) {
             nameInputForm.error = nil
         }
+        .navigationTitle(LocalizedString.abstinenceStartNameEntryTitle.localizedString)
     }
 }
 
