@@ -9,7 +9,7 @@
       }
     ]
   },
-  "identifier" : "3D28D4D6",
+  "identifier" : "D66A7612",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -17,7 +17,7 @@
     {
       "displayPrice" : "100",
       "familyShareable" : false,
-      "internalID" : "E15C6F04",
+      "internalID" : "6742045249",
       "localizations" : [
         {
           "description" : "欲望に負けてしまった自分に、とても小さなペナルティ",
@@ -32,7 +32,7 @@
     {
       "displayPrice" : "500",
       "familyShareable" : false,
-      "internalID" : "55E40B20",
+      "internalID" : "6742045632",
       "localizations" : [
         {
           "description" : "欲望に負けてしまった自分に、小さなペナルティ",
@@ -47,7 +47,7 @@
     {
       "displayPrice" : "1000",
       "familyShareable" : false,
-      "internalID" : "A8B1129D",
+      "internalID" : "6742045823",
       "localizations" : [
         {
           "description" : "欲望に負けてしまった自分に、中程度のペナルティ",
@@ -62,7 +62,7 @@
     {
       "displayPrice" : "3000",
       "familyShareable" : false,
-      "internalID" : "34149F6C",
+      "internalID" : "6742045913",
       "localizations" : [
         {
           "description" : "欲望に負けてしまった許せない自分に、大きなペナルティ",
@@ -77,7 +77,7 @@
     {
       "displayPrice" : "10000",
       "familyShareable" : false,
-      "internalID" : "F96CBD10",
+      "internalID" : "6742045889",
       "localizations" : [
         {
           "description" : "意思の弱い自分を厳しく罰する",
@@ -91,7 +91,12 @@
     }
   ],
   "settings" : {
+    "_applicationInternalID" : "6742044120",
+    "_developerTeamID" : "38BV25GUUS",
     "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 762112719.59687901,
+    "_locale" : "ja",
+    "_storefront" : "JPN",
     "_storeKitErrors" : [
       {
         "current" : null,

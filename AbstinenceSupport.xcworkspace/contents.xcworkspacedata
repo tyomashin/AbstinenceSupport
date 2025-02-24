@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:LocalProducts.storekit">
+      location = "group:SyncedProducts.storekit">
    </FileRef>
    <FileRef
       location = "group:DefaultTestPlan.xctestplan">
