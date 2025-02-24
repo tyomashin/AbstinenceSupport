@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7B0015DB2D57E93E00448669 /* AbstinenceSupportCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7B0015D92D57E8D000448669 /* AbstinenceSupportCore */; };
 		7B07191B2D6096BD004A4903 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B07191A2D6096BD004A4903 /* StoreKit.framework */; };
+		7B7927C02D6C5DC7003FBEDD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7B7927BF2D6C5DC7003FBEDD /* PrivacyInfo.xcprivacy */; };
+		7B7927C12D6C5E0E003FBEDD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7B7927BF2D6C5DC7003FBEDD /* PrivacyInfo.xcprivacy */; };
 		7BF027102D682A1D001EFC91 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF0270F2D682A1D001EFC91 /* WidgetKit.framework */; };
 		7BF027122D682A1D001EFC91 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BF027112D682A1D001EFC91 /* SwiftUI.framework */; };
 		7BF027232D682A20001EFC91 /* AbstinenceSupportWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7BF0270E2D682A1D001EFC91 /* AbstinenceSupportWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -43,6 +45,7 @@
 		7B0015BA2D57E53100448669 /* AbstinenceSupport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AbstinenceSupport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B07191A2D6096BD004A4903 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7B7926D32D6BA14A003FBEDD /* Default.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Default.xcconfig; sourceTree = "<group>"; };
+		7B7927BF2D6C5DC7003FBEDD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		7BF0270E2D682A1D001EFC91 /* AbstinenceSupportWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AbstinenceSupportWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF0270F2D682A1D001EFC91 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		7BF027112D682A1D001EFC91 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -111,6 +114,7 @@
 		7B0015B12D57E53100448669 = {
 			isa = PBXGroup;
 			children = (
+				7B7927BF2D6C5DC7003FBEDD /* PrivacyInfo.xcprivacy */,
 				7BF0273B2D6922BC001EFC91 /* AbstinenceSupportWidgetExtension.entitlements */,
 				7B7926D32D6BA14A003FBEDD /* Default.xcconfig */,
 				7B0015BC2D57E53100448669 /* AbstinenceSupport */,
@@ -237,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B7927C02D6C5DC7003FBEDD /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B7927C12D6C5E0E003FBEDD /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7B7926D32D6BA14A003FBEDD /* Default.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = AbstinenceSupportWidgetExtension.entitlements;
@@ -548,6 +555,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7B7926D32D6BA14A003FBEDD /* Default.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = AbstinenceSupportWidgetExtension.entitlements;
