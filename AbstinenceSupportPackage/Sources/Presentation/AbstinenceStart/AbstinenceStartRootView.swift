@@ -16,36 +16,35 @@ struct AbstinenceStartRootView<ViewModel: AbstinenceStartRootViewModelProtocol>:
 
     var body: some View {
         NavigationStack(path: $viewModel.navigationPath) {
-            VStack {
-                AbstinenceStartNameEntryView(viewModel: viewModel)
-            }
-            .navigationDestination(for: AbstinenceStartNavigationPath.self) { path in
-                switch path {
-                case .nameEntry:
-                    EmptyView()
-                case .targetDaysEntry:
-                    AbstinenceStartTargetDaysSelectionView(viewModel: viewModel, targetDays: viewModel.targetDays)
-                        .toolbarRole(.editor)
-                case .scheduledReportDateEntry:
-                    AbstinenceStartReportTimeSelectionView(viewModel: viewModel, reportTime: viewModel.reportTime)
-                        .toolbarRole(.editor)
-                case .penaltiessSlection:
-                    AbstinenceStartPenaltySelectionView(viewModel: viewModel, selectedPenalty: viewModel.penaltyInfo)
-                        .toolbarRole(.editor)
-                case .confirmation:
-                    AbstinenceStartConfirmationView(viewModel: viewModel)
-                        .toolbarRole(.editor)
-                case .completion(let info):
-                    AbstinenceStartCompletionView(
-                        viewModel: AbstinenceStartCompletionViewModel(
-                            abstinenceInformation: info,
-                            completionHandler: viewModel.completionHandler
+            AbstinenceStartNameEntryView(viewModel: viewModel)
+                .navigationBarTitleDisplayMode(.large)
+                // NOTE: 以下の設定をすると戻るボタンの文言を非表示にすることができる。
+                // しかし、次画面に遷移する際に戻るアイコンの位置が一瞬下に移動して不正になる事象があり、
+                // おそらくSwiftUIのバグだと思われるので今回は使用しない
+                // .toolbarRole(.editor)
+                .toolbarRole(.automatic)
+                .navigationDestination(for: AbstinenceStartNavigationPath.self) { path in
+                    switch path {
+                    case .nameEntry:
+                        EmptyView()
+                    case .targetDaysEntry:
+                        AbstinenceStartTargetDaysSelectionView(viewModel: viewModel, targetDays: viewModel.targetDays)
+                    case .scheduledReportDateEntry:
+                        AbstinenceStartReportTimeSelectionView(viewModel: viewModel, reportTime: viewModel.reportTime)
+                    case .penaltiessSlection:
+                        AbstinenceStartPenaltySelectionView(viewModel: viewModel, selectedPenalty: viewModel.penaltyInfo)
+                    case .confirmation:
+                        AbstinenceStartConfirmationView(viewModel: viewModel)
+                    case .completion(let info):
+                        AbstinenceStartCompletionView(
+                            viewModel: AbstinenceStartCompletionViewModel(
+                                abstinenceInformation: info,
+                                completionHandler: viewModel.completionHandler
+                            )
                         )
-                    )
+                    }
                 }
-            }
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

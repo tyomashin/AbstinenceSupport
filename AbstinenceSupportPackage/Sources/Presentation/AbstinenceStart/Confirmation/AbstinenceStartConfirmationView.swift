@@ -20,7 +20,6 @@ struct AbstinenceStartConfirmationView<ViewModel: AbstinenceStartRootViewModelPr
             ScrollView {
 
                 VStack(alignment: .leading, spacing: 20) {
-                    TitleLabel(.abstinenceConfirmationTitle)
 
                     HeadlineLabel(.abstinenceConfirmationDetail, colorAssets: .subText)
 
@@ -32,15 +31,16 @@ struct AbstinenceStartConfirmationView<ViewModel: AbstinenceStartRootViewModelPr
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .safeAreaPadding(.bottom, 20)
+            .safeAreaPadding(.vertical, 20)
 
-            FillButton(.abstinenceConfirmationButton, colorAssets: .baseAccent) {
+            FillButton(.abstinenceConfirmationButton, colorAssets: .subBland) {
                 viewModel.tappedConfirmationStartButton()
             }
             .disabled(viewModel.isProcessing)
         }
         .padding(.bottom, 20)
         .safeAreaPadding(.horizontal, 16)
+        .navigationTitle(LocalizedString.abstinenceConfirmationTitle.localizedString)
     }
 }
 

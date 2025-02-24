@@ -21,7 +21,6 @@ struct AbstinenceStartTargetDaysSelectionView<ViewModel: AbstinenceStartRootView
         VStack(alignment: .leading) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    TitleLabel(.abstinenceStartTargetDaysSelectionTitle)
 
                     HeadlineLabel(.abstinenceStartTargetDaysSelectionDetail, colorAssets: .subText)
 
@@ -35,11 +34,13 @@ struct AbstinenceStartTargetDaysSelectionView<ViewModel: AbstinenceStartRootView
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .safeAreaPadding(.vertical, 20)
 
-            FillButton(.nextButton, colorAssets: .baseAccent) {
+            FillButton(.nextButton, colorAssets: .subBland) {
                 viewModel.tappedTargetDaysNextButton(targetDays: selectedDays)
             }
         }
+        .navigationTitle(LocalizedString.abstinenceStartTargetDaysSelectionTitle.localizedString)
         .padding(.bottom, 20)
         .padding(.horizontal, 16)
     }

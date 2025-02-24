@@ -232,13 +232,15 @@ extension LocalizedString {
         case .abstinenceStartTargetDaysSelectionItem(let days):
             String(localized: "abstinenceStartDetailTextEditorTitle", defaultValue: "\(days) 日")
         case .abstinenceReportTimeSelectionTitle:
-            String(localized: "abstinenceReportTimeSelectionTitle", defaultValue: "禁欲の報告時間を決める")
+            String(localized: "abstinenceReportTimeSelectionTitle", defaultValue: "日々の報告時間を決める")
         case .abstinenceReportTimeSelectionDetail:
             String(
                 localized: "abstinenceReportTimeSelectionDetail",
                 defaultValue:
                     """
-                    禁欲を開始すると、あなたは毎日決められた時間にアプリから「達成報告」をする必要があります。
+                    禁欲を開始すると、あなたは毎日決められた時間にアプリから「本日の禁欲が成功したか」を報告する必要があります。
+
+                    報告作業によって定期的に禁欲の決意を思い出し、禁欲を習慣化することができます。
                     """
             )
         case .abstinenceReportTimeSelectionPickerTitle:

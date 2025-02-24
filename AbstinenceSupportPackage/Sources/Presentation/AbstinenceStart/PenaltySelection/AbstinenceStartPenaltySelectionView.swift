@@ -22,7 +22,6 @@ struct AbstinenceStartPenaltySelectionView<ViewModel: AbstinenceStartRootViewMod
         VStack(alignment: .leading) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    TitleLabel(.abstinencePenaltySelectionTitle)
 
                     HeadlineLabel(.abstinencePenaltySelectionDetail, colorAssets: .subText)
 
@@ -48,12 +47,13 @@ struct AbstinenceStartPenaltySelectionView<ViewModel: AbstinenceStartRootViewMod
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .safeAreaPadding(.bottom, 20)
+            .safeAreaPadding(.vertical, 20)
 
-            FillButton(.nextButton, colorAssets: .baseAccent) {
+            FillButton(.nextButton, colorAssets: .subBland) {
                 viewModel.tappedPenaltyNextButton(penaltyInfo: selectedPenalty)
             }
         }
+        .navigationTitle(LocalizedString.abstinencePenaltySelectionTitle.localizedString)
         .padding(.bottom, 20)
         .safeAreaPadding(.horizontal, 16)
         .task {
