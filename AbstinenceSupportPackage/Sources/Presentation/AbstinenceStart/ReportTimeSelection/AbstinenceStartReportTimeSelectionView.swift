@@ -37,6 +37,8 @@ struct AbstinenceStartReportTimeSelectionView<ViewModel: AbstinenceStartRootView
                     }
 
                     HeadlineLabel(.abstinenceReportTimeSelectionAlert, colorAssets: .baseAlert)
+
+                    noticeView
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -49,6 +51,16 @@ struct AbstinenceStartReportTimeSelectionView<ViewModel: AbstinenceStartRootView
         .navigationTitle(LocalizedString.abstinenceReportTimeSelectionTitle.localizedString)
         .padding(.bottom, 20)
         .padding(.horizontal, 16)
+    }
+
+    fileprivate var noticeView: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            BodyLabel(.abstinenceReportTimeSelectionNoteTitle, colorAssets: .baseText, alignment: .leading)
+            FootnoteLabel(.abstinenceReportTimeSelectionNoteDetail, colorAssets: .subText, alignment: .leading)
+        }
+        .padding(16)
+        .background(ColorAssets.subBackground.color)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }
 
