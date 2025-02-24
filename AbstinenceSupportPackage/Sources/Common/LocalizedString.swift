@@ -44,6 +44,8 @@ public enum LocalizedString {
     case abstinenceReportTimeSelectionPickerTitle
     case abstinenceReportTimeSelectionPickerCaption
     case abstinenceReportTimeSelectionAlert
+    case abstinenceReportTimeSelectionNoteTitle
+    case abstinenceReportTimeSelectionNoteDetail
     case abstinencePenaltySelectionTitle
     case abstinencePenaltySelectionDetail
     case abstinenceConfirmationTitle
@@ -238,9 +240,7 @@ extension LocalizedString {
                 localized: "abstinenceReportTimeSelectionDetail",
                 defaultValue:
                     """
-                    禁欲を開始すると、あなたは毎日決められた時間にアプリから「本日の禁欲が成功したか」を報告する必要があります。
-
-                    報告作業によって定期的に禁欲の決意を思い出し、禁欲を習慣化することができます。
+                    禁欲を開始すると、あなたは毎日決められた時間に「本日の禁欲が成功したか」を報告する必要があります。
                     """
             )
         case .abstinenceReportTimeSelectionPickerTitle:
@@ -249,6 +249,10 @@ extension LocalizedString {
             String(localized: "abstinenceReportTimeSelectionPickerCaption", defaultValue: "この時間から1時間以内にアプリを開いて「報告ボタン」をタップしてください")
         case .abstinenceReportTimeSelectionAlert:
             String(localized: "abstinenceReportTimeSelectionAlert", defaultValue: "※ 報告時間から1時間以内に報告できなければ、禁欲は失敗となります。")
+        case .abstinenceReportTimeSelectionNoteTitle:
+            String(localized: "abstinenceReportTimeSelectionNoteTitle", defaultValue: "禁欲報告の目的")
+        case .abstinenceReportTimeSelectionNoteDetail:
+            String(localized: "abstinenceReportTimeSelectionNoteDetail", defaultValue: "報告作業によって定期的に禁欲の決意を思い出し、禁欲を習慣化することができます。")
         case .abstinencePenaltySelectionTitle:
             String(localized: "abstinencePenaltySelectionTitle", defaultValue: "禁欲失敗時のペナルティ")
         case .abstinencePenaltySelectionDetail:

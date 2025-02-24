@@ -20,7 +20,6 @@ struct AbstinenceStartCompletionView<ViewModel: AbstinenceStartCompletionViewMod
             VStack(alignment: .leading, spacing: 0) {
 
                 HeadlineLabel(.abstinenceCompletionDetail, colorAssets: .subText)
-                    .padding(.top, 30)
 
                 Spacer()
 
