@@ -50,6 +50,9 @@ extension KeyChainHelper {
         case errSecItemNotFound:
             let result = SecItemAdd(query, nil)
             print("keychain save result: \(result)")
+            if result != errSecSuccess {
+                deleteAll()
+            }
         case errSecSuccess:
             let result = SecItemUpdate(query, [kSecValueData: data] as CFDictionary)
             print("keychain update result: \(result)")
@@ -76,6 +79,21 @@ extension KeyChainHelper {
     }
 
     func deleteAll() {
+        let secItemClasses = [
+            kSecClassGenericPassword,
+            kSecClassInternetPassword,
+            kSecClassCertificate,
+            kSecClassKey,
+            kSecClassIdentity,
+        ]
+
+        for secClass in secItemClasses {
+            let query = [kSecClass: secClass] as CFDictionary
+            SecItemDelete(query)
+        }
+    }
+
+    func deleteAllItems() {
         for item in KeyChainItems.allCases {
             delete(service: item.service, account: item.account)
         }
