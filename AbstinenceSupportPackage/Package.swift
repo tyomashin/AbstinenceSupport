@@ -113,9 +113,6 @@ let package = Package(
                 "Entity",
                 "Infrastructure",
                 "Domain",
-            ],
-            resources: [
-                .process("TestResources")
             ]
         ),
         

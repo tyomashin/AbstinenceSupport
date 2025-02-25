@@ -9,7 +9,7 @@ class FailureViewModelFreePenaltyPreview: FailureViewModelProtocol {
     var alertInfo: AlertInfo?
     var isPresentedAlert: Bool = false
     var abstinenceInformation: AbstinenceInformation = .init(
-        title: "sample", detail: nil, targetDays: 1, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date()
+        title: "sample", detail: nil, targetDays: 1, scheduledReportDate: Date(), startDate: Date()
     )
     var isPaying: Bool = false
     func payPenalty() {}
@@ -23,7 +23,6 @@ class FailureViewModelPenaltyPreview: FailureViewModelProtocol {
         detail: nil,
         targetDays: 1,
         scheduledReportDate: Date(),
-        penaltyInfo: .init(title: "ペナルティタイトル", detail: "詳細", penaltyCategory: .product(productID: "xxx")),
         startDate: Date()
     )
     var isPaying: Bool = false

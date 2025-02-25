@@ -23,8 +23,6 @@ public enum LocalizedString {
     case onboardingWelcomeDetail
     case onboardingTargetTitle
     case onboardingTargetDetail
-    case onboardingPenaltyTitle
-    case onboardingPenaltyDetail
     case onboardingStartTitle
     case onboardingStartDetail
     case onboardingStartButtonTitle
@@ -46,8 +44,6 @@ public enum LocalizedString {
     case abstinenceReportTimeSelectionAlert
     case abstinenceReportTimeSelectionNoteTitle
     case abstinenceReportTimeSelectionNoteDetail
-    case abstinencePenaltySelectionTitle
-    case abstinencePenaltySelectionDetail
     case abstinenceConfirmationTitle
     case abstinenceConfirmationDetail
     case abstinenceConfirmationNameTitle
@@ -55,7 +51,6 @@ public enum LocalizedString {
     case abstinenceConfirmationTargetDaysTitle
     case abstinenceConfirmationTargetDaysDetail(days: Int)
     case abstinenceConfirmationReportTimeTitle
-    case abstinenceConfirmationPenaltyTitle
     case abstinenceConfirmationSuccessConditionTitle
     case abstinenceConfirmationSuccessConditionFirst
     case abstinenceConfirmationFailConditionTitle
@@ -64,12 +59,6 @@ public enum LocalizedString {
     case abstinenceConfirmationButton
     case abstinenceCompletionTitle
     case abstinenceCompletionDetail
-
-    // MARK: ペナルティ
-
-    case penaltyFreeTitle
-    case penaltyFreeDetail
-    case penaltyFeeTitle(price: Int, description: String)
 
     // MARK: トップ
 
@@ -94,13 +83,7 @@ public enum LocalizedString {
 
     case failureTitle
     case failureDetail
-    case failurePenaltyTitle
-    case failurePenaltyNotice
-    case failurePayPenaltyButtonTitle
-    case failurePayCompletionAlertTitle
-    case failurePayCompletionAlertDetail
-    case failurePayFailedAlertTitle
-    case failurePayFailedAlertDetail
+    case failureStartButtonTitle
 
     // MARK: ウィジェット
 
@@ -179,19 +162,6 @@ extension LocalizedString {
                     本アプリの禁欲ルールは厳しく管理されるため、禁欲を習慣化することができます。
                     """
             )
-        case .onboardingPenaltyTitle:
-            String(localized: "onboardingPenaltyTitle", defaultValue: "自分にペナルティを課す")
-        case .onboardingPenaltyDetail:
-            String(
-                localized: "onboardingPenaltyDetail",
-                defaultValue:
-                    """
-                    このアプリでは、禁欲に失敗した時に支払うペナルティを設定できます。
-
-                    ペナルティを支払わないと、引き続きアプリを利用することができません。
-                    アプリをアンインストールしてもその情報は引き継がれます。
-                    """
-            )
         case .onboardingStartTitle:
             String(localized: "onboardingStartTitle", defaultValue: "禁欲を開始する")
         case .onboardingStartDetail:
@@ -253,30 +223,6 @@ extension LocalizedString {
             String(localized: "abstinenceReportTimeSelectionNoteTitle", defaultValue: "禁欲報告の目的")
         case .abstinenceReportTimeSelectionNoteDetail:
             String(localized: "abstinenceReportTimeSelectionNoteDetail", defaultValue: "報告作業によって定期的に禁欲の決意を思い出し、禁欲を習慣化することができます。")
-        case .abstinencePenaltySelectionTitle:
-            String(localized: "abstinencePenaltySelectionTitle", defaultValue: "禁欲失敗時のペナルティ")
-        case .abstinencePenaltySelectionDetail:
-            String(
-                localized: "abstinencePenaltySelectionDetail",
-                defaultValue:
-                    """
-                    禁欲に失敗した時のペナルティを決めてください。
-
-                    禁欲に成功するか、禁欲を途中で中止した場合は、ペナルティを支払う必要はありません。
-                    """
-            )
-        case .penaltyFreeTitle:
-            String(localized: "penaltyFreeTitle", defaultValue: "0 円: ペナルティなし")
-        case .penaltyFreeDetail:
-            String(
-                localized: "penaltyFreeDetail",
-                defaultValue:
-                    """
-                    初めてアプリを利用する方にオススメです。
-                    """
-            )
-        case let .penaltyFeeTitle(price: price, description: description):
-            String(localized: "penaltyFeeTitle", defaultValue: "\(price) 円:  \(description)")
         case .abstinenceConfirmationTitle:
             String(localized: "abstinenceConfirmationTitle", defaultValue: "禁欲内容の確認")
         case .abstinenceConfirmationDetail:
@@ -291,8 +237,6 @@ extension LocalizedString {
             String(localized: "abstinenceConfirmationTargetDaysDetail", defaultValue: "\(days) 日間")
         case .abstinenceConfirmationReportTimeTitle:
             String(localized: "abstinenceConfirmationReportTimeTitle", defaultValue: "毎日の報告時間")
-        case .abstinenceConfirmationPenaltyTitle:
-            String(localized: "abstinenceConfirmationPenaltyTitle", defaultValue: "失敗時のペナルティ")
         case .abstinenceConfirmationSuccessConditionTitle:
             String(localized: "abstinenceConfirmationSuccessConditionTitle", defaultValue: "禁欲成功の条件")
         case .abstinenceConfirmationSuccessConditionFirst:
@@ -326,7 +270,7 @@ extension LocalizedString {
         case .topReportFailAlertTitle:
             String(localized: "topReportFailAlertTitle", defaultValue: "禁欲の失敗")
         case .topReportFailAlertDetail:
-            String(localized: "topReportFailAlertDetail", defaultValue: "禁欲に失敗したことを自己申告しますか？事前に設定したペナルティを支払う必要があります。")
+            String(localized: "topReportFailAlertDetail", defaultValue: "禁欲に失敗したことを自己申告しますか？")
         case .topReportFailAlertOKButton:
             String(localized: "topReportFailAlertOKButton", defaultValue: "失敗を報告する")
         case .topAbortButtonTitle:
@@ -352,20 +296,8 @@ extension LocalizedString {
                     気持ちの整理ができたら、再度チャレンジしましょう。
                     """
             )
-        case .failurePenaltyTitle:
-            String(localized: "failurePenaltyTitle", defaultValue: "あなたが設定したペナルティ")
-        case .failurePenaltyNotice:
-            String(localized: "failurePenaltyNotice", defaultValue: "アプリの利用を継続するにはペナルティを支払う必要があります。")
-        case .failurePayPenaltyButtonTitle:
-            String(localized: "failurePayPenaltyButtonTitle", defaultValue: "ペナルティを支払う")
-        case .failurePayCompletionAlertTitle:
-            String(localized: "failurePayCompletionAlertTitle", defaultValue: "支払い完了")
-        case .failurePayCompletionAlertDetail:
-            String(localized: "failurePayCompletionAlertDetail", defaultValue: "ペナルティの支払いが完了しました。新しい禁欲を開始できます。")
-        case .failurePayFailedAlertTitle:
-            String(localized: "failurePayFailedAlertTitle", defaultValue: "エラー")
-        case .failurePayFailedAlertDetail:
-            String(localized: "failurePayFailedAlertDetail", defaultValue: "ペナルティの支払いが完了できませんでした。")
+        case .failureStartButtonTitle:
+            String(localized: "failureStartButtonTitle", defaultValue: "次の禁欲を開始する")
         case .widgetTitle:
             String(localized: "widgetTitle", defaultValue: "禁欲サポート")
         case .widgetDescription:

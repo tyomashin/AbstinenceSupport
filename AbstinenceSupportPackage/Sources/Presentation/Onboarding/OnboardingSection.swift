@@ -7,12 +7,11 @@ import SwiftUI
 enum OnboardingSection: Int, CaseIterable {
     case welcome
     case target
-    case penalty
     case start
 
     var buttonTitle: LocalizedString {
         switch self {
-        case .welcome, .target, .penalty:
+        case .welcome, .target:
             LocalizedString.nextButton
         case .start:
             LocalizedString.onboardingStartButtonTitle
@@ -25,8 +24,6 @@ enum OnboardingSection: Int, CaseIterable {
             LocalizedString.onboardingWelcomeTitle
         case .target:
             LocalizedString.onboardingTargetTitle
-        case .penalty:
-            LocalizedString.onboardingPenaltyTitle
         case .start:
             LocalizedString.onboardingStartTitle
         }
@@ -38,8 +35,6 @@ enum OnboardingSection: Int, CaseIterable {
             LocalizedString.onboardingWelcomeDetail
         case .target:
             LocalizedString.onboardingTargetDetail
-        case .penalty:
-            LocalizedString.onboardingPenaltyDetail
         case .start:
             LocalizedString.onboardingStartDetail
         }
@@ -51,8 +46,6 @@ enum OnboardingSection: Int, CaseIterable {
             SFSymbols.handWaveFill.swiftUIImage
         case .target:
             SFSymbols.personCropCircleFillBadgeCheckmark.swiftUIImage
-        case .penalty:
-            SFSymbols.handThumbsdownCircleFill.swiftUIImage
         case .start:
             SFSymbols.checkmarkCircleFill.swiftUIImage
         }

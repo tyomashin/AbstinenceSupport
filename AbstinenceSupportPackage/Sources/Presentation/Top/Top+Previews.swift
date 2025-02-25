@@ -11,7 +11,6 @@ class TopViewModelPreview: TopViewModelProtocol {
         detail: "詳細です",
         targetDays: 10,
         scheduledReportDate: Date(),
-        penaltyInfo: .freePenaltyInfo(),
         startDate: DateUtils.add(days: -5, to: Date()) ?? Date()
     )
 

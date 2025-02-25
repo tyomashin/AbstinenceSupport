@@ -1,7 +1,6 @@
 // Created by okazakishinya on 2025/02/15.
 
 import Foundation
-import StoreKit
 
 /// WidgetKit に対する各種操作
 public protocol WidgetKitHelperProtocol: Sendable {

@@ -38,8 +38,6 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable, Hashable {
     public var nextReportEndDateString: String? {
         DateUtils.dateString(from: nextReportEndDate, dateFormat: LocalizedString.reportDateFormat.localizedString)
     }
-    /// ペナルティ
-    public var penaltyInfo: PenaltyInfo
     /// 禁欲の進捗
     public var progressStatus: AbstinenceProgressStatus
     /// 禁欲開始日時
@@ -66,7 +64,6 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable, Hashable {
         detail: String? = nil,
         targetDays: Int,
         scheduledReportDate: Date,
-        penaltyInfo: PenaltyInfo,
         startDate: Date
     ) {
         self.title = title
@@ -75,7 +72,6 @@ public struct AbstinenceInformation: Codable, Sendable, Equatable, Hashable {
         }
         self.targetDays = targetDays
         self.scheduledReportDate = scheduledReportDate
-        self.penaltyInfo = penaltyInfo
         self.startDate = startDate
         self.progressStatus = .inProgress
         self.updateProgressStatus(currentDate: startDate)

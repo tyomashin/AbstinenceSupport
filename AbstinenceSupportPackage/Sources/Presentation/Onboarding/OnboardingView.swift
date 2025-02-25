@@ -43,7 +43,7 @@ struct OnboardingView<ViewModel: OnboardingViewModelProtocol>: View {
         if let scrollPosition {
             BorderButton(scrollPosition.buttonTitle, colorAssets: .baseWhite) {
                 switch scrollPosition {
-                case .welcome, .target, .penalty:
+                case .welcome, .target:
                     self.scrollPosition = .init(rawValue: scrollPosition.rawValue + 1)
                 case .start:
                     viewModel.onTapStartButton()

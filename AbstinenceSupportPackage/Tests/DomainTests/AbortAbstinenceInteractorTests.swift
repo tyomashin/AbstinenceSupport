@@ -14,7 +14,7 @@ struct AbortAbstinenceInteractorTests {
     let keyChainHelperStub: KeyChainHelperStub
     let userNotificationsHelperStub: UserNotificationsHelperStub
     let upsertAbstinenceInfoInteractorStub: UpsertAbstinenceInfoInteractorStub
-    var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
+    var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), startDate: Date())
     
     init() {
         self.keyChainHelperStub = KeyChainHelperStub()

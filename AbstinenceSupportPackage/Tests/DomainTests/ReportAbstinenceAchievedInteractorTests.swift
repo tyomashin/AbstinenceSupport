@@ -13,7 +13,7 @@ struct ReportAbstinenceAchievedInteractorTests {
     var interactor: ReportAbstinenceAchievedInteractor!
     let upsertAbstinenceInfoInteractorStub: UpsertAbstinenceInfoInteractorStub
     let userNotificationsHelperStub: UserNotificationsHelperStub
-    var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
+    var testEntity = AbstinenceInformation(title: "sample", detail: nil, targetDays: 0, scheduledReportDate: Date(), startDate: Date())
     
     init() {
         self.upsertAbstinenceInfoInteractorStub = UpsertAbstinenceInfoInteractorStub()
