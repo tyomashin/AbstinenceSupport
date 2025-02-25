@@ -30,11 +30,22 @@ struct FailureView<ViewModel: FailureViewModelProtocol>: View {
 
                 VStack(alignment: .leading, spacing: 8) {
 
-                    FillButton(.failureStartButtonTitle, colorAssets: .subBland) {
-                        viewModel.payPenalty()
+                    FillButton(.failureShowADButtonTitle, colorAssets: .subBland) {
+                        viewModel.tappedShowAD()
                     }
                     .disabled(viewModel.isPaying)
                 }
+            }
+        }
+        .alert(viewModel.alertInfo?.title ?? "", isPresented: $viewModel.isPresentedAlert, presenting: viewModel.alertInfo) { details in
+            ForEach(details.buttonList) { info in
+                Button(info.title, role: info.role) {
+                    info.action?()
+                }
+            }
+        } message: { details in
+            if let message = details.message {
+                Text(message)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

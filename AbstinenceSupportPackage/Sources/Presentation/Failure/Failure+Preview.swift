@@ -12,7 +12,7 @@ class FailureViewModelFreePenaltyPreview: FailureViewModelProtocol {
         title: "sample", detail: nil, targetDays: 1, scheduledReportDate: Date(), startDate: Date()
     )
     var isPaying: Bool = false
-    func payPenalty() {}
+    func tappedShowAD() {}
 }
 
 class FailureViewModelPenaltyPreview: FailureViewModelProtocol {
@@ -26,7 +26,7 @@ class FailureViewModelPenaltyPreview: FailureViewModelProtocol {
         startDate: Date()
     )
     var isPaying: Bool = false
-    func payPenalty() {}
+    func tappedShowAD() {}
 }
 
 extension FailureViewModelProtocol where Self == FailureViewModelFreePenaltyPreview {
