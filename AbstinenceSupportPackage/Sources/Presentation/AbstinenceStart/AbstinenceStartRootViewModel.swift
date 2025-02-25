@@ -17,12 +17,9 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
     var targetDays: Int = 10
     /// 報告時間
     var reportTime: Date = Date()
-    /// ペナルティ
-    var penaltyInfo: PenaltyInfo = .freePenaltyInfo()
     /// 処理中フラグ
     var isProcessing: Bool = false
 
-    @Dependency(\.fetchAllPenaltyInfoInteractor) var fetchAllPenaltyInfoInteractor
     @Dependency(\.upsertAbstinenceInfoInteractor) var upsertAbstinenceInfoInteractor
     @Dependency(\.registerAbstinenceNotificationInteractor) var registerAbstinenceNotificationInteractor
 
@@ -45,11 +42,6 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
 
     func tappedReportTimeNextButton(reportTime: Date) {
         self.reportTime = reportTime
-        navigationPath.append(.penaltiessSlection)
-    }
-
-    func tappedPenaltyNextButton(penaltyInfo: PenaltyInfo) {
-        self.penaltyInfo = penaltyInfo
         navigationPath.append(.confirmation)
     }
 
@@ -62,7 +54,6 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
                 detail: detail,
                 targetDays: targetDays,
                 scheduledReportDate: reportTime,
-                penaltyInfo: penaltyInfo,
                 startDate: Date()
             )
             await upsertAbstinenceInfoInteractor.execute(info)
@@ -71,9 +62,4 @@ class AbstinenceStartRootViewModel: AbstinenceStartRootViewModelProtocol {
             isProcessing = false
         }
     }
-
-    func fetchAllPenalties() async -> [PenaltyInfo] {
-        await fetchAllPenaltyInfoInteractor.execute()
-    }
-
 }

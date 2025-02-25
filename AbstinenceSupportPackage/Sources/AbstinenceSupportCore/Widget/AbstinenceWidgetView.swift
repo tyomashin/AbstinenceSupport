@@ -197,7 +197,6 @@ extension AbstinenceInformation {
             detail: "禁欲詳細",
             targetDays: 10,
             scheduledReportDate: DateUtils.add(hours: 3, to: Date())!,
-            penaltyInfo: .freePenaltyInfo(),
             startDate: DateUtils.add(days: -1, to: Date())!
         )
     }
@@ -208,7 +207,6 @@ extension AbstinenceInformation {
             detail: "禁欲詳細",
             targetDays: 1,
             scheduledReportDate: DateUtils.add(hours: 3, to: Date())!,
-            penaltyInfo: .freePenaltyInfo(),
             startDate: DateUtils.add(days: -1, to: Date())!
         )
         info.progressStatus = .success
@@ -221,7 +219,6 @@ extension AbstinenceInformation {
             detail: "禁欲詳細",
             targetDays: 1,
             scheduledReportDate: DateUtils.add(hours: 3, to: Date())!,
-            penaltyInfo: .freePenaltyInfo(),
             startDate: DateUtils.add(days: -1, to: Date())!
         )
         info.progressStatus = .penaltyPaidForFailure

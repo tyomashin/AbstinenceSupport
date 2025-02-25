@@ -43,10 +43,10 @@ struct StartupSequenceInteractorTests {
         AppTransitionState.onboarding,
         AppTransitionState.abstinenceStart,
         AppTransitionState.abstinenceFailure(
-            abstinenceInfo: .init(title: "sample", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
+            abstinenceInfo: .init(title: "sample", targetDays: 0, scheduledReportDate: Date(), startDate: Date())
         ),
         AppTransitionState.top(
-            abstinenceInfo: .init(title: "sample", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
+            abstinenceInfo: .init(title: "sample", targetDays: 0, scheduledReportDate: Date(), startDate: Date())
         )
     ])
     func appTransitionState(currentState: AppTransitionState) async throws {
@@ -57,7 +57,7 @@ struct StartupSequenceInteractorTests {
     
     @Test("禁欲情報が存在する場合、現在日時を元に禁欲ステータスが更新されていること")
     func upsertAbstinenceInfo() async throws {
-        var abstinenceInfo = AbstinenceInformation(title: "sample", targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
+        var abstinenceInfo = AbstinenceInformation(title: "sample", targetDays: 0, scheduledReportDate: Date(), startDate: Date())
         abstinenceInfo.progressStatus = .penaltyPaidForFailure
         let currentDate = Date()
         fetchAbstinenceInfoInteractorStub.abstinenceInformation = abstinenceInfo

@@ -31,8 +31,6 @@ struct AbstinenceStartRootView<ViewModel: AbstinenceStartRootViewModelProtocol>:
                         AbstinenceStartTargetDaysSelectionView(viewModel: viewModel, targetDays: viewModel.targetDays)
                     case .scheduledReportDateEntry:
                         AbstinenceStartReportTimeSelectionView(viewModel: viewModel, reportTime: viewModel.reportTime)
-                    case .penaltiessSlection:
-                        AbstinenceStartPenaltySelectionView(viewModel: viewModel, selectedPenalty: viewModel.penaltyInfo)
                     case .confirmation:
                         AbstinenceStartConfirmationView(viewModel: viewModel)
                     case .completion(let info):

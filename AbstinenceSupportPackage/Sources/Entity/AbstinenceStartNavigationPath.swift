@@ -7,7 +7,6 @@ public enum AbstinenceStartNavigationPath: Hashable {
     case nameEntry
     case targetDaysEntry
     case scheduledReportDateEntry
-    case penaltiessSlection
     case confirmation
     case completion(info: AbstinenceInformation)
 }

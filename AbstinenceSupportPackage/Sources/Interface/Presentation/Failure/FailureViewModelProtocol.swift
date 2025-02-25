@@ -11,10 +11,6 @@ public protocol FailureViewModelProtocol: ObservableObject {
     var abstinenceInformation: AbstinenceInformation { get }
     /// ペナルティ支払い中フラグ
     var isPaying: Bool { get }
-    /// アラート情報
-    var alertInfo: AlertInfo? { get }
-    /// アラート表示フラグ
-    var isPresentedAlert: Bool { get set }
 
     /// ペナルティの支払い処理
     func payPenalty()

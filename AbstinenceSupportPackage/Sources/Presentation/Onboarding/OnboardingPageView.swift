@@ -35,11 +35,6 @@ struct OnboardingPageView: View {
         .background(Gradients.basedBlandColor.gradient.opacity(0.8))
 }
 
-#Preview(".penalty") {
-    OnboardingPageView(section: .penalty)
-        .background(Gradients.basedBlandColor.gradient.opacity(0.8))
-}
-
 #Preview(".start") {
     OnboardingPageView(section: .start)
         .background(Gradients.basedBlandColor.gradient.opacity(0.8))

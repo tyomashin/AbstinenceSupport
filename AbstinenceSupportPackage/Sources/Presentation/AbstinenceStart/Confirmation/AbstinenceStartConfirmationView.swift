@@ -86,12 +86,6 @@ extension AbstinenceStartConfirmationView {
                         detail: .anyText(time)
                     )
                 }
-
-                // ペナルティ
-                entryItemView(
-                    title: .abstinenceConfirmationPenaltyTitle,
-                    detail: .anyText(viewModel.penaltyInfo.title)
-                )
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 16)

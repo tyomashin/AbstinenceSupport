@@ -100,17 +100,6 @@
         }
       }
     },
-    "abstinenceConfirmationPenaltyTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "失敗時のペナルティ"
-          }
-        }
-      }
-    },
     "abstinenceConfirmationReportTimeTitle" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -173,28 +162,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "禁欲内容の確認"
-          }
-        }
-      }
-    },
-    "abstinencePenaltySelectionDetail" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "禁欲に失敗した時のペナルティを決めてください。\n\n禁欲に成功するか、禁欲を途中で中止した場合は、ペナルティを支払う必要はありません。"
-          }
-        }
-      }
-    },
-    "abstinencePenaltySelectionTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "禁欲失敗時のペナルティ"
           }
         }
       }
@@ -386,79 +353,13 @@
         }
       }
     },
-    "failurePayCompletionAlertDetail" : {
+    "failureStartButtonTitle" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "ペナルティの支払いが完了しました。新しい禁欲を開始できます。"
-          }
-        }
-      }
-    },
-    "failurePayCompletionAlertTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "支払い完了"
-          }
-        }
-      }
-    },
-    "failurePayFailedAlertDetail" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "ペナルティの支払いが完了できませんでした。"
-          }
-        }
-      }
-    },
-    "failurePayFailedAlertTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "エラー"
-          }
-        }
-      }
-    },
-    "failurePayPenaltyButtonTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "ペナルティを支払う"
-          }
-        }
-      }
-    },
-    "failurePenaltyNotice" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "アプリの利用を継続するにはペナルティを支払う必要があります。"
-          }
-        }
-      }
-    },
-    "failurePenaltyTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "あなたが設定したペナルティ"
+            "value" : "次の禁欲を開始する"
           }
         }
       }
@@ -540,28 +441,6 @@
         }
       }
     },
-    "onboardingPenaltyDetail" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "このアプリでは、禁欲に失敗した時に支払うペナルティを設定できます。\n\nペナルティを支払わないと、引き続きアプリを利用することができません。\nアプリをアンインストールしてもその情報は引き継がれます。"
-          }
-        }
-      }
-    },
-    "onboardingPenaltyTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "自分にペナルティを課す"
-          }
-        }
-      }
-    },
     "onboardingStartButtonTitle" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
@@ -635,39 +514,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "禁欲サポートにようこそ"
-          }
-        }
-      }
-    },
-    "penaltyFeeTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld 円:  %2$@"
-          }
-        }
-      }
-    },
-    "penaltyFreeDetail" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "初めてアプリを利用する方にオススメです。"
-          }
-        }
-      }
-    },
-    "penaltyFreeTitle" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "0 円: ペナルティなし"
           }
         }
       }
@@ -821,7 +667,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "禁欲に失敗したことを自己申告しますか？事前に設定したペナルティを支払う必要があります。"
+            "value" : "禁欲に失敗したことを自己申告しますか？"
           }
         }
       }

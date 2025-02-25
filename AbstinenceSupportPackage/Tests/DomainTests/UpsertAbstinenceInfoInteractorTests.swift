@@ -25,14 +25,14 @@ struct UpsertAbstinenceInfoInteractorTests {
     }
     
     @Test("禁欲情報を正常に保存できることを確認", arguments: [
-        AbstinenceInformation(title: "", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
+        AbstinenceInformation(title: "", detail: nil, targetDays: 0, scheduledReportDate: Date(), startDate: Date())
     ]) func fetch(abstinenceInfo: AbstinenceInformation) async throws {
         await interactor.execute(abstinenceInfo)
         #expect(keyChainHelperStub.readAbstinenceInformation() == abstinenceInfo)
     }
 
     @Test("Widget のタイムライン再読み込みが実行されていることを確認", arguments: [
-        AbstinenceInformation(title: "", detail: nil, targetDays: 0, scheduledReportDate: Date(), penaltyInfo: .freePenaltyInfo(), startDate: Date())
+        AbstinenceInformation(title: "", detail: nil, targetDays: 0, scheduledReportDate: Date(), startDate: Date())
     ]) func reloadWidget(abstinenceInfo: AbstinenceInformation) async throws {
         await confirmation(expectedCount: 1) { handler in
             widgetKitHelperStub.onCalledReloadAllTimelines = {
