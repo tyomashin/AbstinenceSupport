@@ -18,18 +18,8 @@ jobs:
       # テスト前のビルド
       - name: Build
         run: |
-          xcodebuild
-            build-for-testing
-            -workspace "AbstinenceSupport.xcworkspace"
-            -scheme "AbstinenceSupport"
-            -configuration Debug
-            -destination "platform=iOS Simulator,name=iPhone 16 Pro"
+          xcodebuild build-for-testing -workspace "AbstinenceSupport.xcworkspace" -scheme "AbstinenceSupport" -configuration Debug -destination "platform=iOS Simulator,name=iPhone 16 Pro"
       # テスト実行
       - name: Test
         run: |
-          xcodebuild
-            test-without-building \
-              -workspace "AbstinenceSupport.xcworkspace"
-              -scheme "AbstinenceSupport"
-              -configuration Debug
-              -destination "platform=iOS Simulator,name=iPhone 16 Pro"
+          xcodebuild test-without-building -workspace "AbstinenceSupport.xcworkspace" -scheme "AbstinenceSupport" -configuration Debug -destination "platform=iOS Simulator,name=iPhone 16 Pro"
