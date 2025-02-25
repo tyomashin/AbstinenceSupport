@@ -15,6 +15,11 @@ jobs:
       # リポジトリをチェックアウト
       - name: Checkout
         uses: actions/checkout@v4
+      # Xcode のバージョンを指定
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "16.2"
       # テスト前のビルド
       - name: Build
         run: |
