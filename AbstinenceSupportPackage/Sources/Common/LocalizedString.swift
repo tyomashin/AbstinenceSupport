@@ -83,7 +83,9 @@ public enum LocalizedString {
 
     case failureTitle
     case failureDetail
-    case failureStartButtonTitle
+    case failureShowADButtonTitle
+    case failureShowADFailedAlertTitle
+    case failureShowADFailedAlertDetail
 
     // MARK: ウィジェット
 
@@ -296,8 +298,12 @@ extension LocalizedString {
                     気持ちの整理ができたら、再度チャレンジしましょう。
                     """
             )
-        case .failureStartButtonTitle:
-            String(localized: "failureStartButtonTitle", defaultValue: "次の禁欲を開始する")
+        case .failureShowADButtonTitle:
+            String(localized: "failureShowADButtonTitle", defaultValue: "広告視聴して進む")
+        case .failureShowADFailedAlertTitle:
+            String(localized: "failureShowADFailedAlertTitle", defaultValue: "エラー")
+        case .failureShowADFailedAlertDetail:
+            String(localized: "failureShowADFailedAlertDetail", defaultValue: "エラーが発生しました。通信環境を確認して再度お試しください。")
         case .widgetTitle:
             String(localized: "widgetTitle", defaultValue: "禁欲サポート")
         case .widgetDescription:
