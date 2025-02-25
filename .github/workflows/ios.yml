@@ -1,0 +1,35 @@
+name: iOS CI
+
+# PR 作成/更新/リオープンなどのタイミングで実行する
+on:
+  pull_request:
+    branches: [ "main" ]
+  # 以下によって Actions タブから手動で実行できるようになる
+  workflow_dispatch:
+
+# ワークフローに含まれるジョブを定義
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+    steps:
+      # リポジトリをチェックアウト
+      - name: Checkout
+        uses: actions/checkout@v4
+      # テスト前のビルド
+      - name: Build
+        run: |
+          xcodebuild
+            build-for-testing
+            -workspace "AbstinenceSupport.xcworkspace"
+            -scheme "AbstinenceSupport"
+            -configuration Debug
+            -destination "platform=iOS Simulator,name=iPhone 16 Pro"
+      # テスト実行
+      - name: Test
+        run: |
+          xcodebuild
+            test-without-building \
+              -workspace "AbstinenceSupport.xcworkspace"
+              -scheme "AbstinenceSupport"
+              -configuration Debug
+              -destination "platform=iOS Simulator,name=iPhone 16 Pro"
