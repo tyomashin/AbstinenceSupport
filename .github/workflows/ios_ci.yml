@@ -23,8 +23,10 @@ jobs:
       # テスト前のビルド
       - name: Build
         run: |
-          xcodebuild build-for-testing -workspace "AbstinenceSupport.xcworkspace" -scheme "AbstinenceSupport" -configuration Debug -destination "platform=iOS Simulator,name=iPhone 16 Pro"
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+          xcodebuild build-for-testing -workspace "AbstinenceSupport.xcworkspace" -scheme "AbstinenceSupport" -configuration Debug -destination "platform=iOS Simulator,name=$device"
       # テスト実行
       - name: Test
         run: |
-          xcodebuild test-without-building -workspace "AbstinenceSupport.xcworkspace" -scheme "AbstinenceSupport" -configuration Debug -destination "platform=iOS Simulator,name=iPhone 16 Pro"
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+          xcodebuild test-without-building -workspace "AbstinenceSupport.xcworkspace" -scheme "AbstinenceSupport" -configuration Debug -destination "platform=iOS Simulator,name=$device"
