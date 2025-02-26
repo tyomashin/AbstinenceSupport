@@ -1,0 +1,18 @@
+name: Check Available Simulator Devices
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "16.2"
+      - name: Check Simulator Devices
+        run: |
+          xcrun simctl list devices
