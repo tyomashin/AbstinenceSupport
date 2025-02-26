@@ -19,7 +19,10 @@ jobs:
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: "16.2"
+          # Xcode 16.2 だと以下のエラーが発生するため、暫定対応として 16.1 にする
+          # { platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device, error:iOS 18.2 is not installed. To use with Xcode, first download and install the platform }
+          # 参考：https://stackoverflow.com/questions/79390065/github-actions-unable-to-find-a-destination-matching-the-provided-destination
+          xcode-version: "16.1"
       # テスト前のビルド
       - name: Build
         run: |
