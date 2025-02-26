@@ -151,7 +151,6 @@
 				7B0015FC2D58C0C200448669 /* swift-format */,
 				7B0015B82D57E53100448669 /* Resources */,
 				7BF027242D682A20001EFC91 /* Embed Foundation Extensions */,
-				7B7928442D6C756B003FBEDD /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -271,31 +270,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Xcode 16 から swift-format が同梱されている\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    swift-format format --configuration $PROJECT_DIR/../../AbstinenceSupportPackage/.swift-format -p -i -r $PROJECT_DIR/../../AbstinenceSupportPackage/Sources/\n    swift-format lint --configuration $PROJECT_DIR/../../AbstinenceSupportPackage/.swift-format -p -r $PROJECT_DIR/../../TagMemoPackage/Sources/\nfi\n";
-		};
-		7B7928442D6C756B003FBEDD /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
-				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
-				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib",
-			);
-			name = Crashlytics;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
