@@ -15,6 +15,12 @@ jobs:
       # リポジトリをチェックアウト
       - name: Checkout
         uses: actions/checkout@v4
+      # 機密情報をシークレットからコピーして SecureInfo.swift に出力
+      - name: Generate Secureinfo file
+        env:
+          SECURE_INFO: ${{ secrets.ABSTINENCE_SUPPORT_SECURE_INFO }}
+        run: |
+          echo $SECURE_INFO > AbstinenceSupportPackage/Sources/AbstinenceSupportCore/SecureInfo.swift
       # Xcode のバージョンを指定
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
