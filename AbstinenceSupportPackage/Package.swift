@@ -64,7 +64,6 @@ let package = Package(
             name: "Presentation",
             dependencies: [
                 .product(name: "Dependencies", package: "swift-dependencies"),
-                .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
                 "Common",
                 "Interface",
                 "Domain",
@@ -90,6 +89,7 @@ let package = Package(
             name: "Infrastructure",
             dependencies: [
                 .product(name: "Dependencies", package: "swift-dependencies"),
+                .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
                 "Interface",
             ]
         ),
