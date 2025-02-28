@@ -137,8 +137,8 @@ public final class TopViewModel: TopViewModelProtocol {
     }
 
     public func tappedNewStartButton() {
-        // ルート画面に最新の禁欲状態に基づいた画面遷移を要求する
-        notifyChangedAppTransitionState()
+        // ルート画面に禁欲開始画面への遷移を要求する
+        notifyChangedAppTransitionState(.abstinenceStart)
     }
 
 }
@@ -159,7 +159,7 @@ extension TopViewModel {
             restrictiveAbortState = await fetchRestrictiveAbortStateInteractor.execute(with: currentDate)
         // 禁欲ステータスが進行中以外の場合、毎分の監視処理は終了する
         case .success:
-            resetSubscription()
+            detectedSuccessAbstinence()
         case .penaltyUnpaidForFailure:
             detectedFailureAbstinence()
         case .penaltyPaidForFailure:
@@ -170,13 +170,13 @@ extension TopViewModel {
     /// 禁欲失敗を検知した際の処理
     fileprivate func detectedFailureAbstinence() {
         resetSubscription()
-        notifyChangedAppTransitionState()
+        notifyChangedAppTransitionState(nil)
     }
 
     /// 禁欲失敗後にペナルティ支払い済みの場合の処理
     fileprivate func detectedFailureAbstinenceAlreadyPaid() {
         resetSubscription()
-        notifyChangedAppTransitionState()
+        notifyChangedAppTransitionState(nil)
     }
 
     /// 禁欲成功を検知した際の処理
@@ -193,7 +193,7 @@ extension TopViewModel {
             abstinenceInformation = await abortAbstinenceInteractor.execute(with: abstinenceInformation, abortedDate: Date())
             resetSubscription()
             // 遷移処理
-            notifyChangedAppTransitionState()
+            notifyChangedAppTransitionState(nil)
             isProcessing = false
         }
     }
