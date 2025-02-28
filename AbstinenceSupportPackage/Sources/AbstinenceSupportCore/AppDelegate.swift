@@ -4,7 +4,9 @@ import Foundation
 import UIKit
 import FirebaseCore
 import FirebaseAnalytics
+@preconcurrency import GoogleMobileAds
 import Common
+import Infrastructure
 
 public final class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -36,5 +38,17 @@ extension AppDelegate {
             "AppLaunch",
             parameters: ["AppName": Constants.appName, "AppVersion": Constants.appVersion, "BuildVersion": Constants.buildVersion]
         )
+        setupADs()
+    }
+
+    fileprivate func setupADs() {
+        Task {
+            await MobileAds.shared.start()
+            #if DEBUG
+                AdSettings.currentAdUnitID = .makeTestInscance()
+            #else
+                AdSettings.currentAdUnitID = .init(rewardID: SecureInfo.AD.rewardID)
+            #endif
+        }
     }
 }

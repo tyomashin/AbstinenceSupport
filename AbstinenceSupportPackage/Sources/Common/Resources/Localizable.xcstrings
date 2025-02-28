@@ -353,13 +353,35 @@
         }
       }
     },
-    "failureStartButtonTitle" : {
+    "failureShowADButtonTitle" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "次の禁欲を開始する"
+            "value" : "広告視聴して進む"
+          }
+        }
+      }
+    },
+    "failureShowADFailedAlertDetail" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "エラーが発生しました。通信環境を確認して再度お試しください。"
+          }
+        }
+      }
+    },
+    "failureShowADFailedAlertTitle" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "エラー"
           }
         }
       }
