@@ -26,7 +26,7 @@ class FailureViewModel: FailureViewModelProtocol {
             abstinenceInformation.progressStatus = .penaltyPaidForFailure
             await upsertAbstinenceInfoInteractor.execute(abstinenceInformation)
             // 画面遷移要求
-            notifyChangedAppTransitionState()
+            notifyChangedAppTransitionState(nil)
         }
     }
 }

@@ -32,14 +32,15 @@ struct AbstinenceStartConfirmationView<ViewModel: AbstinenceStartRootViewModelPr
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .safeAreaPadding(.vertical, 20)
+            .contentMargins(.horizontal, 16, for: .scrollContent)
 
             FillButton(.abstinenceConfirmationButton, colorAssets: .subBland) {
                 viewModel.tappedConfirmationStartButton()
             }
             .disabled(viewModel.isProcessing)
+            .padding(.horizontal, 16)
         }
         .padding(.bottom, 20)
-        .safeAreaPadding(.horizontal, 16)
         .navigationTitle(LocalizedString.abstinenceConfirmationTitle.localizedString)
     }
 }

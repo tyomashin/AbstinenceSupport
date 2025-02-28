@@ -35,14 +35,15 @@ struct AbstinenceStartTargetDaysSelectionView<ViewModel: AbstinenceStartRootView
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .safeAreaPadding(.vertical, 20)
+            .contentMargins(.horizontal, 16, for: .scrollContent)
 
             FillButton(.nextButton, colorAssets: .subBland) {
                 viewModel.tappedTargetDaysNextButton(targetDays: selectedDays)
             }
+            .padding(.horizontal, 16)
         }
         .navigationTitle(LocalizedString.abstinenceStartTargetDaysSelectionTitle.localizedString)
         .padding(.bottom, 20)
-        .padding(.horizontal, 16)
     }
 }
 

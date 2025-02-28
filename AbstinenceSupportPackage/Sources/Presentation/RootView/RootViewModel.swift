@@ -31,9 +31,13 @@ public final class RootViewModel: RootViewModelProtocol {
         appTransitionState = .top(abstinenceInfo: info)
     }
 
-    public func notifyChangedAppTransitionState() {
+    public func notifyChangedAppTransitionState(nextTransition: AppTransitionState? = nil) {
         Task {
-            appTransitionState = await checkAppTransitionStateInteractor.execute()
+            if let nextTransition {
+                appTransitionState = nextTransition
+            } else {
+                appTransitionState = await checkAppTransitionStateInteractor.execute()
+            }
         }
     }
 }
