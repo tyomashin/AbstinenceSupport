@@ -10,5 +10,5 @@ public protocol RootViewModelProtocol: ObservableObject, Sendable {
     func startupSequenceIfNeeded() async
     func completedOnboarding()
     func completedAbstinenceStart(with info: AbstinenceInformation)
-    func notifyChangedAppTransitionState()
+    func notifyChangedAppTransitionState(nextTransition: AppTransitionState?)
 }

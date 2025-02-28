@@ -43,6 +43,7 @@ struct AbstinenceStartNameEntryView<ViewModel: AbstinenceStartRootViewModelProto
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .safeAreaPadding(.vertical, 20)
+            .contentMargins(.horizontal, 16, for: .scrollContent)
 
             FillButton(.nextButton, colorAssets: .subBland) {
                 nameInputForm.validate()
@@ -50,9 +51,9 @@ struct AbstinenceStartNameEntryView<ViewModel: AbstinenceStartRootViewModelProto
 
                 viewModel.tappedNameEntryNextButton(title: nameInputForm.text, detail: detail)
             }
+            .padding(.horizontal, 16)
         }
         .padding(.bottom, 20)
-        .padding(.horizontal, 16)
         .onTapGesture {
             focusState = false
         }

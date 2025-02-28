@@ -34,7 +34,7 @@ struct AbstinenceStartCompletionView<ViewModel: AbstinenceStartCompletionViewMod
             }
         }
         .safeAreaPadding(.vertical, 20)
-        .safeAreaPadding(.horizontal, 16)
+        .padding(.horizontal, 16)
         .navigationBarBackButtonHidden()
         .navigationTitle(LocalizedString.abstinenceCompletionTitle.localizedString)
     }

@@ -43,14 +43,15 @@ struct AbstinenceStartReportTimeSelectionView<ViewModel: AbstinenceStartRootView
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .safeAreaPadding(.vertical, 20)
+            .contentMargins(.horizontal, 16, for: .scrollContent)
 
             FillButton(.nextButton, colorAssets: .subBland) {
                 viewModel.tappedReportTimeNextButton(reportTime: selectedReportTime)
             }
+            .padding(.horizontal, 16)
         }
         .navigationTitle(LocalizedString.abstinenceReportTimeSelectionTitle.localizedString)
         .padding(.bottom, 20)
-        .padding(.horizontal, 16)
     }
 
     fileprivate var noticeView: some View {
