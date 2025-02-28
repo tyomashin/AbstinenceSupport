@@ -100,7 +100,7 @@
 | UI                | SwiftUI                         |
 | ライブラリ管理           | Swift Package Manager           |
 | 非同期処理             | Swift Concurrency               |
-| DB                | UserDefaults, KeyChain          |
+| DB                | UserDefaults, KeyChain, SwiftData(予定)          |
 | DI                | swift-dependencies              |
 | 行動分析              | Firebase Analytics, Crashlytics |
 | テスト               | Swift Testing                   |
