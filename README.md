@@ -33,8 +33,6 @@
 * Xcode 16.2
 * iOS 17.0 
 
-## 環境構築
-
 ## アーキテクチャ
 
 <details><summary>ディレクトリ構成</summary>
